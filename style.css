@@ -1,0 +1,137 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #dff0ff;
+    --background-color: #f5f8fa;
+    --text-color: #333;
+    --accent-color: #7ed6df;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: 0.3s ease;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  header img {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  /* Nav */
+  nav {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  /* Main layout */
+  main.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+  }
+  
+  .main-content section,
+  aside {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  /* Aside */
+  aside h3 {
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  aside ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  aside li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    main.container {
+      grid-template-columns: 1fr;
+    }
+  
+    aside {
+      order: 2;
+    }
+  }
+  
