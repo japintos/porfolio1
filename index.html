@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Julio Pintos</title>
+  <meta name="description" content="Portafolio profesional de Julio Pintos, Fullstack Developer y Web Designer. Experiencia, proyectos y contacto.">
+  <meta property="og:title" content="Portafolio - Julio Pintos" />
+  <meta property="og:description" content="Portafolio profesional de Julio Pintos, Fullstack Developer y Web Designer. Experiencia, proyectos y contacto." />
+  <meta property="og:image" content="/Img/foto_Perfil.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#" class="header__brand" aria-label="Inicio">
+        <img src="/Img/foto_Perfil.jpg" alt="Foto de perfil de Julio Pintos, desarrollador web y analista de sistemas" width="100" height="100" loading="lazy" />
+      </a>
+      <nav class="nav" id="nav" aria-label="Menú principal">
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__hamburger"></span>
+        </button>
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="#presentacion" aria-label="Ir a Presentación">Presentación</a></li>
+          <li><a href="#perfil" aria-label="Ir a Perfil">Perfil</a></li>
+          <li><a href="#formacion" aria-label="Ir a Formación">Formación</a></li>
+          <li><a href="#experiencia" aria-label="Ir a Experiencia">Experiencia</a></li>
+          <li><a href="#habilidades" aria-label="Ir a Habilidades">Habilidades</a></li>
+          <li><a href="#proyectos" aria-label="Ir a Proyectos">Proyectos</a></li>
+          <li><a href="#contacto" aria-label="Ir a Contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="presentacion" class="section section--hero" tabindex="-1" data-aos="fade-up">
+      <div class="hero__content">
+        <h1 class="hero__title">Hola, soy <span class="hero__highlight">Julio Pintos</span></h1>
+        <h2 class="hero__subtitle">Fullstack Developer / Web Designer <span class="hero__divider">|</span> Socio Fundador WebXpert</h2>
+        <p class="hero__desc">Soy estudiante avanzado de técnico superior en análisis de sistemas con experiencia en desarrollo web y soluciones locales. Me considero proactivo y aprendo rápidamente.</p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn--primary">Contáctame</a>
+          <a href="#proyectos" class="btn btn--secondary">Ver Proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil" class="section" data-aos="fade-up">
+      <h2>Mi Perfil</h2>
+      <p>Me considero una persona proactiva, con experiencia en análisis y diseño, implementación de soluciones a medida, desarrollo integral de soluciones web y locales. Me adapto fácilmente a los grupos de trabajo y disfruto aprender rápidamente.</p>
+    </section>
+
+    <section id="experiencia" class="section" data-aos="fade-up">
+      <h2>Experiencia Laboral</h2>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <h3>Freelancer <span class="exp-date">(2006 - Actualidad)</span></h3>
+          <p>Desarrollo de soluciones informáticas para empresas locales.</p>
+          <ul>
+            <li>Análisis, diseño y desarrollo de aplicaciones web y de escritorio, desde el levantamiento de requisitos hasta la implementación final.</li>
+            <li>Gestión completa de bases de datos, incluyendo diseño, implementación y optimización en PostgreSQL, SQL Server y MySQL.</li>
+            <li>Auditoría de sistemas existentes para identificar vulnerabilidades, proponer mejoras y optimizar el rendimiento.</li>
+          </ul>
+        </div>
+        <div class="exp-card">
+          <h3>Poder Judicial de Misiones <span class="exp-date">(2007 - Actualidad)</span></h3>
+          <p>Soporte técnico, redes LAN/MAN, sistemas operativos.</p>
+          <ul>
+            <li>Provisión de soporte técnico integral a usuarios, resolviendo incidencias de hardware y software en entornos Windows, Linux y macOS.</li>
+            <li>Administración, mantenimiento y monitoreo de la infraestructura de redes LAN y MAN, asegurando la conectividad y seguridad de los sistemas.</li>
+            <li>Instalación, configuración y mantenimiento de sistemas operativos y software de aplicación para garantizar la continuidad operativa.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion" class="section" data-aos="fade-up">
+      <h2>Formación</h2>
+      <ul class="timeline timeline--vertical">
+        <li>
+          <div class="timeline__date">1996 - 2000</div>
+          <div class="timeline__content">
+            <h3 class="timeline__title">EPET Nº1 "UNESCO"</h3>
+            <p class="timeline__desc">Técnico en Informática</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline__date">2000 - 2010</div>
+          <div class="timeline__content">
+            <h3 class="timeline__title">Universidad Americana</h3>
+            <p class="timeline__desc">Ingeniería en Sistemas (incompleto)</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline__date">2024 - Actualidad</div>
+          <div class="timeline__content">
+            <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+            <p class="timeline__desc">Técnico Superior en Análisis de Sistemas</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline__date">2024</div>
+          <div class="timeline__content">
+            <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+            <p class="timeline__desc">Técnico en Redes Informáticas, optimización y reparación de Computadoras</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline__date">2024</div>
+          <div class="timeline__content">
+            <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+            <p class="timeline__desc">Formación Profesional "OPERADOR EN ELECTRÓNICA Y ROBÓTICA"</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="habilidades" class="section" data-aos="fade-up">
+      <h2>Habilidades e Intereses</h2>
+      <div class="skills-grid">
+        <div class="skills-group">
+          <h3>Frontend</h3>
+          <ul>
+            <li><i class="fab fa-html5" aria-hidden="true"></i> HTML5</li>
+            <li><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3</li>
+            <li><i class="fab fa-js" aria-hidden="true"></i> JavaScript</li>
+            <li><i class="fab fa-react" aria-hidden="true"></i> React.js (aprendiendo)</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Backend</h3>
+          <ul>
+            <li><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> C++</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> C#</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> Visual Basic</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> .NET Framework</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Bases de Datos</h3>
+          <ul>
+            <li><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</li>
+            <li><i class="fas fa-database" aria-hidden="true"></i> SQL Server</li>
+            <li><i class="fas fa-database" aria-hidden="true"></i> MySQL</li>
+            <li><i class="fas fa-database" aria-hidden="true"></i> MariaDB</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Herramientas</h3>
+          <ul>
+            <li><i class="fas fa-code" aria-hidden="true"></i> VS Code</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> Visual Studio</li>
+            <li><i class="fas fa-laptop-code" aria-hidden="true"></i> Windows</li>
+            <li><i class="fas fa-project-diagram" aria-hidden="true"></i> Scrum</li>
+            <li><i class="fas fa-sitemap" aria-hidden="true"></i> DIA</li>
+            <li><i class="fas fa-paint-brush" aria-hidden="true"></i> Canva</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Inteligencia Artificial</h3>
+          <ul>
+            <li><i class="fas fa-robot" aria-hidden="true"></i> Copilot</li>
+            <li><i class="fas fa-brain" aria-hidden="true"></i> ChatGPT-4</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Sistemas Operativos</h3>
+          <ul>
+            <li><i class="fab fa-windows" aria-hidden="true"></i> Windows</li>
+            <li><i class="fab fa-linux" aria-hidden="true"></i> Linux (GNOME)</li>
+            <li><i class="fab fa-apple" aria-hidden="true"></i> macOS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section" data-aos="fade-up">
+      <h2>Proyectos Destacados</h2>
+      <div class="proyectos-grid">
+        <article class="proyecto-card" tabindex="0">
+          <img src="/Img/proyecto1.jpg" alt="Captura de pantalla del Sistema de Gestión Local" loading="lazy" />
+          <h3>Sistema de Gestión Local</h3>
+          <p>Aplicación web para automatizar procesos administrativos en PyMEs.</p>
+          <a href="https://link-al-proyecto.com" target="_blank" rel="noopener" class="btn btn--project">Ver proyecto</a>
+        </article>
+        <article class="proyecto-card" tabindex="0">
+          <img src="/Img/proyecto2.bmp" alt="Captura de pantalla de la Landing para WebXpert" loading="lazy" />
+          <h3>Landing para WebXpert</h3>
+          <p>Sitio institucional con diseño responsive y animaciones SVG.</p>
+          <a href="https://japintos.github.io/webxpert/" target="_blank" rel="noopener" class="btn btn--project">Ver sitio</a>
+        </article>
+        <!-- Más proyectos aquí -->
+      </div>
+    </section>
+
+    <section id="contacto" class="section section--contact" data-aos="fade-up">
+      <h2>Contacto y Redes Sociales</h2>
+      <p>Puedes encontrarme en:</p>
+      <ul class="contact-list">
+        <li><a href="https://www.linkedin.com/in/julio-pintos-0638a8200/" target="_blank" aria-label="LinkedIn de Julio Pintos" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        <li><a href="mailto:julioapintos1@gmail.com" aria-label="Enviar correo a Julio Pintos"><i class="fas fa-envelope" aria-hidden="true"></i> Correo Electrónico <button class="btn-copy" data-copy="julioapintos1@gmail.com" aria-label="Copiar email"><i class="fas fa-copy"></i></button></a></li>
+        <li><a href="https://www.facebook.com/julioapintos" target="_blank" aria-label="Facebook de Julio Pintos" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        <li><a href="https://wa.me/3764724207" target="_blank" aria-label="WhatsApp de Julio Pintos" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/julioapintos/" target="_blank" aria-label="Instagram de Julio Pintos" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      </ul>
+    </section>
+
+    <button id="scrollTopBtn" class="scroll-top" aria-label="Ir arriba"><i class="fas fa-arrow-up"></i></button>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <p>&copy; 2025 - Julio Pintos | <a href="mailto:julioapintos1@gmail.com">julioapintos1@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
