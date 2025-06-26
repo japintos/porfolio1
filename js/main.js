@@ -281,15 +281,15 @@ function initializeProjectModals() {
     }
 }
 
-function showProjectModal(title, description, image, technologies) {
+function showProjectModal(title, description, image, technologies, demo, code) {
     const modal = document.querySelector('#projectModal');
     if (!modal) return;
-    
     const modalTitle = modal.querySelector('.modal-header h2');
     const modalDesc = modal.querySelector('.modal-info p');
     const modalImage = modal.querySelector('.modal-image');
     const modalTech = modal.querySelector('.modal-tech');
-    
+    const modalDemo = modal.querySelector('.modal-demo-link');
+    const modalCode = modal.querySelector('.modal-code-link');
     if (modalTitle) modalTitle.textContent = title;
     if (modalDesc) modalDesc.textContent = description;
     if (modalImage) {
@@ -297,9 +297,20 @@ function showProjectModal(title, description, image, technologies) {
         modalImage.alt = title;
     }
     if (modalTech) modalTech.innerHTML = `<strong>Tecnologías:</strong> ${technologies}`;
-    
+    if (modalDemo) {
+        modalDemo.href = demo || '#';
+        modalDemo.style.display = demo ? 'inline-block' : 'none';
+    }
+    if (modalCode) {
+        modalCode.href = code || '#';
+        modalCode.style.display = code ? 'inline-block' : 'none';
+    }
     modal.style.display = 'flex';
-    setTimeout(() => modal.classList.add('modal-active'), 10);
+    setTimeout(() => {
+        modal.classList.add('modal-active');
+        // Accesibilidad: foco al modal
+        modal.querySelector('.modal-close').focus();
+    }, 10);
 }
 
 function closeProjectModal() {
@@ -480,18 +491,39 @@ function showProjectDetails(projectId) {
             title: 'Sistema de Gestión Local',
             description: 'Aplicación web completa para automatizar procesos administrativos en PyMEs. Incluye gestión de inventario, facturación, reportes y dashboard analítico.',
             image: 'https://via.placeholder.com/600x400?text=Proyecto+1',
-            technologies: 'React, Node.js, PostgreSQL'
+            technologies: 'React, Node.js, PostgreSQL',
+            demo: 'https://link-al-proyecto.com',
+            code: ''
         },
         proyecto2: {
             title: 'Landing para WebXpert',
             description: 'Sitio institucional moderno con diseño responsive y animaciones SVG. Optimizado para conversión y experiencia de usuario.',
             image: 'Img/proyecto2.jpg',
-            technologies: 'HTML5, CSS3, JavaScript'
+            technologies: 'HTML5, CSS3, JavaScript',
+            demo: 'https://japintos.github.io/webxpert/',
+            code: ''
+        },
+        proyecto3: {
+            title: 'Oudin, Duarte & Asociados',
+            description: 'Sitio web institucional para estudio jurídico, con enfoque en experiencia de usuario, accesibilidad y optimización SEO. Incluye presentación de servicios, equipo, publicaciones y contacto.',
+            image: 'Img/oudin.jpg',
+            technologies: 'HTML5, CSS3, JavaScript, Diseño Web',
+            demo: 'https://japintos.github.io/estudioOudin/',
+            code: ''
         }
     };
     
     const project = projectData[projectId];
     if (project) {
-        showProjectModal(project.title, project.description, project.image, project.technologies);
+        showProjectModal(project.title, project.description, project.image, project.technologies, project.demo, project.code);
     }
-} 
+}
+
+// Evento para los botones de detalles
+document.querySelectorAll('.btn-details').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const projectId = btn.getAttribute('data-project');
+        showProjectDetails(projectId);
+    });
+}); 

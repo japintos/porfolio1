@@ -626,14 +626,46 @@
                   <span>Ver sitio</span>
                   <i class="fas fa-external-link-alt"></i>
                 </a>
-                <!-- Botón de detalles oculto temporalmente
-                <button class="btn btn--outline btn--small" onclick="showProjectDetails('proyecto2')">
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto2">
                   <span>Detalles</span>
                   <i class="fas fa-info-circle"></i>
                 </button>
-                -->
               </div>
               <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript</div>
+            </div>
+          </article>
+          
+          <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="proyecto-card__image">
+              <img src="Img/oudin.jpg" alt="Captura de pantalla del sitio Oudin, Duarte & Asociados" loading="lazy" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <span class="tech-badge">HTML5</span>
+                  <span class="tech-badge">CSS3</span>
+                  <span class="tech-badge">JavaScript</span>
+                  <span class="tech-badge">Diseño Web</span>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">Oudin, Duarte & Asociados</h3>
+              <p class="proyecto-card__desc">Sitio web institucional para estudio jurídico, con enfoque en experiencia de usuario, accesibilidad y optimización SEO. Incluye presentación de servicios, equipo, publicaciones y contacto.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">Responsive Design</span>
+                <span class="feature">SEO Optimizado</span>
+                <span class="feature">Accesibilidad</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="https://japintos.github.io/estudioOudin/" target="_blank" rel="noopener" class="btn btn--project">
+                  <span>Ver sitio</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto3">
+                  <span>Detalles</span>
+                  <i class="fas fa-info-circle"></i>
+                </button>
+              </div>
+              <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript, Diseño Web</div>
             </div>
           </article>
         </div>
@@ -717,20 +749,20 @@
       </section>
 
       <!-- Project Details Modal -->
-      <div id="projectModal" class="project-modal">
+      <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
         <div class="modal-content">
           <div class="modal-header">
-            <h2></h2>
-            <button class="modal-close">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <button class="modal-close" aria-label="Cerrar modal">&times;</button>
           </div>
           <div class="modal-body">
             <img class="modal-image" alt="" />
             <div class="modal-info">
-              <p></p>
+              <p id="modalDesc"></p>
               <div class="modal-tech"></div>
               <div class="modal-links">
-                <a href="#" class="btn btn-primary">Ver Demo</a>
-                <a href="#" class="btn btn-secondary">Ver Código</a>
+                <a href="#" class="btn btn--project modal-demo-link" target="_blank" rel="noopener">Ver Demo</a>
+                <a href="#" class="btn btn--outline modal-code-link" target="_blank" rel="noopener">Ver Código</a>
               </div>
             </div>
           </div>
