@@ -1,3 +1,7 @@
+<!--
+  Este archivo es mi portafolio personal. Aquí muestro mi experiencia, proyectos y formas de contacto.
+  Los comentarios están escritos por mí para entender fácilmente cada parte del HTML.
+-->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -673,42 +677,51 @@
 
       <section id="contacto" class="section section--contact" data-aos="fade-up">
         <div class="section__header">
-          <h2 class="section__title">Contacto & Redes Sociales</h2>
+          <h2 class="section__title">Contacto</h2>
           <div class="section__subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</div>
         </div>
         <div class="contact__content">
-          <div class="contact__info">
-            <div class="contact__card">
+          <div class="contact__form contact__card">
+            <h3>Envíame un mensaje directo a WhatsApp</h3>
+            <form id="whatsapp-contact-form" autocomplete="off">
+              <input type="text" id="wa-name" name="name" placeholder="Tu nombre" required>
+              <input type="email" id="wa-email" name="email" placeholder="Tu email" required>
+              <textarea id="wa-message" name="message" placeholder="Tu mensaje" required></textarea>
+              <button type="submit" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </form>
+          </div>
+          <div class="contact__info contact__card">
+            <h3 class="contact__info-title"><i class="fas fa-info-circle"></i> Información de contacto</h3>
+            <div class="contact__card-item">
               <div class="contact__icon">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div class="contact__details">
-                <h3>Ubicación</h3>
-                <p>Misiones, Argentina</p>
+                <h4>Ubicación</h4>
+                <p>Posadas, Misiones, Argentina</p>
               </div>
             </div>
-            <div class="contact__card">
+            <div class="contact__card-item">
               <div class="contact__icon">
                 <i class="fas fa-clock"></i>
               </div>
               <div class="contact__details">
-                <h3>Disponibilidad</h3>
+                <h4>Disponibilidad</h4>
                 <p>Disponible para proyectos freelance</p>
               </div>
             </div>
-            <div class="contact__card">
+            <div class="contact__card-item">
               <div class="contact__icon">
                 <i class="fas fa-calendar-check"></i>
               </div>
               <div class="contact__details">
-                <h3>Respuesta</h3>
+                <h4>Respuesta</h4>
                 <p>Respondo en menos de 24 horas</p>
               </div>
             </div>
           </div>
-          
-          <div class="contact__social">
-            <h3>Conecta conmigo</h3>
+          <div class="contact__social contact__card">
+            <h3>Redes y otros medios</h3>
             <ul class="contact-list">
               <li>
                 <a href="https://www.linkedin.com/in/julio-pintos-0638a8200/" target="_blank" aria-label="LinkedIn de Julio Pintos" rel="noopener" class="social-link social-link--linkedin">
@@ -732,7 +745,7 @@
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/3764724207" target="_blank" aria-label="WhatsApp de Julio Pintos" rel="noopener" class="social-link social-link--whatsapp">
+                <a href="https://wa.me/3764724202" target="_blank" aria-label="WhatsApp de Julio Pintos" rel="noopener" class="social-link social-link--whatsapp">
                   <i class="fab fa-whatsapp" aria-hidden="true"></i>
                   <span>WhatsApp</span>
                 </a>

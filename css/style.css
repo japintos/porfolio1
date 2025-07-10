@@ -1,3 +1,7 @@
+/*
+  Este archivo contiene todos los estilos de mi portafolio personal.
+  Los comentarios están escritos por mí para entender fácilmente cada parte del CSS.
+*/
 /*--------------------------
   🌐 VARIABLES GLOBALES
 --------------------------*/
@@ -1149,59 +1153,61 @@ a:focus, button:focus, input:focus {
 }
 
 /*--------------------------
-  🎯 DARK MODE (HOOKS)
+  🌙 DARK MODE SUPPORT
 --------------------------*/
 body.dark-mode {
   background: var(--gray-900);
   color: var(--text-dark);
 }
+
 body.dark-mode .section,
-body.dark-mode .exp-card,
 body.dark-mode .proyecto-card {
   background: var(--gray-800);
   color: var(--text-dark);
   border-color: var(--gray-700);
 }
+
 body.dark-mode .header,
-body.dark-mode .nav__menu {
+body.dark-mode .footer {
   background: var(--gray-900);
   border-color: var(--gray-700);
 }
-body.dark-mode .footer {
-  background: var(--gray-900);
-  color: var(--text-dark);
-}
+
 body.dark-mode .nav__menu li a {
   color: var(--text-dark);
 }
+
 body.dark-mode .nav__menu li a:hover,
 body.dark-mode .nav__menu li a:focus {
   background: var(--accent-color);
   color: #ffffff;
 }
+
 body.dark-mode .btn--primary {
   background: var(--accent-color);
   color: #ffffff;
 }
+
 body.dark-mode .btn--primary:hover,
 body.dark-mode .btn--primary:focus {
   background: var(--accent-dark);
 }
+
 body.dark-mode .btn--secondary {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
+
 body.dark-mode .btn--secondary:hover,
 body.dark-mode .btn--secondary:focus {
   background: var(--accent-color);
   color: #ffffff;
 }
+
 body.dark-mode .timeline__title,
 body.dark-mode .exp-card h3,
-body.dark-mode .skills-group li,
-body.dark-mode .section--contact ul.contact-list a,
-body.dark-mode .timeline__desc {
-  color: var(--text-dark) !important;
+body.dark-mode .proyecto-card__title {
+  color: var(--text-dark);
 }
 
 /* Loading Screen */
@@ -1652,4 +1658,222 @@ body.dark-mode .timeline__title,
 body.dark-mode .exp-card h3,
 body.dark-mode .proyecto-card__title {
   color: var(--text-dark);
+}
+
+/* =========================
+   FORMULARIO DE CONTACTO (WHATSAPP)
+   Mejora visual y responsive para que el formulario se vea moderno y atractivo
+========================= */
+.contact__form {
+  background: var(--card-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 2.5rem;
+  max-width: 420px;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.2rem;
+}
+.contact__form h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  text-align: center;
+}
+#whatsapp-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#whatsapp-contact-form input,
+#whatsapp-contact-form textarea {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--gray-50);
+  color: var(--primary-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: none;
+}
+#whatsapp-contact-form input:focus,
+#whatsapp-contact-form textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+#whatsapp-contact-form textarea {
+  min-height: 100px;
+  max-height: 220px;
+}
+#whatsapp-contact-form button[type="submit"] {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(34,211,238,0.10);
+}
+#whatsapp-contact-form button[type="submit"]:hover,
+#whatsapp-contact-form button[type="submit"]:focus {
+  background: var(--accent-dark);
+  color: var(--text-dark);
+  transform: scale(1.04);
+}
+@media (max-width: 700px) {
+  .contact__form {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+}
+/* Mejorar separación entre bloques de contacto */
+.contact__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+.contact__info, .contact__form, .contact__social {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+@media (max-width: 900px) {
+  .contact__content {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .contact__info, .contact__form, .contact__social {
+    min-width: 0;
+  }
+}
+
+/* =========================
+   TARJETAS DE CONTACTO (FORMULARIO, INFO, REDES)
+   Unifico el formato de las tres tarjetas para que se vean consistentes y atractivas
+========================= */
+.contact__card {
+  background: var(--card-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.2rem 2rem 2rem 2rem;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  max-width: 420px;
+  width: 100%;
+  gap: 1.2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.contact__card:hover,
+.contact__card:focus-within {
+  box-shadow: 0 8px 32px rgba(34,211,238,0.13);
+  transform: translateY(-2px) scale(1.02);
+}
+.contact__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+.contact__form.contact__card,
+.contact__info.contact__card,
+.contact__social.contact__card {
+  flex: 1 1 320px;
+  min-width: 280px;
+  max-width: 420px;
+}
+@media (max-width: 900px) {
+  .contact__content {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .contact__form.contact__card,
+  .contact__info.contact__card,
+  .contact__social.contact__card {
+    max-width: 98vw;
+    margin: 0 auto;
+  }
+}
+.contact__info-title {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.contact__card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+.contact__card-item:last-child {
+  margin-bottom: 0;
+}
+.contact__icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.contact__details h4 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+.contact__details p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+.contact__social.contact__card h3 {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.contact__social.contact__card ul.contact-list {
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+.contact__social.contact__card ul.contact-list li {
+  justify-content: flex-start;
+}
+
+/* Homogeneizar altura de las tarjetas de contacto */
+.contact__content {
+  align-items: stretch;
+}
+.contact__card {
+  min-height: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media (max-width: 900px) {
+  .contact__card {
+    min-height: 0;
+    height: auto;
+  }
 }

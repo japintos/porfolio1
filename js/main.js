@@ -1,6 +1,7 @@
 // =========================
 // MENÚ HAMBURGUESA
 // =========================
+// Este bloque controla el menú hamburguesa para móviles. Al hacer clic en el botón, abre o cierra el menú de navegación. También se asegura de cerrarlo si hago clic fuera o en un enlace.
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 navToggle.addEventListener('click', () => {
@@ -8,13 +9,14 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', !expanded);
   navMenu.classList.toggle('open');
 });
-// Cerrar menú al hacer click fuera o en un enlace
+// Cierro el menú si hago clic en un enlace dentro del menú
 navMenu.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
     navMenu.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }
 });
+// Cierro el menú si hago clic fuera del menú o del botón
 document.addEventListener('click', (e) => {
   if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
     navMenu.classList.remove('open');
@@ -25,6 +27,7 @@ document.addEventListener('click', (e) => {
 // =========================
 // SCROLL SUAVE PARA ANCLAS
 // =========================
+// Esto hace que al hacer clic en un enlace interno (#ancla), la página se desplace suavemente hasta esa sección.
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
@@ -38,6 +41,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // =========================
 // BOTÓN SCROLL TOP
 // =========================
+// Muestra un botón para volver arriba cuando hago scroll hacia abajo. Al hacer clic, sube suavemente al inicio.
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
@@ -53,6 +57,7 @@ scrollTopBtn.addEventListener('click', () => {
 // =========================
 // ANIMACIONES DE ENTRADA (AOS-like)
 // =========================
+// Uso IntersectionObserver para animar elementos cuando entran en pantalla. Así las secciones aparecen con efecto.
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -68,6 +73,7 @@ document.querySelectorAll('[data-aos]').forEach(el => {
 // =========================
 // COPIAR EMAIL AL PORTAPAPELES
 // =========================
+// Permite copiar mi email al portapapeles al hacer clic en el botón de copiar. Muestra un icono de check como feedback.
 document.querySelectorAll('.btn-copy').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -84,22 +90,23 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
 // =========================
 // DARK MODE HOOK (sin toggle UI)
 // =========================
-// Puedes activar dark mode con: document.body.classList.add('dark-mode');
-// O quitarlo con: document.body.classList.remove('dark-mode');
+// Si quiero activar el modo oscuro, solo llamo: document.body.classList.add('dark-mode');
+// Para quitarlo: document.body.classList.remove('dark-mode');
 
 // =========================
 // DARK MODE TOGGLE BUTTON
 // =========================
-// ... existing code ... 
+// (Aquí podría agregar un botón para alternar el modo oscuro, si lo quiero en el futuro)
 
 // =========================
-// 🎯 INITIALIZATION & UTILITIES
+// 🎯 INICIALIZACIÓN Y UTILIDADES
 // =========================
+// Cuando el DOM está listo, inicializo todas las funciones principales del sitio.
 document.addEventListener('DOMContentLoaded', () => {
-    // Add CSS classes for animations
+    // Agrego clase para animaciones iniciales
     document.body.classList.add('js-loaded');
     
-    // Initialize all functionality
+    // Inicializo cada funcionalidad personalizada
     initializeLoadingScreen();
     initializeScrollProgress();
     initializeSmoothScrolling();
@@ -114,14 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================
-// 📱 LOADING SCREEN
+// 📱 PANTALLA DE CARGA
 // =========================
+// Muestra una pantalla de carga al entrar al sitio y la oculta después de un tiempo.
 function initializeLoadingScreen() {
     const loadingScreen = document.querySelector('#loading-screen');
     const content = document.querySelector('.content');
     
     if (loadingScreen && content) {
-        // Simulate loading time
+        // Simulo un tiempo de carga
         setTimeout(() => {
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
@@ -134,8 +142,9 @@ function initializeLoadingScreen() {
 }
 
 // =========================
-// 📊 SCROLL PROGRESS
+// 📊 BARRA DE PROGRESO DE SCROLL
 // =========================
+// Muestra una barra arriba que indica cuánto he scrolleado de la página.
 function initializeScrollProgress() {
     const progressBar = document.querySelector('#scroll-progress');
     
@@ -150,8 +159,9 @@ function initializeScrollProgress() {
 }
 
 // =========================
-// 🧭 SMOOTH SCROLLING
+// 🧭 SCROLL SUAVE (para anclas internas)
 // =========================
+// Hace que los enlaces internos se desplacen suavemente a la sección correspondiente.
 function initializeSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -171,8 +181,9 @@ function initializeSmoothScrolling() {
 }
 
 // =========================
-// 🎬 ANIMATIONS
+// 🎬 ANIMACIONES DE ENTRADA
 // =========================
+// Uso IntersectionObserver para animar secciones, tarjetas de proyectos, skills, etc. cuando aparecen en pantalla.
 function initializeAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -187,12 +198,12 @@ function initializeAnimations() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Observo los elementos que quiero animar
     document.querySelectorAll('.section, .proyecto-card, .skill-item, .timeline__item').forEach(el => {
         animationObserver.observe(el);
     });
 
-    // AOS-like animations
+    // Animaciones tipo AOS para elementos con data-aos
     const aosObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -208,8 +219,9 @@ function initializeAnimations() {
 }
 
 // =========================
-// 🎯 SKILL BARS
+// 🎯 BARRAS DE HABILIDADES
 // =========================
+// Anima el llenado de las barras de skills cuando aparecen en pantalla.
 function initializeSkillBars() {
     const skillBars = document.querySelectorAll('.skill-bar');
     
@@ -236,8 +248,9 @@ function initializeSkillBars() {
 }
 
 // =========================
-// 🪟 PROJECT MODALS
+// 🪟 MODALES DE PROYECTOS
 // =========================
+// Permite mostrar un modal con detalles del proyecto al hacer clic en una tarjeta de proyecto.
 function initializeProjectModals() {
     const projectCards = document.querySelectorAll('.proyecto-card');
     const modal = document.querySelector('#projectModal');
@@ -245,7 +258,7 @@ function initializeProjectModals() {
     if (projectCards.length > 0 && modal) {
         projectCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Don't open modal if clicking on links or buttons
+                // No abro el modal si hago clic en un link o botón dentro de la tarjeta
                 if (e.target.closest('a') || e.target.closest('button')) {
                     return;
                 }
@@ -259,20 +272,20 @@ function initializeProjectModals() {
             });
         });
 
-        // Close modal functionality
+        // Cierro el modal al hacer clic en la X
         const modalClose = modal.querySelector('.modal-close');
         if (modalClose) {
             modalClose.addEventListener('click', closeProjectModal);
         }
 
-        // Close modal on outside click
+        // Cierro el modal al hacer clic fuera del contenido
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeProjectModal();
             }
         });
 
-        // Close modal on escape key
+        // Cierro el modal con la tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'flex') {
                 closeProjectModal();
@@ -281,6 +294,7 @@ function initializeProjectModals() {
     }
 }
 
+// Muestra el modal de proyecto con los datos recibidos
 function showProjectModal(title, description, image, technologies, demo, code) {
     const modal = document.querySelector('#projectModal');
     if (!modal) return;
@@ -308,11 +322,12 @@ function showProjectModal(title, description, image, technologies, demo, code) {
     modal.style.display = 'flex';
     setTimeout(() => {
         modal.classList.add('modal-active');
-        // Accesibilidad: foco al modal
+        // Accesibilidad: pongo el foco en el botón de cerrar
         modal.querySelector('.modal-close').focus();
     }, 10);
 }
 
+// Cierra el modal de proyecto
 function closeProjectModal() {
     const modal = document.querySelector('#projectModal');
     if (!modal) return;
@@ -322,8 +337,9 @@ function closeProjectModal() {
 }
 
 // =========================
-// 📝 FORM VALIDATION
+// 📝 VALIDACIÓN DE FORMULARIO DE CONTACTO (NO SE USA SI SOLO WHATSAPP)
 // =========================
+// Valida el formulario de contacto tradicional (si lo uso). Muestra notificaciones si falta algún campo o el email es inválido.
 function initializeFormValidation() {
     const contactForm = document.querySelector('#contact-form');
     
@@ -331,7 +347,7 @@ function initializeFormValidation() {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Basic validation
+            // Validación básica
             const name = contactForm.querySelector('#name')?.value.trim() || '';
             const email = contactForm.querySelector('#email')?.value.trim() || '';
             const message = contactForm.querySelector('#message')?.value.trim() || '';
@@ -346,21 +362,23 @@ function initializeFormValidation() {
                 return;
             }
             
-            // Simulate form submission
+            // Simulo el envío del formulario
             showNotification('Mensaje enviado correctamente', 'success');
             contactForm.reset();
         });
     }
 }
 
+// Valida el formato del email
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
 // =========================
-// 🔔 NOTIFICATIONS
+// 🔔 NOTIFICACIONES
 // =========================
+// Muestra mensajes flotantes para dar feedback al usuario (éxito, error, info)
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -383,8 +401,9 @@ function showNotification(message, type = 'info') {
 }
 
 // =========================
-// 📱 MOBILE MENU
+// 📱 MENÚ MÓVIL (para responsive)
 // =========================
+// Controla el menú de navegación en móviles, similar al menú hamburguesa.
 function initializeMobileMenu() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -396,7 +415,7 @@ function initializeMobileMenu() {
             navMenu.classList.toggle('nav-open');
         });
 
-        // Close menu when clicking on links
+        // Cierro el menú al hacer clic en un enlace
         navMenu.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
                 navMenu.classList.remove('nav-open');
@@ -404,7 +423,7 @@ function initializeMobileMenu() {
             }
         });
 
-        // Close menu when clicking outside
+        // Cierro el menú al hacer clic fuera
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
                 navMenu.classList.remove('nav-open');
@@ -415,8 +434,9 @@ function initializeMobileMenu() {
 }
 
 // =========================
-// 💡 TOOLTIPS
+// 💡 TOOLTIPS PERSONALIZADOS
 // =========================
+// Muestra un tooltip al pasar el mouse sobre elementos con data-tooltip.
 function initializeTooltips() {
     document.querySelectorAll('[data-tooltip]').forEach(element => {
         element.addEventListener('mouseenter', (e) => {
@@ -440,8 +460,9 @@ function initializeTooltips() {
 }
 
 // =========================
-// 📋 COPY BUTTONS
+// 📋 BOTONES DE COPIAR EMAIL
 // =========================
+// Permite copiar el email al portapapeles desde cualquier botón con la clase .btn-copy
 function initializeCopyButtons() {
     document.querySelectorAll('.btn-copy').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -462,8 +483,9 @@ function initializeCopyButtons() {
 }
 
 // =========================
-// ⬆️ SCROLL TOP BUTTON
+// ⬆️ BOTÓN SCROLL TOP
 // =========================
+// Muestra el botón para volver arriba y lo hace funcionar.
 function initializeScrollTopButton() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     
@@ -483,8 +505,9 @@ function initializeScrollTopButton() {
 }
 
 // =========================
-// 🎯 PROJECT DETAILS FUNCTION (for onclick handlers)
+// 🎯 FUNCIÓN PARA DETALLES DE PROYECTOS (para los botones de detalles)
 // =========================
+// Muestra el modal con la info del proyecto según el id recibido.
 function showProjectDetails(projectId) {
     const projectData = {
         proyecto1: {
@@ -519,7 +542,9 @@ function showProjectDetails(projectId) {
     }
 }
 
-// Evento para los botones de detalles
+// Evento para los botones de detalles de proyectos
+// Así puedo abrir el modal desde el botón de cada proyecto
+// (Uso stopPropagation para que no se dispare el click de la tarjeta)
 document.querySelectorAll('.btn-details').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -527,3 +552,27 @@ document.querySelectorAll('.btn-details').forEach(btn => {
         showProjectDetails(projectId);
     });
 }); 
+
+// =========================
+// FORMULARIO WHATSAPP CONTACTO
+// =========================
+// Este bloque hace que el formulario de contacto envíe los datos directo a mi WhatsApp. Toma los datos del formulario, los arma en un mensaje y abre WhatsApp con el mensaje listo para enviar a mi número.
+document.addEventListener('DOMContentLoaded', function() {
+  const waForm = document.getElementById('whatsapp-contact-form');
+  if (waForm) {
+    waForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('wa-name').value.trim();
+      const email = document.getElementById('wa-email').value.trim();
+      const message = document.getElementById('wa-message').value.trim();
+      if (!name || !email || !message) {
+        alert('Por favor completa todos los campos');
+        return;
+      }
+      const phone = '3764724207';
+      const text = encodeURIComponent(`Hola! Soy ${name} (${email}).%0A${message}`);
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    });
+  }
+});
+// FIN DEL ARCHIVO: Todo lo que está arriba lo hice para que mi portfolio sea más interactivo, profesional y fácil de usar para mis visitantes (¡y para mí!). 
