@@ -780,43 +780,25 @@ a:focus, button:focus, input:focus {
   color: var(--secondary-color);
   font-size: 1rem;
 }
+/* Elimino la línea vertical y los puntos de la timeline por solicitud */
 .timeline--vertical li::before {
-  content: '';
-  position: absolute;
-  left: 110px;
-  top: 0.7rem;
-  width: 16px;
-  height: 16px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(34,211,238,0.10);
-  z-index: 1;
+  /* Elimino el punto circular */
+  display: none;
 }
 .timeline--vertical li:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 117px;
-  top: 1.6rem;
-  width: 2px;
-  height: calc(100% - 1.6rem);
-  background: var(--accent-color);
-  opacity: 0.25;
-  z-index: 0;
+  /* Elimino la línea vertical */
+  display: none;
 }
 @media (max-width: 700px) {
-  .timeline--vertical li {
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 0;
+  .timeline--vertical li::before,
+  .timeline--vertical li::after {
+    /* También elimino en móvil */
+    display: none;
   }
   .timeline__date {
     text-align: left;
     margin-right: 0;
     margin-bottom: 0.5rem;
-  }
-  .timeline--vertical li::before,
-  .timeline--vertical li::after {
-    left: 0.5rem;
   }
   .timeline__content {
     padding: 1rem 1rem;
@@ -1875,5 +1857,130 @@ body.dark-mode .proyecto-card__title {
   .contact__card {
     min-height: 0;
     height: auto;
+  }
+}
+
+/* =========================
+   🎯 HABILIDADES CON ICONOS (UNIFICADO Y SIN ANIMACIONES)
+   REDUCIDO AL 50% SEGÚN SOLICITUD
+   ========================= */
+.icon-skill {
+  /* Reduzco paddings y tamaño mínimo al 50% */
+  padding: 0.55rem 0.6rem 0.35rem 0.6rem; /* Antes: 1.1rem 1.2rem 0.7rem 1.2rem */
+  min-width: 55px; /* Antes: 110px */
+  min-height: 55px; /* Antes: 110px */
+  font-size: 0.55rem; /* Antes: 1.1rem */
+}
+.icon-skill i, .icon-skill svg.icon-svg {
+  /* Reduzco el tamaño de los iconos al 50% */
+  width: 24px; /* Antes: 48px */
+  height: 24px; /* Antes: 48px */
+  font-size: 24px; /* Antes: 48px */
+}
+.icon-skill span {
+  /* Reduzco el tamaño del texto al 50% */
+  font-size: 0.7rem; /* Antes: 0.5rem */
+  margin-top: 0.15rem; /* Ajusto separación */
+}
+/* Agrego separación homogénea entre el icono y el texto en cada tarjeta de habilidad */
+.icon-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Espacio uniforme entre icono y texto */
+}
+@media (max-width: 700px) {
+  .icon-skill {
+    gap: 0.35rem; /* Un poco menos de espacio en móvil */
+  }
+}
+/* Aumento dos puntos (0.2rem) el tamaño de las fuentes en las tarjetas de habilidades */
+.skills-group__title {
+  font-size: 0.9rem; /* Antes: 0.7rem */
+}
+.icon-skill span {
+  font-size: 0.7rem; /* Antes: 0.5rem */
+}
+@media (max-width: 700px) {
+  .skills-group__title {
+    font-size: 0.8rem; /* Antes: 0.6rem */
+  }
+  .icon-skill span {
+    font-size: 0.6rem; /* Antes: 0.4rem o 0.5rem */
+  }
+}
+/* Ajusto la grilla de grupos de habilidades a una sola fila responsiva */
+.skills-groups-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+/* Elimino estilos de .skills-row ya que no se usa más */
+.skills-row {
+  display: unset;
+  flex-direction: unset;
+  justify-content: unset;
+  align-items: unset;
+  gap: unset;
+  margin-bottom: unset;
+}
+.skills-row:last-child {
+  margin-bottom: unset;
+}
+@media (max-width: 900px) {
+  .skills-groups-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+}
+
+/* Mejora visual profesional para la sección de habilidades */
+.skills-group {
+  background: var(--card-color);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(30,27,75,0.04);
+  padding: 0.8rem 0.6rem 0.6rem 0.6rem;
+  min-width: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #ececec;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.skills-group__title {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+.skills-group:hover, .skills-group:focus-within {
+  box-shadow: 0 4px 16px rgba(99,102,241,0.10);
+  border: 1.5px solid var(--accent-color);
+}
+.skills-icons-grid {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.skills-row {
+  align-items: stretch;
+}
+@media (max-width: 700px) {
+  .skills-group {
+    padding: 0.5rem 0.2rem 0.4rem 0.2rem;
+  }
+  .skills-group__title {
+    font-size: 0.6rem;
   }
 }

@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTooltips();
     initializeCopyButtons();
     initializeScrollTopButton();
+    initializeSkillIcons(); // Inicializo la selección de iconos de habilidades
 });
 
 // =========================
@@ -576,3 +577,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 // FIN DEL ARCHIVO: Todo lo que está arriba lo hice para que mi portfolio sea más interactivo, profesional y fácil de usar para mis visitantes (¡y para mí!). 
+
+// =========================
+// 🎯 HABILIDADES: ICONOS SELECCIONABLES
+// =========================
+// (Eliminado: ya no se requiere selección, solo hover) 
