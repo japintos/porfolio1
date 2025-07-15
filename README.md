@@ -62,6 +62,28 @@ porfolio 2/
 
 ---
 
+## 🎮 Dev Runner: El Juego del Desarrollador
+
+Dev Runner es un minijuego runner inspirado en el T-Rex de Google Chrome, pero con temática de desarrollo. El protagonista es un desarrollador que debe esquivar logos de herramientas y sistemas operativos. El juego fue desarrollado por **Julio Pintos** para **WebXpert**. Todos los derechos reservados.
+
+- **Tecnologías:** HTML5, CSS3, JavaScript puro
+- **Características:**
+  - Personaje desarrollador animado
+  - Obstáculos: logos de npm, React, Node.js, JS, HTML, CSS, C#, Windows, Linux, macOS
+  - Sonidos retro activables/desactivables
+  - Dificultad progresiva
+  - Responsive y accesible
+
+**Cómo jugar:**
+- Salta con la barra espaciadora o flecha ↑
+- Agáchate con flecha ↓
+- Esquiva los obstáculos y suma puntos
+- ¡Activa o desactiva el sonido con el botón correspondiente!
+
+Puedes acceder al juego desde la sección de proyectos destacados o abriendo `devrunner.html` en tu navegador.
+
+---
+
 ## ⚙️ Instrucciones de Uso Local
 1. **Clona el repositorio:**
    ```bash

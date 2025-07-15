@@ -1,0 +1,48 @@
+/* devrunner.css
+   Estilos para Dev Runner: El Juego del Desarrollador
+   Inspirado en el T-Rex de Google Chrome, pero con temática de desarrollo.
+   Créditos: Desarrollado por WebXpert
+*/
+
+/* Estilo general del canvas del juego */
+#devrunner-canvas {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0003;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #22d3ee;
+  image-rendering: optimizeQuality;
+}
+
+/* Si alguna imagen SVG tiene fondo transparente, le agrego un fondo blanco en el canvas (ya está por defecto) */
+
+/* Botón de reinicio */
+#restart-btn {
+  transition: background 0.2s, color 0.2s;
+}
+#restart-btn:hover {
+  background: #0ea5e9;
+  color: #fff;
+}
+
+/* Puntaje */
+#score {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Créditos */
+.creditos {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #b3e5fc;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  #devrunner-canvas {
+    width: 98vw !important;
+    height: 180px !important;
+  }
+} 
