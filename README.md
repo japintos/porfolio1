@@ -86,6 +86,13 @@ Puedes acceder al juego desde la sección de proyectos destacados o abriendo `de
 
 ---
 
+## 📄 Proyectos Destacados
+- **Concesionario Web:** [concesionarioweb.vercel.app](https://concesionarioweb.vercel.app/) — Sitio web moderno y responsivo para concesionaria de autos. Catálogo, detalles, filtros avanzados y contacto directo. Tecnologías: HTML5, CSS3, JavaScript.
+- **Portafolio Profesional:** Este archivo README.md.
+- **DevXpert Runner:** Un minijuego runner para desarrolladores.
+
+---
+
 ## ⚙️ Instrucciones de Uso Local
 1. **Clona el repositorio:**
    ```bash

@@ -534,6 +534,14 @@ function showProjectDetails(projectId) {
             technologies: 'HTML5, CSS3, JavaScript, Diseño Web',
             demo: 'https://japintos.github.io/estudioOudin/',
             code: ''
+        },
+        proyecto4: {
+            title: 'Concesionario Web',
+            description: 'Sitio web moderno y responsivo para concesionaria de autos. Permite visualizar catálogo, detalles de vehículos, filtros avanzados y contacto directo. Optimizado para experiencia de usuario y dispositivos móviles.',
+            image: 'Img/web-consecionario.jpg',
+            technologies: 'HTML5, CSS3, JavaScript',
+            demo: 'https://concesionarioweb.vercel.app/',
+            code: ''
         }
     };
     

@@ -1984,3 +1984,26 @@ body.dark-mode .proyecto-card__title {
     font-size: 0.6rem;
   }
 }
+
+.proyecto-card__tech-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.proyecto-card__tech-stack i,
+.proyecto-card__tech-stack .icon-svg {
+  font-size: 1.5rem;
+  width: 1.7em;
+  height: 1.7em;
+  color: var(--accent-color);
+  vertical-align: middle;
+  transition: transform 0.15s;
+}
+.proyecto-card__tech-stack i:hover,
+.proyecto-card__tech-stack .icon-svg:hover {
+  transform: scale(1.15);
+  color: var(--accent-dark);
+}
