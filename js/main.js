@@ -582,3 +582,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // 🎯 HABILIDADES: ICONOS SELECCIONABLES
 // =========================
 // (Eliminado: ya no se requiere selección, solo hover) 
+
+// =========================
+// INTERNACIONALIZACIÓN (i18n)
+// =========================
+// Eliminado: toda la lógica de idiomas, setLanguage, getPreferredLang, listeners y referencias a data-i18n. 

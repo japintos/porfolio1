@@ -1,5 +1,7 @@
 # Portafolio Profesional – Julio Pintos
 
+[![GitHub](https://img.shields.io/badge/GitHub-japintos-181717?logo=github)](https://github.com/japintos)
+
 ¡Bienvenido a mi portafolio web! Aquí muestro mi experiencia, proyectos, habilidades y formas de contacto de manera moderna, profesional y accesible.
 
 ---
@@ -62,9 +64,9 @@ porfolio 2/
 
 ---
 
-## 🎮 Dev Runner: El Juego del Desarrollador
+## 🎮 DevXpert Runner: El Juego del Desarrollador
 
-Dev Runner es un minijuego runner inspirado en el T-Rex de Google Chrome, pero con temática de desarrollo. El protagonista es un desarrollador que debe esquivar logos de herramientas y sistemas operativos. El juego fue desarrollado por **Julio Pintos** para **WebXpert**. Todos los derechos reservados.
+DevXpert Runner es un minijuego runner inspirado en el T-Rex de Google Chrome, pero con temática de desarrollo. El protagonista es un desarrollador que debe esquivar logos de herramientas y sistemas operativos. El juego fue desarrollado por **Julio Pintos** para **WebXpert**. Todos los derechos reservados.
 
 - **Tecnologías:** HTML5, CSS3, JavaScript puro
 - **Características:**
@@ -132,6 +134,7 @@ Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y compartir
 
 ## 📬 Contacto
 - **Email:** julioapintos1@gmail.com
+- **GitHub:** [japintos](https://github.com/japintos)
 - **WhatsApp:** [3764724202](https://wa.me/3764724202)
 - **LinkedIn:** [julio-pintos-0638a8200](https://www.linkedin.com/in/julio-pintos-0638a8200/)
 

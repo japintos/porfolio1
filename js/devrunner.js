@@ -1,5 +1,5 @@
 // devrunner.js
-// Juego Dev Runner: El Juego del Desarrollador
+// Juego DevXpert Runner: El Juego del Desarrollador
 // Inspirado en el T-Rex de Google Chrome, pero con temática de desarrollo.
 // Créditos: Desarrollado por WebXpert
 
@@ -188,7 +188,12 @@ class Obstacle {
     this.width = type === 'ground' ? 44 : 44;
     this.height = type === 'ground' ? 44 : 36;
     this.x = canvas.width + 10;
-    this.y = type === 'ground' ? (canvas.height - this.height - 24) : (canvas.height - this.height - 110);
+    // Ajusto la altura de los obstáculos voladores para que estén un poco más arriba
+    if (type === 'ground') {
+      this.y = canvas.height - this.height - 24;
+    } else {
+      this.y = canvas.height - this.height - 80; // Subo de 60 a 80
+    }
   }
   update() {
     this.x -= speed;
@@ -252,7 +257,10 @@ function loop() {
     obstacles[i].update();
     obstacles[i].draw();
     // Colisión
-    let px = player.x, py = player.y, pw = player.width, ph = player.ducking ? 36 : player.height;
+    let pw = player.width, ph = player.ducking ? 36 : player.height;
+    // Si está agachado, la hitbox debe estar más abajo (pegada al suelo)
+    let py = player.ducking ? (canvas.height - ph - 24) : player.y;
+    let px = player.x;
     let ox = obstacles[i].x, oy = obstacles[i].y, ow = obstacles[i].width, oh = obstacles[i].height;
     if (
       px < ox + ow &&
@@ -286,7 +294,7 @@ function drawStartScreen() {
   ctx.fillStyle = '#222';
   ctx.font = 'bold 32px Poppins, Arial';
   ctx.textAlign = 'center';
-  ctx.fillText('Dev Runner', canvas.width / 2, 80);
+  ctx.fillText('DevXpert Runner', canvas.width / 2, 80);
   ctx.font = '20px Poppins, Arial';
   ctx.fillText('Presiona ESPACIO para comenzar', canvas.width / 2, 130);
   ctx.font = '16px Poppins, Arial';

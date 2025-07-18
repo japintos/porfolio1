@@ -72,7 +72,8 @@
     "sameAs": [
       "https://www.linkedin.com/in/julio-pintos-0638a8200/",
       "https://www.facebook.com/julioapintos",
-      "https://www.instagram.com/julioapintos/"
+      "https://www.instagram.com/julioapintos/",
+      "https://github.com/japintos"
     ],
     "knowsAbout": [
       "Fullstack Development",
@@ -88,6 +89,9 @@
     ]
   }
   </script>
+  <!-- Idiomas -->
+  <!-- <script src="lang/es.js"></script> -->
+  <!-- <script src="lang/en.js"></script> -->
 </head>
 
 <body>
@@ -104,6 +108,7 @@
       <div class="loading-bar">
         <div class="loading-progress"></div>
       </div>
+      <span class="loading-msg">Cargando...</span>
     </div>
   </div>
 
@@ -113,14 +118,13 @@
   <!-- Main Content Wrapper -->
   <div class="content">
     <header class="header" id="header">
-      <div class="header__container">
+      <div class="header__container" style="display: flex; align-items: center; justify-content: space-between;">
         <a href="#" class="header__brand" aria-label="Inicio">
           <div class="header__logo">
             <img src="Img/foto_Perfil.jpg" alt="Foto de perfil de Julio Pintos, desarrollador web y analista de sistemas" width="100" height="100" loading="lazy" />
             <div class="header__logo-glow"></div>
           </div>
         </a>
-        
         <nav class="nav" id="nav" aria-label="Menú principal">
           <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
             <span class="nav__hamburger"></span>
@@ -135,6 +139,9 @@
             <li><a href="#contacto" aria-label="Ir a Contacto" class="nav-link">Contacto</a></li>
           </ul>
         </nav>
+        <div class="lang-switch" id="lang-switch" aria-label="Selector de idioma">
+          <!-- Eliminado el switch de idioma -->
+        </div>
       </div>
     </header>
 
@@ -235,9 +242,9 @@
             </div>
             <p class="exp-card__summary">Desarrollo de soluciones informáticas para empresas locales.</p>
             <ul class="exp-card__list">
-              <li><i class="fas fa-check"></i> Análisis, diseño y desarrollo de aplicaciones web y de escritorio, desde el levantamiento de requisitos hasta la implementación final.</li>
-              <li><i class="fas fa-check"></i> Gestión completa de bases de datos, incluyendo diseño, implementación y optimización en PostgreSQL, SQL Server y MySQL.</li>
-              <li><i class="fas fa-check"></i> Auditoría de sistemas existentes para identificar vulnerabilidades, proponer mejoras y optimizar el rendimiento.</li>
+              <li><i class="fas fa-check"></i> <span>Análisis, diseño y desarrollo de aplicaciones web y de escritorio, desde el levantamiento de requisitos hasta la implementación final.</span></li>
+              <li><i class="fas fa-check"></i> <span>Gestión completa de bases de datos, incluyendo diseño, implementación y optimización en PostgreSQL, SQL Server y MySQL.</span></li>
+              <li><i class="fas fa-check"></i> <span>Auditoría de sistemas existentes para identificar vulnerabilidades, proponer mejoras y optimizar el rendimiento.</span></li>
             </ul>
             <div class="exp-card__tech">
               <span class="tech-tag">Web Development</span>
@@ -258,9 +265,9 @@
             </div>
             <p class="exp-card__summary">Soporte técnico, redes LAN/MAN, sistemas operativos.</p>
             <ul class="exp-card__list">
-              <li><i class="fas fa-check"></i> Provisión de soporte técnico integral a usuarios, resolviendo incidencias de hardware y software en entornos Windows, Linux y macOS.</li>
-              <li><i class="fas fa-check"></i> Administración, mantenimiento y monitoreo de la infraestructura de redes LAN y MAN, asegurando la conectividad y seguridad de los sistemas.</li>
-              <li><i class="fas fa-check"></i> Instalación, configuración y mantenimiento de sistemas operativos y software de aplicación para garantizar la continuidad operativa.</li>
+              <li><i class="fas fa-check"></i> <span>Provisión de soporte técnico integral a usuarios, resolviendo incidencias de hardware y software en entornos Windows, Linux y macOS.</span></li>
+              <li><i class="fas fa-check"></i> <span>Administración, mantenimiento y monitoreo de la infraestructura de redes LAN y MAN, asegurando la conectividad y seguridad de los sistemas.</span></li>
+              <li><i class="fas fa-check"></i> <span>Instalación, configuración y mantenimiento de sistemas operativos y software de aplicación para garantizar la continuidad operativa.</span></li>
             </ul>
             <div class="exp-card__tech">
               <span class="tech-tag">IT Support</span>
@@ -531,7 +538,7 @@
                 <span class="feature">SPA Responsive</span>
               </div>
               <div class="proyecto-card__actions">
-                <a href="https://carritocompraswebxpert.vercel.app/catalogo" target="_blank" rel="noopener" class="btn btn--project">
+                <a href="https://carritocompraswebxpert.vercel.app/catalogo" target="_blank" rel="noopener">
                   <span>Ver proyecto</span>
                   <i class="fas fa-external-link-alt"></i>
                 </a>
@@ -560,14 +567,11 @@
                 <span class="feature">SEO Optimizado</span>
               </div>
               <div class="proyecto-card__actions">
-                <a href="https://japintos.github.io/webxpert/" target="_blank" rel="noopener" class="btn btn--project">
+                <a href="https://japintos.github.io/webxpert/" target="_blank" rel="noopener">
                   <span>Ver sitio</span>
                   <i class="fas fa-external-link-alt"></i>
                 </a>
-                <button class="btn btn--outline btn--small btn-details" data-project="proyecto2">
-                  <span>Detalles</span>
-                  <i class="fas fa-info-circle"></i>
-                </button>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto2"><span>Detalles</span><i class="fas fa-info-circle"></i></button>
               </div>
               <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript</div>
             </div>
@@ -594,21 +598,18 @@
                 <span class="feature">Accesibilidad</span>
               </div>
               <div class="proyecto-card__actions">
-                <a href="https://japintos.github.io/estudioOudin/" target="_blank" rel="noopener" class="btn btn--project">
+                <a href="https://japintos.github.io/estudioOudin/" target="_blank" rel="noopener">
                   <span>Ver sitio</span>
                   <i class="fas fa-external-link-alt"></i>
                 </a>
-                <button class="btn btn--outline btn--small btn-details" data-project="proyecto3">
-                  <span>Detalles</span>
-                  <i class="fas fa-info-circle"></i>
-                </button>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto3"><span>Detalles</span><i class="fas fa-info-circle"></i></button>
               </div>
               <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript, Diseño Web</div>
             </div>
           </article>
           <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="400">
             <div class="proyecto-card__image">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="Dev Runner: El Juego del Desarrollador" loading="lazy" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="DevXpert Runner: El Juego del Desarrollador" loading="lazy" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <span class="tech-badge">HTML5</span>
@@ -618,8 +619,8 @@
               </div>
             </div>
             <div class="proyecto-card__content">
-              <h3 class="proyecto-card__title">Dev Runner: El Juego del Desarrollador</h3>
-              <p class="proyecto-card__desc">Minijuego inspirado en el clásico T-Rex de Google Chrome, pero protagonizado por un desarrollador que debe esquivar logos de herramientas y sistemas operativos. ¡Pon a prueba tus reflejos y conocimientos tech!<br><strong>Créditos:</strong> Desarrollado por WebXpert.</p>
+              <h3 class="proyecto-card__title">DevXpert Runner: El Juego del Desarrollador</h3>
+              <p class="proyecto-card__desc">Minijuego runner inspirado en el clásico T-Rex de Google Chrome, pero protagonizado por un desarrollador que debe esquivar logos de herramientas y sistemas operativos. ¡Pon a prueba tus reflejos y conocimientos tech!<br><strong>Créditos:</strong> Desarrollado por Julio Pintos para WebXpert.</p>
               <div class="proyecto-card__features">
                 <span class="feature">Salta y agáchate para esquivar obstáculos</span>
                 <span class="feature">Obstáculos: logos de herramientas y sistemas operativos</span>
@@ -628,7 +629,7 @@
               </div>
               <div class="proyecto-card__actions">
                 <a href="devrunner.html" class="btn btn--project" target="_blank" rel="noopener">
-                  <span>Jugar Dev Runner</span>
+                  <span>Jugar DevXpert Runner</span>
                   <i class="fas fa-gamepad"></i>
                 </a>
               </div>
@@ -647,8 +648,8 @@
           <div class="contact__form contact__card">
             <h3>Envíame un mensaje directo a WhatsApp</h3>
             <form id="whatsapp-contact-form" autocomplete="off">
-              <input type="text" id="wa-name" name="name" placeholder="Tu nombre" required>
-              <input type="email" id="wa-email" name="email" placeholder="Tu email" required>
+              <input type="text" id="wa-name" name="name" placeholder="Tu nombre" required />
+              <input type="email" id="wa-email" name="email" placeholder="Tu email" required />
               <textarea id="wa-message" name="message" placeholder="Tu mensaje" required></textarea>
               <button type="submit" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
             </form>
@@ -719,6 +720,12 @@
                   <span>Instagram</span>
                 </a>
               </li>
+              <li>
+                <a href="https://github.com/japintos" target="_blank" aria-label="GitHub de Julio Pintos" rel="noopener" class="social-link social-link--github">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                  <span>GitHub</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -737,15 +744,15 @@
               <p id="modalDesc"></p>
               <div class="modal-tech"></div>
               <div class="modal-links">
-                <a href="#" class="btn btn--project modal-demo-link" target="_blank" rel="noopener">Ver Demo</a>
-                <a href="#" class="btn btn--outline modal-code-link" target="_blank" rel="noopener">Ver Código</a>
+                <a href="#" class="btn btn--project modal-demo-link" target="_blank" rel="noopener" data-i18n="modal.demo">Ver Demo</a>
+                <a href="#" class="btn btn--outline modal-code-link" target="_blank" rel="noopener" data-i18n="modal.codigo">Ver Código</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <button id="scrollTopBtn" class="scroll-top" aria-label="Ir arriba">
+      <button id="scrollTopBtn" class="scroll-top" aria-label="Ir arriba" data-i18n="accesibilidad.irArriba">
         <i class="fas fa-arrow-up"></i>
       </button>
     </main>
@@ -761,12 +768,13 @@
           </div>
         </div>
         <div class="footer__links">
-          <a href="#presentacion">Inicio</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#presentacion" data-i18n="footer.inicio">Inicio</a>
+          <a href="#proyectos" data-i18n="footer.proyectos">Proyectos</a>
+          <a href="#contacto" data-i18n="footer.contacto">Contacto</a>
         </div>
         <div class="footer__contact">
           <a href="mailto:julioapintos1@gmail.com">julioapintos1@gmail.com</a>
+          <a href="https://github.com/japintos" target="_blank" rel="noopener" class="footer__github">github.com/japintos</a>
           <p>&copy; 2025 - Julio Pintos. Todos los derechos reservados.</p>
         </div>
       </div>
