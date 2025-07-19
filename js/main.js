@@ -524,7 +524,7 @@ function showProjectDetails(projectId) {
             description: 'Sitio institucional moderno con diseño responsive y animaciones SVG. Optimizado para conversión y experiencia de usuario.',
             image: 'Img/proyecto2.jpg',
             technologies: 'HTML5, CSS3, JavaScript',
-            demo: 'https://japintos.github.io/webxpert/',
+            demo: 'https://www.webxpert.com.ar',
             code: ''
         },
         proyecto3: {
