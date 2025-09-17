@@ -68,14 +68,61 @@ player.y = canvas.height - player.height - 24; // Posición inicial en el suelo
 // =============================
 // SONIDOS RETRO PARA EL JUEGO
 // =============================
-// Cargo sonidos libres de la web (puedes cambiar las URLs si prefieres otros)
+// Creo sonidos sintéticos con Web Audio API para evitar dependencias externas
+let audioContext;
+
+// Inicializo el contexto de audio la primera vez que se necesite
+function initAudio() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+// Función para crear un sonido de salto retro (beep corto)
+function playJumpSound() {
+  if (!audioContext) initAudio();
+  
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+  oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+  
+  gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+  
+  oscillator.start(audioContext.currentTime);
+  oscillator.stop(audioContext.currentTime + 0.1);
+}
+
+// Función para crear un sonido de game over retro (buzz descendente)
+function playGameOverSound() {
+  if (!audioContext) initAudio();
+  
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  oscillator.frequency.setValueAtTime(300, audioContext.currentTime);
+  oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.5);
+  
+  gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+  
+  oscillator.start(audioContext.currentTime);
+  oscillator.stop(audioContext.currentTime + 0.5);
+}
+
+// Objeto de sonidos para mantener compatibilidad con el código existente
 const sounds = {
-  jump: new Audio('https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae1b2.mp3'), // Efecto salto retro
-  gameover: new Audio('https://cdn.pixabay.com/audio/2022/07/26/audio_12bfae1b2.mp3'), // Efecto game over retro
+  jump: { play: playJumpSound },
+  gameover: { play: playGameOverSound }
 };
-// Ajusto el volumen si es necesario
-sounds.jump.volume = 0.25;
-sounds.gameover.volume = 0.35;
 
 // =============================
 // CONTROL DE SONIDO (ON/OFF)
@@ -125,8 +172,9 @@ window.addEventListener('keydown', function(e) {
       player.vy = -18;
       player.grounded = false;
       // Reproduzco sonido de salto
-      sounds.jump.currentTime = 0;
-      sounds.jump.play();
+      if (soundOn) {
+        sounds.jump.play();
+      }
     }
     if (e.code === 'ArrowDown') {
       // Agacharse
@@ -172,8 +220,9 @@ function gameOver() {
   ctx.fillText('Puntaje: ' + score, canvas.width / 2, 150);
   document.getElementById('restart-btn').style.display = 'inline-block';
   // Reproduzco sonido de game over
-  sounds.gameover.currentTime = 0;
-  sounds.gameover.play();
+  if (soundOn) {
+    sounds.gameover.play();
+  }
 }
 
 document.getElementById('restart-btn').onclick = function() {
