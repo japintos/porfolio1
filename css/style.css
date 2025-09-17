@@ -1883,20 +1883,26 @@ body.dark-mode .proyecto-card__title {
   .contact__card {
     min-height: 0 !important;
     height: auto !important;
-    max-width: 100vw !important;
-    padding: 1rem 0.5rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 2rem) !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 1rem 1.5rem 1rem !important;
+    box-sizing: border-box !important;
   }
   .contact__content {
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     flex-direction: column !important;
     align-items: stretch !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .contact__form.contact__card,
   .contact__info.contact__card,
   .contact__social.contact__card {
-    max-width: 100vw !important;
-    width: 100% !important;
-    margin: 0 auto 1rem auto !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 2rem) !important;
+    margin: 0 1rem 1.5rem 1rem !important;
+    flex: none !important;
   }
   .contact__card > *,
   .contact__card input,
@@ -1907,6 +1913,99 @@ body.dark-mode .proyecto-card__title {
     box-sizing: border-box !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
+  }
+  
+  /* Estilos específicos para el formulario en móvil */
+  .contact__form input,
+  .contact__form textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  
+  /* Estilos específicos para la lista de redes sociales */
+  .contact__social .contact-list {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .contact__social .contact-list li {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .social-link {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.8rem !important;
+    background: var(--gray-100) !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+  }
+  
+  .social-link span {
+    flex: 1 !important;
+    margin-left: 0.5rem !important;
+  }
+}
+
+/* Estilos adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+  .section--contact {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  .contact__content {
+    padding: 0 0.5rem !important;
+    gap: 1rem !important;
+  }
+  
+  .contact__card {
+    margin: 0 0.5rem 1rem 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+    width: calc(100vw - 1rem) !important;
+    padding: 1rem 0.8rem !important;
+  }
+  
+  .contact__form.contact__card,
+  .contact__info.contact__card,
+  .contact__social.contact__card {
+    margin: 0 0.5rem 1rem 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+    width: calc(100vw - 1rem) !important;
+  }
+  
+  .contact__form h3,
+  .contact__info-title,
+  .contact__social h3 {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .contact__form input,
+  .contact__form textarea {
+    font-size: 16px !important; /* Evita zoom en iOS */
+    padding: 0.7rem !important;
+  }
+  
+  .contact__card-item {
+    gap: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .contact__icon {
+    font-size: 1.2rem !important;
+  }
+  
+  .contact__details h4 {
+    font-size: 0.9rem !important;
+  }
+  
+  .contact__details p {
+    font-size: 0.85rem !important;
   }
 }
 
