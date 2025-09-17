@@ -688,6 +688,26 @@ a:focus, button:focus, input:focus {
   transform: scale(1.05);
 }
 
+.btn--tertiary,
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.btn--tertiary:hover,
+.btn--tertiary:focus,
+.btn--ghost:hover,
+.btn--ghost:focus {
+  background: var(--gray-100);
+  color: var(--text-color);
+  border-color: var(--gray-400);
+  transform: scale(1.05);
+}
+
 .btn--small {
   font-size: 0.95rem;
   padding: 0.3rem 0.8rem;
@@ -2036,4 +2056,52 @@ body.dark-mode .proyecto-card__title {
 .proyecto-card__tech-stack .icon-svg:hover {
   transform: scale(1.15);
   color: var(--accent-dark);
+}
+
+/*--------------------------
+  👤 PROFILE METRICS
+--------------------------*/
+.profile__metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(165, 180, 252, 0.05));
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+}
+
+.metric {
+  text-align: center;
+  padding: 1rem;
+}
+
+.metric__number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric__label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .profile__metrics {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .metric__number {
+    font-size: 2rem;
+  }
 }
