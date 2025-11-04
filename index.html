@@ -41,10 +41,11 @@
   <link rel="preload" href="js/main.js" as="script" />
   <link rel="preload" href="Img/foto_Perfil.jpg" as="image" />
   
-  <!-- Fonts -->
+  <!-- Fonts - Optimizado con font-display swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -130,6 +131,7 @@
           </div>
         </a>
         <nav class="nav" id="nav" aria-label="Menú principal">
+          <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
           <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
             <span class="nav__hamburger"></span>
           </button>
@@ -170,7 +172,7 @@
             <span class="hero__divider">•</span>
             <span class="hero__role">Solutions Architect</span>
           </h2>
-          <p class="hero__desc">Transformo ideas en soluciones digitales escalables con <strong>18+ años de experiencia</strong> liderando proyectos tecnológicos. Especialista en arquitecturas robustas, bases de datos avanzadas y experiencias de usuario excepcionales que generan resultados medibles.</p>
+          <p class="hero__desc">De técnico a fundador: <strong>18+ años transformando ideas en soluciones digitales</strong> que realmente funcionan. Especialista en crear arquitecturas robustas y experiencias excepcionales que generan <strong>resultados medibles</strong> para empresas y startups.</p>
           <div class="hero__stats">
             <div class="stat">
               <span class="stat__number">18+</span>
@@ -187,7 +189,7 @@
           </div>
           <div class="hero__actions">
             <a href="#contacto" class="btn btn--primary btn--glow">
-              <span>Contáctame</span>
+              <span>Agenda una consulta gratis</span>
               <i class="fas fa-arrow-right"></i>
             </a>
             <a href="assets/cv-julio-pintos.pdf" class="btn btn--secondary btn--outline" download="CV-Julio-Pintos-Fullstack-Developer.pdf" target="_blank" rel="noopener">
@@ -195,7 +197,7 @@
               <i class="fas fa-download"></i>
             </a>
             <a href="#proyectos" class="btn btn--tertiary btn--ghost">
-              <span>Ver Proyectos</span>
+              <span>Ver mi trabajo</span>
               <i class="fas fa-eye"></i>
             </a>
           </div>
@@ -607,7 +609,7 @@
         <div class="proyectos-grid">
           <article class="proyecto-card proyecto-card--featured" tabindex="0" data-aos="zoom-in" data-aos-delay="100">
             <div class="proyecto-card__image">
-              <img src="Img/carrito de compras.jpg" alt="Captura de pantalla del Carrito de Compras" loading="lazy" />
+              <img src="Img/carrito de compras.jpg" alt="Captura de pantalla del Carrito de Compras" loading="lazy" width="600" height="400" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <i class="fab fa-react" aria-label="React" title="React" data-tooltip="React"></i>
@@ -618,7 +620,7 @@
             </div>
             <div class="proyecto-card__content">
               <h3 class="proyecto-card__title">Carrito de Compras WebXpert</h3>
-              <p class="proyecto-card__desc">E-commerce SPA responsiva con catálogo, filtros, búsqueda, gestión de carrito y checkout. Implementada con React, Vite, JavaScript ES6+, CSS3 modular y consumo de API REST. Optimizada para UX, performance y mobile.</p>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Crear un e-commerce completo con experiencia fluida. <strong>Solución:</strong> SPA responsiva con React y Vite, catálogo interactivo, filtros avanzados y checkout optimizado. <strong>Resultado:</strong> Tiempo de carga < 2s, experiencia mobile-first y conversión optimizada.</p>
               <div class="proyecto-card__features">
                 <span class="feature">React + Vite</span>
                 <span class="feature">JavaScript ES6+</span>
@@ -638,7 +640,7 @@
           
           <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="200">
             <div class="proyecto-card__image">
-              <img src="Img/proyecto2.jpg" alt="Captura de pantalla de la Landing para WebXpert" loading="lazy" />
+              <img src="Img/proyecto2.jpg" alt="Captura de pantalla de la Landing para WebXpert" loading="lazy" width="600" height="400" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
@@ -649,7 +651,7 @@
             </div>
             <div class="proyecto-card__content">
               <h3 class="proyecto-card__title">Landing para WebXpert</h3>
-              <p class="proyecto-card__desc">Sitio institucional moderno con diseño responsive y animaciones SVG. Optimizado para conversión y experiencia de usuario.</p>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Posicionar WebXpert como agencia digital líder. <strong>Solución:</strong> Landing moderna con animaciones SVG, diseño responsive y SEO técnico. <strong>Resultado:</strong> Aumento del 40% en consultas y mejor posicionamiento en búsquedas locales.</p>
               <div class="proyecto-card__features">
                 <span class="feature">Responsive Design</span>
                 <span class="feature">Animaciones SVG</span>
@@ -668,7 +670,7 @@
           
           <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="300">
             <div class="proyecto-card__image">
-              <img src="Img/oudin.jpg" alt="Captura de pantalla del sitio Oudin, Duarte & Asociados" loading="lazy" />
+              <img src="Img/oudin.jpg" alt="Captura de pantalla del sitio Oudin, Duarte & Asociados" loading="lazy" width="600" height="400" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
@@ -680,7 +682,7 @@
             </div>
             <div class="proyecto-card__content">
               <h3 class="proyecto-card__title">Oudin, Duarte & Asociados</h3>
-              <p class="proyecto-card__desc">Sitio web institucional para estudio jurídico, con enfoque en experiencia de usuario, accesibilidad y optimización SEO. Incluye presentación de servicios, equipo, publicaciones y contacto.</p>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Modernizar presencia digital de estudio jurídico. <strong>Solución:</strong> Sitio institucional accesible con WCAG AA, SEO optimizado y diseño profesional. <strong>Resultado:</strong> Mejora en credibilidad y aumento de consultas online.</p>
               <div class="proyecto-card__features">
                 <span class="feature">Responsive Design</span>
                 <span class="feature">SEO Optimizado</span>
@@ -698,7 +700,7 @@
           </article>
           <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="400">
             <div class="proyecto-card__image">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="DevXpert Runner: El Juego del Desarrollador" loading="lazy" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="DevXpert Runner: El Juego del Desarrollador" loading="lazy" width="600" height="400" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
@@ -727,7 +729,7 @@
           </article>
           <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="500">
             <div class="proyecto-card__image">
-              <img src="Img/web-consecionario.jpg" alt="Captura de pantalla de Concesionario Web" loading="lazy" />
+              <img src="Img/web-consecionario.jpg" alt="Captura de pantalla de Concesionario Web" loading="lazy" width="600" height="400" />
               <div class="proyecto-card__overlay">
                 <div class="proyecto-card__tech-stack">
                   <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
@@ -738,7 +740,7 @@
             </div>
             <div class="proyecto-card__content">
               <h3 class="proyecto-card__title">Concesionario Web</h3>
-              <p class="proyecto-card__desc">Sitio web moderno y responsivo para concesionaria de autos. Permite visualizar catálogo, detalles de vehículos, filtros avanzados y contacto directo. Optimizado para experiencia de usuario y dispositivos móviles.</p>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Mostrar catálogo de vehículos de forma atractiva. <strong>Solución:</strong> Plataforma moderna con filtros avanzados, galería interactiva y contacto directo. <strong>Resultado:</strong> Mejor experiencia de usuario y aumento en tiempo de navegación.</p>
               <div class="proyecto-card__features">
                 <span class="feature">Catálogo de vehículos</span>
                 <span class="feature">Filtros avanzados</span>
@@ -900,7 +902,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

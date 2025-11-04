@@ -124,22 +124,91 @@ document.addEventListener('DOMContentLoaded', () => {
 // =========================
 // 📱 PANTALLA DE CARGA
 // =========================
-// Muestra una pantalla de carga al entrar al sitio y la oculta después de un tiempo.
+// Muestra una pantalla de carga al entrar al sitio y la oculta cuando los recursos críticos están listos.
 function initializeLoadingScreen() {
     const loadingScreen = document.querySelector('#loading-screen');
     const content = document.querySelector('.content');
+    const loadingProgress = document.querySelector('.loading-progress');
     
-    if (loadingScreen && content) {
-        // Simulo un tiempo de carga
+    if (!loadingScreen || !content) return;
+    
+    // Recursos críticos a cargar
+    const criticalResources = [
+        document.querySelector('link[rel="stylesheet"]'),
+        document.querySelector('img[src*="foto_Perfil"]'),
+        document.fonts.ready
+    ].filter(Boolean);
+    
+    let loadedResources = 0;
+    const totalResources = criticalResources.length + 1; // +1 para el DOM
+    
+    // Actualizar barra de progreso
+    function updateProgress(progress) {
+        if (loadingProgress) {
+            loadingProgress.style.width = progress + '%';
+        }
+    }
+    
+    // Verificar si el DOM está listo
+    if (document.readyState === 'complete') {
+        loadedResources++;
+        updateProgress((loadedResources / totalResources) * 100);
+    } else {
+        window.addEventListener('load', () => {
+            loadedResources++;
+            updateProgress((loadedResources / totalResources) * 100);
+        });
+    }
+    
+    // Verificar recursos críticos
+    Promise.all(criticalResources.map(resource => {
+        if (resource instanceof Promise) {
+            return resource;
+        } else if (resource instanceof HTMLLinkElement) {
+            return new Promise((resolve) => {
+                if (resource.sheet) {
+                    resolve();
+                } else {
+                    resource.addEventListener('load', resolve);
+                    resource.addEventListener('error', resolve); // Continuar aunque haya error
+                }
+            });
+        } else if (resource instanceof HTMLImageElement) {
+            return new Promise((resolve) => {
+                if (resource.complete) {
+                    resolve();
+                } else {
+                    resource.addEventListener('load', resolve);
+                    resource.addEventListener('error', resolve);
+                }
+            });
+        }
+        return Promise.resolve();
+    })).then(() => {
+        loadedResources = totalResources;
+        updateProgress(100);
+        
+        // Esperar un mínimo para mostrar la animación
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.pointerEvents = 'none';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 300);
+        }, 500);
+    }).catch(() => {
+        // Si hay error, ocultar después de un tiempo mínimo
         setTimeout(() => {
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 content.style.opacity = '1';
                 content.style.transform = 'translateY(0)';
-            }, 500);
-        }, 1500);
-    }
+            }, 300);
+        }, 1000);
+    });
 }
 
 // =========================
@@ -408,30 +477,79 @@ function showNotification(message, type = 'info') {
 function initializeMobileMenu() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
     
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !expanded);
-            navMenu.classList.toggle('nav-open');
-        });
+    if (!navToggle || !navMenu) return;
+    
+    function openMenu() {
+        navToggle.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('nav-open');
+        if (navOverlay) {
+            navOverlay.classList.add('active');
+            navOverlay.setAttribute('aria-hidden', 'false');
+        }
+        document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+    }
+    
+    function closeMenu() {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('nav-open');
+        if (navOverlay) {
+            navOverlay.classList.remove('active');
+            navOverlay.setAttribute('aria-hidden', 'true');
+        }
+        document.body.style.overflow = ''; // Restaurar scroll
+    }
+    
+    // Toggle del menú
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
 
-        // Cierro el menú al hacer clic en un enlace
-        navMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                navMenu.classList.remove('nav-open');
-                navToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
+    // Cerrar al hacer clic en un enlace
+    navMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeMenu();
+        }
+    });
 
-        // Cierro el menú al hacer clic fuera
+    // Cerrar al hacer clic en el overlay
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMenu);
+    }
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+        }
+    });
+
+    // Cerrar al hacer clic fuera (solo en desktop)
+    if (window.innerWidth > 700) {
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                navMenu.classList.remove('nav-open');
-                navToggle.setAttribute('aria-expanded', 'false');
+                closeMenu();
             }
         });
     }
+    
+    // Cerrar menú al redimensionar ventana si es necesario
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 700 && navMenu.classList.contains('nav-open')) {
+                closeMenu();
+            }
+        }, 250);
+    });
 }
 
 // =========================
@@ -466,21 +584,66 @@ function initializeTooltips() {
 // Permite copiar el email al portapapeles desde cualquier botón con la clase .btn-copy
 function initializeCopyButtons() {
     document.querySelectorAll('.btn-copy').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', async (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const email = btn.getAttribute('data-copy');
-            if (email && navigator.clipboard) {
-                navigator.clipboard.writeText(email).then(() => {
+            
+            if (!email) {
+                showNotification('No hay email para copiar', 'error');
+                return;
+            }
+            
+            // Intentar usar Clipboard API moderno
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(email);
                     btn.innerHTML = '<i class="fas fa-check"></i>';
+                    showNotification('Email copiado al portapapeles', 'success');
                     setTimeout(() => {
                         btn.innerHTML = '<i class="fas fa-copy"></i>';
                     }, 1500);
-                }).catch(() => {
-                    showNotification('Error al copiar el email', 'error');
-                });
+                } catch (err) {
+                    console.error('Error al copiar:', err);
+                    // Fallback para navegadores antiguos
+                    fallbackCopyToClipboard(email, btn);
+                }
+            } else {
+                // Fallback para navegadores que no soportan Clipboard API
+                fallbackCopyToClipboard(email, btn);
             }
         });
     });
+}
+
+// Fallback para copiar al portapapeles en navegadores antiguos
+function fallbackCopyToClipboard(text, btn) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            showNotification('Email copiado al portapapeles', 'success');
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-copy"></i>';
+            }, 1500);
+        } else {
+            showNotification('No se pudo copiar el email. Por favor cópialo manualmente.', 'error');
+        }
+    } catch (err) {
+        console.error('Error en fallback copy:', err);
+        showNotification('No se pudo copiar el email. Por favor cópialo manualmente.', 'error');
+    } finally {
+        document.body.removeChild(textArea);
+    }
 }
 
 // =========================
@@ -568,21 +731,84 @@ document.querySelectorAll('.btn-details').forEach(btn => {
 // Este bloque hace que el formulario de contacto envíe los datos directo a mi WhatsApp. Toma los datos del formulario, los arma en un mensaje y abre WhatsApp con el mensaje listo para enviar a mi número.
 document.addEventListener('DOMContentLoaded', function() {
   const waForm = document.getElementById('whatsapp-contact-form');
-  if (waForm) {
-    waForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('wa-name').value.trim();
-      const email = document.getElementById('wa-email').value.trim();
-      const message = document.getElementById('wa-message').value.trim();
-      if (!name || !email || !message) {
-        alert('Por favor completa todos los campos');
-        return;
-      }
+  if (!waForm) return;
+  
+  waForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById('wa-name');
+    const emailInput = document.getElementById('wa-email');
+    const messageInput = document.getElementById('wa-message');
+    const submitBtn = waForm.querySelector('button[type="submit"]');
+    
+    if (!nameInput || !emailInput || !messageInput) {
+      showNotification('Error: No se encontraron los campos del formulario', 'error');
+      return;
+    }
+    
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+    
+    // Validación de campos
+    if (!name || !email || !message) {
+      showNotification('Por favor completa todos los campos', 'error');
+      // Resaltar campos vacíos
+      if (!name) nameInput.focus();
+      else if (!email) emailInput.focus();
+      else if (!message) messageInput.focus();
+      return;
+    }
+    
+    // Validación básica de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showNotification('Por favor ingresa un email válido', 'error');
+      emailInput.focus();
+      return;
+    }
+    
+    // Deshabilitar botón durante el proceso
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    }
+    
+    try {
       const phone = '3764724207';
-      const text = encodeURIComponent(`Hola! Soy ${name} (${email}).%0A${message}`);
-      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-    });
-  }
+      const text = encodeURIComponent(`Hola! Soy ${name} (${email}).%0A%0A${message}`);
+      const whatsappUrl = `https://wa.me/${phone}?text=${text}`;
+      
+      // Intentar abrir WhatsApp
+      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      
+      if (whatsappWindow) {
+        showNotification('Redirigiendo a WhatsApp...', 'success');
+        // Limpiar formulario después de un breve delay
+        setTimeout(() => {
+          waForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar por WhatsApp';
+          }
+        }, 1000);
+      } else {
+        // Si el popup fue bloqueado, mostrar mensaje alternativo
+        showNotification('Por favor permite popups o copia este link: ' + whatsappUrl, 'info');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar por WhatsApp';
+        }
+      }
+    } catch (error) {
+      console.error('Error al abrir WhatsApp:', error);
+      showNotification('Error al abrir WhatsApp. Por favor intenta nuevamente.', 'error');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar por WhatsApp';
+      }
+    }
+  });
 });
 // FIN DEL ARCHIVO: Todo lo que está arriba lo hice para que mi portfolio sea más interactivo, profesional y fácil de usar para mis visitantes (¡y para mí!). 
 
