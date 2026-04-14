@@ -2,7 +2,7 @@
   Estilos solo para la vista exportable a PDF del CV.
   Paleta alineada con style.css (--primary indigo, --accent).
 */
-/* Contenedor vacío no ocupa sitio (evita foco / layout raro) */
+/* Vacío: no pintar (html2canvas no debe capturar un nodo vacío) */
 .cv-pdf-root:empty {
   display: none;
 }
@@ -21,10 +21,6 @@
   --cv-soft: #f8fafc;
   --cv-font: 'Poppins', system-ui, sans-serif;
 
-  /* NO usar left:-9999px: html2canvas suele devolver lienzo en blanco al estar fuera del área pintada */
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 794px;
   max-width: 794px;
   padding: 36px 40px 40px;
@@ -34,16 +30,11 @@
   font-size: 10.5pt;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: -1;
-}
 
-/* Durante la captura: el CV es visible para html2canvas; el backdrop (z mayor) lo tapa en pantalla */
-.cv-pdf-root.cv-pdf-root--capturing {
-  visibility: visible !important;
-  z-index: 100001 !important;
-  pointer-events: none !important;
+  /*
+    No usar visibility:hidden ni opacity:0 aquí: html2canvas rasteriza ese estado y el PDF sale en blanco.
+    Posición/z-index/visibilidad efectiva se aplican por JS justo antes de capturar (tapado por .cv-pdf-backdrop).
+  */
 }
 
 .cv-pdf-backdrop {

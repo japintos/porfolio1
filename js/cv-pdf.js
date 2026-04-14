@@ -16,6 +16,32 @@
       .replace(/"/g, '&quot;');
   }
 
+  /** URL absoluta (válida en GitHub Pages con subruta, p. ej. /porfolio1/) */
+  function resolveAssetUrl(relativePath) {
+    try {
+      return new URL(relativePath, window.location.href).href;
+    } catch (_) {
+      return relativePath;
+    }
+  }
+
+  /**
+   * Estilos críticos para que html2canvas pinte el nodo (sin visibility:hidden del stylesheet).
+   */
+  function applyCaptureStyles(el) {
+    el.style.position = 'fixed';
+    el.style.left = '0';
+    el.style.top = '0';
+    el.style.zIndex = '100001';
+    el.style.visibility = 'visible';
+    el.style.opacity = '1';
+    el.style.pointerEvents = 'none';
+    el.style.width = '794px';
+    el.style.maxWidth = '794px';
+    el.style.overflow = 'visible';
+    el.style.backgroundColor = '#ffffff';
+  }
+
   const CV_DATA = {
     name: 'Julio Pintos',
     photoSrc: 'Img/foto_Perfil.jpg',
@@ -160,9 +186,10 @@
 
     let html = `<div class="cv-pdf-inner">`;
 
+    const photoUrl = resolveAssetUrl(CV_DATA.photoSrc);
     html += `<header class="cv-header cv-keep">
       <div class="cv-photo-wrap">
-        <img src="${esc(CV_DATA.photoSrc)}" alt="" width="112" height="112" />
+        <img src="${esc(photoUrl)}" alt="" width="112" height="112" decoding="sync" loading="eager" />
       </div>
       <div class="cv-header-main">
         <h1 class="cv-name">${esc(CV_DATA.name)}</h1>
@@ -294,12 +321,14 @@
     backdrop.setAttribute('aria-hidden', 'true');
     backdrop.textContent = 'Generando PDF…';
 
+    const photoResolved = resolveAssetUrl(CV_DATA.photoSrc);
+
+    document.body.appendChild(backdrop);
+    applyCaptureStyles(root);
     root.innerHTML = renderCvHtml();
     root.setAttribute('aria-hidden', 'false');
-    root.classList.add('cv-pdf-root--capturing');
-    document.body.appendChild(backdrop);
 
-    await preloadImage(CV_DATA.photoSrc);
+    await preloadImage(photoResolved);
     if (document.fonts && document.fonts.ready) {
       try {
         await document.fonts.ready;
@@ -307,7 +336,8 @@
         /* ignore */
       }
     }
-    await new Promise((r) => setTimeout(r, 200));
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    await new Promise((r) => setTimeout(r, 280));
 
     const opt = {
       margin: [10, 10, 10, 10],
@@ -320,10 +350,26 @@
         letterRendering: true,
         logging: false,
         backgroundColor: '#ffffff',
+        onclone: (clonedDoc) => {
+          const node = clonedDoc.getElementById('cv-pdf-root');
+          if (!node) return;
+          node.style.visibility = 'visible';
+          node.style.opacity = '1';
+          node.style.position = 'relative';
+          node.style.left = '0';
+          node.style.top = '0';
+          node.style.width = '794px';
+          node.style.maxWidth = '794px';
+          node.style.backgroundColor = '#ffffff';
+          node.querySelectorAll('img').forEach((img) => {
+            img.style.visibility = 'visible';
+            img.style.opacity = '1';
+          });
+        },
       },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       pagebreak: {
-        mode: ['avoid-all', 'css', 'legacy'],
+        mode: ['css', 'legacy'],
         before: '.cv-break-before',
         avoid: ['.cv-keep', '.cv-exp-block', '.cv-edu-block', '.cv-highlight'],
       },
@@ -332,7 +378,7 @@
     try {
       await html2pdf().set(opt).from(root).save();
     } finally {
-      root.classList.remove('cv-pdf-root--capturing');
+      root.removeAttribute('style');
       root.innerHTML = '';
       root.setAttribute('aria-hidden', 'true');
       backdrop.remove();
