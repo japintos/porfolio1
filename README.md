@@ -62,28 +62,18 @@ Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer
 ```
 porfolio1/
 ├── app/                          # Next.js (App Router)
-│   ├── layout.tsx                # Layout raíz, metadata
+│   ├── layout.tsx
 │   ├── page.tsx                  # “/” — iframe → /index.html
-│   ├── globals.css               # Estilos mínimos del shell Next
-│   └── api/
-│       └── cv/
-│           └── route.tsx         # GET /api/cv → PDF (react-pdf)
-├── components/
-│   └── pdf/
-│       └── CvPdfDocument.tsx     # Maquetación del PDF del CV
-├── lib/
-│   └── cv-data.ts                # Datos del CV (fuente única para el PDF)
-├── public/                       # Archivos estáticos (URL desde la raíz del sitio)
-│   ├── index.html                # Portfolio principal (HTML completo)
-│   ├── devrunner.html            # Minijuego DevXpert Runner
-│   ├── css/                      # style.css, cv-pdf.css (legacy visual), devrunner.css
-│   ├── js/                       # main.js, devrunner.js, cv-pdf.js (legacy cliente, opcional)
-│   └── Img/                      # Imágenes (foto de perfil, capturas de proyectos, etc.)
-├── css/                          # Copia/legacy en raíz (útil si abres index.html sin Next)
-├── js/
-├── Img/
-├── index.html                    # Legacy: apertura directa sin servidor Next
-├── devrunner.html
+│   ├── globals.css
+│   └── api/cv/route.tsx          # GET /api/cv → PDF
+├── components/pdf/CvPdfDocument.tsx
+├── lib/cv-data.ts                # Datos del CV (PDF)
+├── public/                       # Sitio estático (sirve Vercel en /)
+│   ├── index.html
+│   ├── devrunner.html
+│   ├── css/                      # style.css, devrunner.css
+│   ├── js/                       # main.js, devrunner.js
+│   └── Img/
 ├── package.json
 ├── next.config.mjs
 ├── tsconfig.json
@@ -135,9 +125,9 @@ Abre **http://localhost:3000**: verás el portfolio dentro del iframe (contenido
 | `npm run build` | Build de producción |
 | `npm run start` | Servidor tras `build` (prueba local del artefacto) |
 
-### Sin Node (solo HTML estático)
+### Solo archivos estáticos (sin Next)
 
-Todavía puedes abrir **`index.html`** de la raíz o servir la carpeta con un servidor estático (`npx serve .`), pero **no** tendrás la ruta **`/api/cv`**; el botón de CV en ese modo apuntaría a una API inexistente salvo que adaptes el enlace.
+Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás el sitio, pero **`/api/cv`** no existirá y el botón de descarga del CV no funcionará.
 
 ---
 
@@ -148,7 +138,7 @@ Todavía puedes abrir **`index.html`** de la raíz o servir la carpeta con un se
 3. Build: `npm run build`, output estándar de Next.
 4. Variables de entorno: no son obligatorias para el PDF; el origen para la foto se obtiene de la petición (`request.url`).
 
-**GitHub Pages:** el repo puede seguir publicando una versión estática antigua si tienes Pages activado; la versión recomendada con PDF por API es **Vercel**.
+**GitHub Pages:** no cubre la API de Next; para CV en PDF y rutas dinámicas usa **Vercel** (u otro host con Node).
 
 ---
 

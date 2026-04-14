@@ -94,8 +94,6 @@ html {
 }
 body {
   font-family: var(--font-family);
-  /* Degradado acorde a la paleta; si añades Img/fondo2.jpg al repo, puedes usar:
-     background: url('Img/fondo2.jpg') center/cover no-repeat fixed, ... */
   background: linear-gradient(145deg, #eef2ff 0%, var(--background-color) 45%, #e0f2fe 100%) center center/cover no-repeat fixed;
   color: var(--text-color);
   min-height: 100vh;
