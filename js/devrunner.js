@@ -351,7 +351,3 @@ function drawStartScreen() {
 }
 
 drawStartScreen();
-
-// TODO: Implementar el jugador, obstáculos, colisiones y reinicio
-
-// ... Continuará ... 
