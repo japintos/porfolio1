@@ -289,11 +289,25 @@
     const root = document.getElementById('cv-pdf-root');
     if (!root) return;
 
+    const backdrop = document.createElement('div');
+    backdrop.className = 'cv-pdf-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.textContent = 'Generando PDF…';
+
     root.innerHTML = renderCvHtml();
     root.setAttribute('aria-hidden', 'false');
+    root.classList.add('cv-pdf-root--capturing');
+    document.body.appendChild(backdrop);
 
     await preloadImage(CV_DATA.photoSrc);
-    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    if (document.fonts && document.fonts.ready) {
+      try {
+        await document.fonts.ready;
+      } catch (_) {
+        /* ignore */
+      }
+    }
+    await new Promise((r) => setTimeout(r, 200));
 
     const opt = {
       margin: [10, 10, 10, 10],
@@ -315,10 +329,14 @@
       },
     };
 
-    await html2pdf().set(opt).from(root).save();
-
-    root.innerHTML = '';
-    root.setAttribute('aria-hidden', 'true');
+    try {
+      await html2pdf().set(opt).from(root).save();
+    } finally {
+      root.classList.remove('cv-pdf-root--capturing');
+      root.innerHTML = '';
+      root.setAttribute('aria-hidden', 'true');
+      backdrop.remove();
+    }
   }
 
   function init() {

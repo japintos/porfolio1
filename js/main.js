@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTooltips();
     initializeCopyButtons();
     initializeScrollTopButton();
-    initializeSkillIcons(); // Inicializo la selección de iconos de habilidades
 });
 
 // =========================

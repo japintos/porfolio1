@@ -52,6 +52,7 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cv-pdf.css" />
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -192,10 +193,10 @@
               <span>Agenda una consulta gratis</span>
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="assets/cv-julio-pintos.pdf" class="btn btn--secondary btn--outline" download="CV-Julio-Pintos-Fullstack-Developer.pdf" target="_blank" rel="noopener">
+            <button type="button" id="cv-download-btn" class="btn btn--secondary btn--outline" aria-label="Descargar CV en PDF generado desde el portafolio">
               <span>Descargar CV</span>
-              <i class="fas fa-download"></i>
-            </a>
+              <i class="fas fa-download" aria-hidden="true"></i>
+            </button>
             <a href="#proyectos" class="btn btn--tertiary btn--ghost">
               <span>Ver mi trabajo</span>
               <i class="fas fa-eye"></i>
@@ -946,7 +947,11 @@
     </div>
   </footer>
 
+  <!-- Contenedor off-screen para render del PDF (html2canvas) -->
+  <div id="cv-pdf-root" class="cv-pdf-root" aria-hidden="true"></div>
+
   <script src="js/main.js" defer></script>
+  <script src="js/cv-pdf.js" defer></script>
 </body>
 
 </html>

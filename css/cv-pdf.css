@@ -1,0 +1,402 @@
+/*
+  Estilos solo para la vista exportable a PDF del CV.
+  Paleta alineada con style.css (--primary indigo, --accent).
+*/
+/* Contenedor vacío no ocupa sitio (evita foco / layout raro) */
+.cv-pdf-root:empty {
+  display: none;
+}
+
+.cv-pdf-root {
+  overflow: visible;
+  box-sizing: border-box;
+  --cv-primary: #1e1b4b;
+  --cv-secondary: #312e81;
+  --cv-accent: #6366f1;
+  --cv-accent-dark: #4f46e5;
+  --cv-text: #1e293b;
+  --cv-muted: #475569;
+  --cv-bg: #ffffff;
+  --cv-border: #e5e7eb;
+  --cv-soft: #f8fafc;
+  --cv-font: 'Poppins', system-ui, sans-serif;
+
+  /* NO usar left:-9999px: html2canvas suele devolver lienzo en blanco al estar fuera del área pintada */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 794px;
+  max-width: 794px;
+  padding: 36px 40px 40px;
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  font-family: var(--cv-font);
+  font-size: 10.5pt;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Durante la captura: el CV es visible para html2canvas; el backdrop (z mayor) lo tapa en pantalla */
+.cv-pdf-root.cv-pdf-root--capturing {
+  visibility: visible !important;
+  z-index: 100001 !important;
+  pointer-events: none !important;
+}
+
+.cv-pdf-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100002;
+  background: rgba(248, 250, 252, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family, system-ui, sans-serif);
+  font-size: 1rem;
+  color: #475569;
+  pointer-events: none;
+}
+
+.cv-pdf-root *,
+.cv-pdf-root *::before,
+.cv-pdf-root *::after {
+  box-sizing: border-box;
+}
+
+/* Evitar cortes dentro de bloques lógicos */
+.cv-keep,
+.cv-exp-block,
+.cv-edu-block,
+.cv-proj-block,
+.cv-highlight-grid .cv-highlight {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-section {
+  margin-bottom: 1.1rem;
+}
+
+.cv-section-title {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: var(--cv-primary);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--cv-accent);
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+/* Cabecera */
+.cv-header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-photo-wrap {
+  flex-shrink: 0;
+  width: 112px;
+  height: 112px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--cv-accent);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.22);
+}
+
+.cv-photo-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cv-header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.cv-name {
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--cv-primary);
+  line-height: 1.15;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.cv-tagline {
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--cv-accent-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.cv-contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  font-size: 8.5pt;
+  color: var(--cv-muted);
+}
+
+.cv-contact-bar span {
+  white-space: nowrap;
+}
+
+.cv-contact-bar a {
+  color: var(--cv-accent-dark);
+  text-decoration: none;
+}
+
+/* Perfil */
+.cv-summary {
+  font-size: 10pt;
+  color: var(--cv-text);
+  margin: 0 0 0.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.cv-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cv-stat {
+  background: var(--cv-soft);
+  border: 1px solid var(--cv-border);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  font-size: 8.5pt;
+}
+
+.cv-stat strong {
+  color: var(--cv-accent-dark);
+}
+
+.cv-highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+.cv-highlight {
+  background: linear-gradient(135deg, #fafbff 0%, #f1f5f9 100%);
+  border: 1px solid var(--cv-border);
+  border-radius: 8px;
+  padding: 0.4rem 0.5rem;
+  font-size: 8.5pt;
+}
+
+.cv-highlight h4 {
+  margin: 0 0 0.2rem;
+  font-size: 9pt;
+  color: var(--cv-secondary);
+  font-weight: 700;
+}
+
+.cv-highlight p {
+  margin: 0;
+  color: var(--cv-muted);
+  line-height: 1.35;
+}
+
+/* Experiencia */
+.cv-exp-block {
+  margin-bottom: 0.65rem;
+  padding: 0.55rem 0.65rem;
+  background: var(--cv-soft);
+  border-radius: 8px;
+  border-left: 4px solid var(--cv-accent);
+}
+
+.cv-exp-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cv-exp-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--cv-primary);
+  margin: 0;
+}
+
+.cv-exp-date {
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--cv-accent-dark);
+  white-space: nowrap;
+}
+
+.cv-exp-summary {
+  font-size: 9.5pt;
+  color: var(--cv-muted);
+  margin: 0 0 0.35rem;
+}
+
+.cv-exp-list {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 9pt;
+  color: var(--cv-text);
+}
+
+.cv-exp-list li {
+  margin-bottom: 0.25rem;
+}
+
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.cv-tag {
+  font-size: 7.5pt;
+  padding: 0.15rem 0.4rem;
+  background: #fff;
+  border: 1px solid var(--cv-border);
+  border-radius: 4px;
+  color: var(--cv-secondary);
+}
+
+/* Formación: compacta */
+.cv-edu-block {
+  margin-bottom: 0.35rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--cv-accent-light, #a5b4fc);
+}
+
+.cv-edu-row {
+  font-size: 9pt;
+  margin-bottom: 0.2rem;
+}
+
+.cv-edu-row .cv-edu-years {
+  font-weight: 700;
+  color: var(--cv-accent-dark);
+  min-width: 5.5rem;
+  display: inline-block;
+}
+
+.cv-edu-inst {
+  font-weight: 600;
+  color: var(--cv-primary);
+}
+
+.cv-edu-meta {
+  font-size: 8.5pt;
+  color: var(--cv-muted);
+  margin-left: 0;
+  display: block;
+  padding-left: 5.5rem;
+}
+
+.cv-edu-sub {
+  font-size: 8pt;
+  color: var(--cv-muted);
+}
+
+/* Santander agrupado */
+.cv-edu-group-title {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--cv-secondary);
+  margin: 0.5rem 0 0.25rem;
+  break-after: avoid;
+}
+
+.cv-edu-bullet {
+  font-size: 8.5pt;
+  margin: 0.15rem 0 0.15rem 0.75rem;
+  padding-left: 0.35rem;
+  border-left: 1px solid var(--cv-border);
+}
+
+/* Skills */
+.cv-skills-block {
+  font-size: 9pt;
+  margin-bottom: 0.35rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-skills-label {
+  font-weight: 700;
+  color: var(--cv-secondary);
+  display: inline;
+  margin-right: 0.35rem;
+}
+
+.cv-skills-text {
+  color: var(--cv-text);
+}
+
+/* Proyectos */
+.cv-proj-block {
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--cv-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cv-proj-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--cv-primary);
+  margin: 0 0 0.2rem;
+}
+
+.cv-proj-desc {
+  font-size: 9pt;
+  color: var(--cv-muted);
+  margin: 0 0 0.3rem;
+  text-align: justify;
+}
+
+.cv-proj-tech {
+  font-size: 8pt;
+  color: var(--cv-accent-dark);
+}
+
+/* Pie */
+.cv-footer {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--cv-border);
+  font-size: 8pt;
+  color: var(--cv-muted);
+  text-align: center;
+  break-inside: avoid;
+}
+
+.cv-footer a {
+  color: var(--cv-accent-dark);
+  text-decoration: none;
+}
+
+/* Salto sugerido antes de secciones pesadas (html2pdf respeta mode css/legacy) */
+.cv-break-before {
+  break-before: page;
+  page-break-before: always;
+}
