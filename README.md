@@ -1,233 +1,182 @@
 # Portafolio Profesional – Julio Pintos
 
-[![GitHub](https://img.shields.io/badge/GitHub-japintos-181717?logo=github)](https://github.com/japintos)
+[![GitHub](https://img.shields.io/badge/GitHub-japintos-181717?logo=github)](https://github.com/japintos/porfolio1)
 [![WebXpert](https://img.shields.io/badge/WebXpert-Socio%20Fundador-6366f1)](https://www.webxpert.com.ar)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-julio--pintos-0077b5?logo=linkedin)](https://www.linkedin.com/in/julio-pintos-0638a8200/)
 
 ¡Bienvenido a mi portafolio web! Soy **Senior Fullstack Developer**, **Socio Fundador & Tech Lead** de WebXpert, con 18+ años de experiencia transformando ideas en soluciones digitales escalables.
 
+**Despliegue actual:** la aplicación corre en **[Vercel](https://vercel.com)** con **[Next.js](https://nextjs.org)**. El contenido visible del sitio sigue siendo HTML/CSS/JS estático servido desde la carpeta `public/`, y el **CV en PDF** se genera en el servidor con **`@react-pdf/renderer`** (sin depender del canvas del navegador).
+
 ---
 
-## 🚀 Descripción
+## Descripción
 
 Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer** y emprendedor tecnológico. Incluye mi experiencia empresarial, formación continua, stack tecnológico actualizado y proyectos que demuestran mi capacidad para crear soluciones web robustas que realmente funcionen.
 
-**Objetivo**: Mostrar de manera auténtica y profesional mi trayectoria, habilidades y enfoque colaborativo en el desarrollo de software.
+**Objetivo:** Mostrar de manera auténtica y profesional mi trayectoria, habilidades y enfoque colaborativo en el desarrollo de software.
 
 ---
 
-## 👨‍💼 Sobre Mí
+## Stack del proyecto (repositorio)
 
-- **🏢 Socio Fundador & Tech Lead** en [WebXpert](https://www.webxpert.com.ar) (Marzo 2025 - Actualidad)
-- **💻 18+ años** de experiencia en desarrollo web y soluciones empresariales
-- **🎓 Formación continua**: Análisis de Sistemas, Python, eCommerce, Storytelling Digital
-- **🌱 Enfoque**: Soluciones prácticas, trabajo en equipo, tecnologías adecuadas para cada proyecto
+| Área | Tecnología |
+|------|------------|
+| Framework | **Next.js 14** (App Router) |
+| Lenguaje | **TypeScript** |
+| PDF del CV | **`@react-pdf/renderer`** (generación en servidor) |
+| Estilos del sitio | CSS propio (`public/css/style.css`, variables CSS) |
+| Contenido estático | HTML en `public/index.html`, assets en `public/` |
+| Hosting | **Vercel** (producción) |
 
----
+### Frontend (perfil profesional — contenido del sitio)
 
-## 🛠️ Stack Tecnológico
-
-### Frontend
 - **HTML5, CSS3, JavaScript**
-- **React.js**
+- **React.js** (en proyectos externos; el portfolio público es estático + Next como shell)
 - **Responsive Design & Mobile-First**
 
-### Backend
+### Backend / lenguajes (experiencia)
+
 - **Node.js**
-- **Python** *(certificación reciente 2025)*
+- **Python** *(certificación reciente)*
 - **C++, C#, Visual Basic**
 - **.NET Framework**
 
-### Bases de Datos
+### Bases de datos
+
 - **PostgreSQL, MySQL, MariaDB**
 - **SQL Server**
 - **Diseño y optimización de BD**
 
-### Herramientas & DevOps
+### Herramientas y entornos
+
 - **VS Code, Cursor IDE, Visual Studio**
 - **Git & GitHub**
-- **Scrum & Metodologías Ágiles**
+- **Scrum & metodologías ágiles**
 - **Linux, Windows, macOS**
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del proyecto
 
 ```
-portafolio/
-├── assets/                 # Archivos descargables (CV, documentos)
-├── css/
-│   ├── style.css          # Estilos principales con variables CSS
-│   └── devrunner.css      # Estilos del minijuego
-├── Img/
-│   ├── fondo.jpg          # Imágenes de fondo
-│   ├── foto_Perfil.jpg    # Foto de perfil profesional
-│   ├── carrito de compras.jpg
-│   ├── oudin.jpg          # Screenshots de proyectos
-│   ├── proyecto2.jpg
-│   └── web-consecionario.jpg
+porfolio1/
+├── app/                          # Next.js (App Router)
+│   ├── layout.tsx                # Layout raíz, metadata
+│   ├── page.tsx                  # “/” — iframe → /index.html
+│   ├── globals.css               # Estilos mínimos del shell Next
+│   └── api/
+│       └── cv/
+│           └── route.tsx         # GET /api/cv → PDF (react-pdf)
+├── components/
+│   └── pdf/
+│       └── CvPdfDocument.tsx     # Maquetación del PDF del CV
+├── lib/
+│   └── cv-data.ts                # Datos del CV (fuente única para el PDF)
+├── public/                       # Archivos estáticos (URL desde la raíz del sitio)
+│   ├── index.html                # Portfolio principal (HTML completo)
+│   ├── devrunner.html            # Minijuego DevXpert Runner
+│   ├── css/                      # style.css, cv-pdf.css (legacy visual), devrunner.css
+│   ├── js/                       # main.js, devrunner.js, cv-pdf.js (legacy cliente, opcional)
+│   └── Img/                      # Imágenes (foto de perfil, capturas de proyectos, etc.)
+├── css/                          # Copia/legacy en raíz (útil si abres index.html sin Next)
 ├── js/
-│   ├── main.js            # Funcionalidad principal
-│   └── devrunner.js       # Lógica del minijuego
-├── lang/                  # Archivos de internacionalización
-├── index.html             # Página principal
-├── devrunner.html         # Minijuego DevXpert Runner
-└── README.md              # Este archivo
+├── Img/
+├── index.html                    # Legacy: apertura directa sin servidor Next
+├── devrunner.html
+├── package.json
+├── next.config.mjs
+├── tsconfig.json
+└── README.md
 ```
 
----
-
-## ✨ Características Destacadas
-
-### 🎨 **Experiencia de Usuario**
-- **Diseño responsive** optimizado para todos los dispositivos
-- **Loading screen** profesional con barra de progreso
-- **Animaciones suaves** con IntersectionObserver
-- **Scroll progress bar** para mejor navegación
-- **Menú hamburguesa** intuitivo en móviles
-
-### 🚀 **Funcionalidades Avanzadas**
-- **Descarga de CV** en PDF con un click
-- **Formulario WhatsApp** directo con validación
-- **Copiar email** al portapapeles
-- **Tooltips informativos** en habilidades
-- **Modales de proyectos** con detalles técnicos
-- **Métricas verificables** de experiencia
-
-### ♿ **Accesibilidad & SEO**
-- **Skip links** para navegación por teclado
-- **ARIA labels** completos
-- **Schema.org** structured data
-- **Open Graph** y Twitter Cards
-- **Semántica HTML5** correcta
-- **Core Web Vitals** optimizados
-
-### 🎮 **Proyecto Especial: DevXpert Runner**
-Minijuego original desarrollado para WebXpert:
-- **Temática tech**: Desarrollador esquivando logos de tecnologías
-- **JavaScript puro**: Sin frameworks, optimizado
-- **Responsive**: Funciona en móviles y desktop
-- **Sonidos retro**: Activables/desactivables
-- **Dificultad progresiva**: Velocidad que aumenta
+- **`public/`** es lo que Vercel/Next sirve en la raíz del dominio (`/index.html`, `/css/...`, `/Img/...`).
+- La **página principal de Next** (`app/page.tsx`) incrusta ese HTML en un **iframe** para no duplicar todo el markup en JSX de golpe.
+- El **PDF del CV** no se arma con html2canvas en el cliente: la ruta **`/api/cv`** usa **`renderToBuffer`** de `@react-pdf/renderer` y los datos de **`lib/cv-data.ts`**.
 
 ---
 
-## 🏆 Proyectos Destacados
+## CV en PDF (cómo funciona)
 
-### 🛒 **Carrito de Compras WebXpert**
-E-commerce SPA completo con React y Vite
-- **Stack**: React, Vite, JavaScript ES6+, CSS3 modular
-- **Features**: Catálogo, filtros, búsqueda, carrito, checkout
-- **Demo**: [carritocompraswebxpert.vercel.app](https://carritocompraswebxpert.vercel.app/catalogo)
+1. El visitante pulsa **Descargar CV** en el hero (`public/index.html` → enlace a **`/api/cv`**).
+2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPdfDocument`** con **`renderToBuffer`** y responde `application/pdf`.
+3. Los textos y secciones del CV viven en **`lib/cv-data.ts`**. Si actualizas el contenido del CV, edita ese archivo y, si hace falta, el layout en **`components/pdf/CvPdfDocument.tsx`**.
 
-### 🌐 **Landing WebXpert**
-Sitio institucional moderno con animaciones SVG
-- **Stack**: HTML5, CSS3, JavaScript
-- **Features**: Responsive design, SEO optimizado
-- **Demo**: [www.webxpert.com.ar](https://www.webxpert.com.ar)
-
-### ⚖️ **Oudin, Duarte & Asociados**
-Sitio web institucional para estudio jurídico
-- **Stack**: HTML5, CSS3, JavaScript, UX/UI Design
-- **Features**: Accesibilidad, SEO, presentación profesional
-- **Demo**: [japintos.github.io/estudioOudin](https://japintos.github.io/estudioOudin/)
-
-### 🚗 **Concesionario Web**
-Plataforma para concesionaria con catálogo avanzado
-- **Stack**: HTML5, CSS3, JavaScript
-- **Features**: Filtros avanzados, responsive, contacto directo
-- **Demo**: [concesionarioweb.vercel.app](https://concesionarioweb.vercel.app/)
+Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`**).
 
 ---
 
-## 🎓 Formación & Certificaciones
+## Características destacadas (sitio)
 
-### 🎯 **Formación Principal**
-- **Técnico Superior en Análisis de Sistemas** - Instituto Combate Mbororé *(En curso)*
-- **Técnico en Informática** - EPET Nº1 "UNESCO" *(2000)*
-- **Ingeniería en Sistemas** - Universidad Americana *(Incompleto)*
-
-### 📜 **Certificaciones Recientes (2025)**
-- **Python** - Santander Open Academy *(8 horas)*
-- **Storytelling en Marketing Digital** - Santander Open Academy + University of Chicago *(8 horas)*
-- **Ecommerce para PyMEs** - Santander Open Academy + IE University *(6 horas)*
-
-### 🔧 **Especializaciones Técnicas (2024)**
-- **Técnico en Redes Informáticas** - Instituto Combate Mbororé
-- **Operador en Electrónica y Robótica** - Instituto Combate Mbororé
+- **Diseño responsive**, loading screen, animaciones con `IntersectionObserver`, barra de scroll, menú hamburguesa.
+- **Descarga de CV** vía **`GET /api/cv`** (PDF generado en servidor).
+- **Formulario WhatsApp**, copiar email, tooltips en habilidades, modales de proyectos.
+- **Accesibilidad y SEO:** skip links, ARIA, Schema.org, Open Graph, Twitter Cards.
+- **DevXpert Runner:** minijuego en **`/devrunner.html`** (HTML/CSS/JS).
 
 ---
 
-## 💼 Experiencia Profesional
+## Instalación y desarrollo local (Next.js)
 
-### 🚀 **WebXpert - Socio Fundador & Tech Lead** *(Marzo 2025 - Actualidad)*
-Agencia digital especializada en desarrollo web y estrategias digitales
-- Liderazgo técnico y arquitectura de soluciones escalables
-- Gestión de equipo y supervisión de proyectos end-to-end
-- Desarrollo de estrategias de transformación digital para PyMEs
-- Especialización en SEO técnico y optimización de performance
-
-### 💻 **Freelancer** *(2006 - Actualidad)*
-Desarrollo de soluciones informáticas para empresas locales
-- Análisis, diseño y desarrollo de aplicaciones web y desktop
-- Gestión completa de bases de datos (PostgreSQL, SQL Server, MySQL)
-- Auditoría de sistemas y optimización de rendimiento
-
-### 🏛️ **Poder Judicial de Misiones** *(2007 - Actualidad)*
-Soporte técnico y administración de infraestructura
-- Soporte técnico integral en entornos Windows, Linux y macOS
-- Administración de redes LAN/MAN y seguridad de sistemas
-- Mantenimiento de sistemas operativos y aplicaciones
-
----
-
-## ⚙️ Instalación y Uso
-
-### 🔧 **Clonar el Repositorio**
 ```bash
 git clone https://github.com/japintos/porfolio1.git
 cd porfolio1
+npm install
+npm run dev
 ```
 
-### 🌐 **Ejecutar Localmente**
-```bash
-# Simplemente abre index.html en tu navegador
-# O usa un servidor local:
-python -m http.server 8000
-# O con Node.js:
-npx serve .
-```
+Abre **http://localhost:3000**: verás el portfolio dentro del iframe (contenido desde **`/index.html`**). El PDF se prueba en **http://localhost:3000/api/cv**.
 
-### 📱 **Responsive Testing**
-El portafolio está optimizado para:
-- **Mobile**: 320px - 768px
-- **Tablet**: 768px - 1024px  
-- **Desktop**: 1024px+
+### Scripts útiles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Servidor de desarrollo Next |
+| `npm run build` | Build de producción |
+| `npm run start` | Servidor tras `build` (prueba local del artefacto) |
+
+### Sin Node (solo HTML estático)
+
+Todavía puedes abrir **`index.html`** de la raíz o servir la carpeta con un servidor estático (`npx serve .`), pero **no** tendrás la ruta **`/api/cv`**; el botón de CV en ese modo apuntaría a una API inexistente salvo que adaptes el enlace.
 
 ---
 
-## 🌐 Despliegue
+## Despliegue (Vercel)
 
-### ✅ **Plataformas Recomendadas**
-- **GitHub Pages** *(actual)*
-- **Netlify** 
-- **Vercel**
-- **Hosting tradicional**
+1. Conecta el repositorio en [Vercel](https://vercel.com).
+2. Framework preset: **Next.js** (detectado por `package.json`).
+3. Build: `npm run build`, output estándar de Next.
+4. Variables de entorno: no son obligatorias para el PDF; el origen para la foto se obtiene de la petición (`request.url`).
 
-### 🚀 **Deploy Automático**
-```bash
-# GitHub Pages (automático en push a main)
-git push origin main
-
-# Netlify (conectar repo)
-# Vercel (conectar repo)
-```
+**GitHub Pages:** el repo puede seguir publicando una versión estática antigua si tienes Pages activado; la versión recomendada con PDF por API es **Vercel**.
 
 ---
 
-## 🎨 Personalización
+## Personalización
 
-### 🎯 **Variables CSS**
+| Qué cambiar | Dónde |
+|-------------|--------|
+| Textos y secciones del **PDF** | `lib/cv-data.ts` y, si hace falta, `components/pdf/CvPdfDocument.tsx` |
+| Contenido visual del **sitio** | `public/index.html`, `public/css/style.css`, `public/js/main.js` |
+| Imágenes | `public/Img/` (y rutas `/Img/...` en HTML) |
+| Metadatos / título Next | `app/layout.tsx` |
+| Paleta y variables CSS | `public/css/style.css` (`:root`) |
+
+---
+
+## Proyectos destacados, formación, experiencia, contacto
+
+*(Secciones informativas del portfolio; el detalle sigue alineado con el contenido de `public/index.html` y con mi perfil público.)*
+
+### Proyectos (demos)
+
+- **Carrito WebXpert:** [carritocompraswebxpert.vercel.app](https://carritocompraswebxpert.vercel.app/catalogo)
+- **Landing WebXpert:** [www.webxpert.com.ar](https://www.webxpert.com.ar)
+- **Oudin, Duarte & Asociados:** [japintos.github.io/estudioOudin](https://japintos.github.io/estudioOudin/)
+- **Concesionario Web:** [concesionarioweb.vercel.app](https://concesionarioweb.vercel.app/)
+
+### Variables CSS (referencia)
+
 ```css
 :root {
   --primary-color: #1e1b4b;
@@ -238,78 +187,32 @@ git push origin main
 }
 ```
 
-### 📝 **Contenido**
-- **Textos**: Editar directamente en `index.html`
-- **Proyectos**: Modificar objeto `projectData` en `js/main.js`
-- **Imágenes**: Reemplazar archivos en carpeta `Img/`
-- **CV**: Agregar PDF en carpeta `assets/`
+---
+
+## Contribuciones
+
+1. Fork del repositorio  
+2. Rama: `git checkout -b feature/mejora`  
+3. Commit y push  
+4. Pull Request con descripción clara  
 
 ---
 
-## 🤝 Contribuciones
+## Licencia
 
-¿Encontraste un bug o tienes una sugerencia de mejora?
-
-1. **Fork** el repositorio
-2. **Crea una rama**: `git checkout -b feature/mejora-increible`
-3. **Commit**: `git commit -m 'Add: funcionalidad increíble'`
-4. **Push**: `git push origin feature/mejora-increible`
-5. **Pull Request**: Describe tu mejora
+**MIT** — Copyright (c) 2025 Julio Pintos (ver texto de licencia en el repo si aplica).
 
 ---
 
-## 📊 Performance & SEO
+## Contacto
 
-### ⚡ **Métricas de Rendimiento**
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-- **First Input Delay**: < 100ms
-
-### 🔍 **SEO Optimizado**
-- **Schema.org** structured data
-- **Open Graph** meta tags
-- **Twitter Cards** 
-- **Sitemap XML** ready
-- **Mobile-friendly**
+- **Email:** [julioapintos1@gmail.com](mailto:julioapintos1@gmail.com)  
+- **WhatsApp:** [+54 376 4724207](https://wa.me/3764724207)  
+- **Ubicación:** Posadas, Misiones, Argentina  
+- **LinkedIn:** [julio-pintos-0638a8200](https://www.linkedin.com/in/julio-pintos-0638a8200/)  
+- **GitHub:** [japintos](https://github.com/japintos)  
+- **WebXpert:** [www.webxpert.com.ar](https://www.webxpert.com.ar)  
 
 ---
 
-## 📄 Licencia
-
-Este proyecto está bajo la **Licencia MIT**. Puedes usarlo, modificarlo y compartirlo libremente, dando crédito al autor.
-
-```
-MIT License - Copyright (c) 2025 Julio Pintos
-```
-
----
-
-## 📬 Contacto & Redes
-
-### 💌 **Contacto Directo**
-- **Email**: [julioapintos1@gmail.com](mailto:julioapintos1@gmail.com)
-- **WhatsApp**: [+54 376 4724207](https://wa.me/3764724207)
-- **Ubicación**: Posadas, Misiones, Argentina
-
-### 🌐 **Redes Sociales**
-- **LinkedIn**: [julio-pintos-0638a8200](https://www.linkedin.com/in/julio-pintos-0638a8200/)
-- **GitHub**: [japintos](https://github.com/japintos)
-- **Facebook**: [julioapintos](https://www.facebook.com/julioapintos)
-- **Instagram**: [julioapintos](https://www.instagram.com/julioapintos/)
-
-### 🏢 **WebXpert**
-- **Sitio Web**: [www.webxpert.com.ar](https://www.webxpert.com.ar)
-- **Email**: info@webxpert.com.ar
-
----
-
-## 🙏 Agradecimientos
-
-Gracias por visitar mi portafolio y conocer mi trayectoria profesional. Si estás buscando un desarrollador senior comprometido con la calidad, el trabajo en equipo y las soluciones efectivas, ¡hablemos!
-
-**¿Tienes un proyecto en mente? ¡Contáctame y hagámoslo realidad!** 🚀
-
----
-
-*Última actualización: Septiembre 2025*
+*Última actualización del README: abril 2026 — Incluye migración a Next.js, API de CV con react-pdf y despliegue en Vercel.*
