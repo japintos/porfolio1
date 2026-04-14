@@ -20,7 +20,6 @@ const c = {
   muted: '#64748b',
   line: '#e2e8f0',
   white: '#ffffff',
-  gold: '#d97706',
 };
 
 const styles = StyleSheet.create({
@@ -83,14 +82,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     color: c.white,
     letterSpacing: -0.3,
-    marginBottom: 3,
-  },
-  accentBar: {
-    width: 44,
-    height: 3,
-    backgroundColor: c.gold,
-    borderRadius: 1,
-    marginBottom: 7,
+    marginBottom: 8,
   },
   tagline: {
     fontSize: 8.5,
@@ -452,7 +444,6 @@ export function CvPdfDocument({ baseUrl }: { baseUrl: string }) {
                 </Text>
               </View>
               <Text style={styles.name}>{cvData.name}</Text>
-              <View style={styles.accentBar} />
               <Text style={styles.tagline}>{cvData.roles}</Text>
               <Text style={styles.contactRow}>
                 {contact.email} · {contact.phone} · {contact.location}

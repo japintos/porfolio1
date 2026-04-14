@@ -47,7 +47,7 @@ export interface CvData {
 
 /** Fuente única para el PDF (react-pdf) y documentación; alinear con el contenido del portfolio. */
 export const cvData: CvData = {
-  name: 'Julio Pintos',
+  name: 'Julio A. Pintos',
   photoPath: '/Img/foto_Perfil.jpg',
   roles:
     'Senior Fullstack Developer · Socio Fundador & Tech Lead WebXpert · Solutions Architect',
@@ -161,7 +161,7 @@ export const cvData: CvData = {
   ],
   skills: {
     Frontend: ['HTML5', 'CSS3', 'JavaScript', 'React.js'],
-    Backend: ['Node.js', 'Python', 'C++', 'C#', 'Visual Basic', '.NET Framework'],
+    Backend: ['Node.js', 'Python', 'PHP', 'C++', 'C#', 'Visual Basic', '.NET Framework'],
     Bases_de_datos: ['PostgreSQL', 'SQL Server', 'MySQL', 'MariaDB'],
     Herramientas: [
       'VS Code',

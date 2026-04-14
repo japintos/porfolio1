@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <iframe
       src="/index.html"
-      title="Julio Pintos — Portfolio"
+      title="Julio A. Pintos — Portfolio"
       style={{
         position: 'fixed',
         inset: 0,

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Julio Pintos — Portfolio',
+  title: 'Julio A. Pintos — Portfolio',
   description: 'Senior Fullstack Developer & Tech Lead',
 };
 

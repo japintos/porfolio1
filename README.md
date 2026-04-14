@@ -1,4 +1,4 @@
-# Portafolio Profesional – Julio Pintos
+# Portafolio Profesional – Julio A. Pintos
 
 [![GitHub](https://img.shields.io/badge/GitHub-japintos-181717?logo=github)](https://github.com/japintos/porfolio1)
 [![WebXpert](https://img.shields.io/badge/WebXpert-Socio%20Fundador-6366f1)](https://www.webxpert.com.ar)
@@ -39,6 +39,7 @@ Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer
 
 - **Node.js**
 - **Python** *(certificación reciente)*
+- **PHP**
 - **C++, C#, Visual Basic**
 - **.NET Framework**
 
@@ -190,7 +191,7 @@ Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás el 
 
 ## Licencia
 
-**MIT** — Copyright (c) 2025 Julio Pintos (ver texto de licencia en el repo si aplica).
+**MIT** — Copyright (c) 2025 Julio A. Pintos (ver texto de licencia en el repo si aplica).
 
 ---
 
@@ -205,4 +206,4 @@ Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás el 
 
 ---
 
-*Última actualización del README: abril 2026 — Incluye migración a Next.js, API de CV con react-pdf y despliegue en Vercel.*
+*Última actualización del README: abril 2026 — Next.js en Vercel, CV en PDF vía `/api/cv` (`@react-pdf/renderer`), datos en `lib/cv-data.ts`, sitio estático en `public/`, nombre **Julio A. Pintos**, y stack de habilidades alineado con la web (incluye **PHP** en backend).*
