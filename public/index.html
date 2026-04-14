@@ -1,0 +1,952 @@
+<!--
+  Este archivo es mi portafolio personal. Aquí muestro mi experiencia, proyectos y formas de contacto.
+  Los comentarios están escritos por mí para entender fácilmente cada parte del HTML.
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julio Pintos - Senior Fullstack Developer & Tech Lead | Socio Fundador WebXpert</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Julio Pintos - Senior Fullstack Developer, Socio Fundador y Tech Lead en WebXpert. 18+ años transformando ideas en soluciones digitales escalables. Especialista en arquitecturas robustas y experiencias excepcionales.">
+  <meta name="keywords" content="Julio Pintos, Fullstack Developer, Web Designer, Desarrollo Web, React, Node.js, PostgreSQL, MySQL, Argentina, Misiones">
+  <meta name="author" content="Julio Pintos">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://japintos.github.io/porfolio1/" />
+  <meta property="og:title" content="Julio Pintos - Senior Fullstack Developer & Tech Lead WebXpert" />
+  <meta property="og:description" content="Socio Fundador y Tech Lead en WebXpert. 18+ años transformando ideas en soluciones digitales escalables." />
+  <meta property="og:image" content="/Img/foto_Perfil.jpg" />
+  <meta property="og:site_name" content="Julio Pintos Portfolio" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://japintos.github.io/porfolio1/" />
+  <meta property="twitter:title" content="Julio Pintos - Senior Fullstack Developer & Tech Lead WebXpert" />
+  <meta property="twitter:description" content="Socio Fundador y Tech Lead en WebXpert. 18+ años transformando ideas en soluciones digitales escalables." />
+  <meta property="twitter:image" content="/Img/foto_Perfil.jpg" />
+  
+  <!-- Theme & Icons -->
+  <meta name="theme-color" content="#22d3ee" />
+  <meta name="msapplication-TileColor" content="#22d3ee" />
+  <link rel="icon" type="image/x-icon" href="/Img/foto_Perfil.jpg" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/css/style.css" as="style" />
+  <link rel="preload" href="/js/main.js" as="script" />
+  <link rel="preload" href="/Img/foto_Perfil.jpg" as="image" />
+  
+  <!-- Fonts - Optimizado con font-display swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Julio Pintos",
+    "jobTitle": "Senior Fullstack Developer & Tech Lead",
+    "url": "https://japintos.github.io/porfolio1/",
+    "image": "/Img/foto_Perfil.jpg",
+    "description": "Senior Fullstack Developer, Socio Fundador y Tech Lead en WebXpert con 18+ años de experiencia transformando ideas en soluciones digitales escalables.",
+    "email": "julioapintos1@gmail.com",
+    "telephone": "+54 376 4724207",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Misiones",
+      "addressCountry": "AR"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/julio-pintos-0638a8200/",
+      "https://www.facebook.com/julioapintos",
+      "https://www.instagram.com/julioapintos/",
+      "https://github.com/japintos"
+    ],
+    "knowsAbout": [
+      "Fullstack Development",
+      "Web Design",
+      "Database Management",
+      "System Analysis",
+      "Network Administration",
+      "Ecommerce Development",
+      "Digital Marketing",
+      "Storytelling"
+    ],
+    "alumniOf": [
+      "EPET Nº1 UNESCO",
+      "Universidad Americana",
+      "Instituto Combate Mbororé",
+      "Santander Open Academy"
+    ]
+  }
+  </script>
+  <!-- Idiomas -->
+  <!-- <script src="lang/es.js"></script> -->
+  <!-- <script src="lang/en.js"></script> -->
+</head>
+
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="/Img/foto_Perfil.jpg" alt="Julio Pintos" />
+        <span class="loading-text">JP</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <span class="loading-msg">Cargando...</span>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- Main Content Wrapper -->
+  <div class="content">
+    <header class="header" id="header">
+      <div class="header__container" style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="#" class="header__brand" aria-label="Inicio">
+          <div class="header__logo">
+            <img src="/Img/foto_Perfil.jpg" alt="Foto de perfil de Julio Pintos, desarrollador web y analista de sistemas" width="100" height="100" loading="lazy" />
+            <div class="header__logo-glow"></div>
+          </div>
+        </a>
+        <nav class="nav" id="nav" aria-label="Menú principal">
+          <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+          <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+            <span class="nav__hamburger"></span>
+          </button>
+          <ul class="nav__menu" id="navMenu">
+            <li><a href="#presentacion" aria-label="Ir a Presentación" class="nav-link">Presentación</a></li>
+            <li><a href="#perfil" aria-label="Ir a Perfil" class="nav-link">Perfil</a></li>
+            <li><a href="#formacion" aria-label="Ir a Formación" class="nav-link">Formación</a></li>
+            <li><a href="#experiencia" aria-label="Ir a Experiencia" class="nav-link">Experiencia</a></li>
+            <li><a href="#habilidades" aria-label="Ir a Habilidades" class="nav-link">Habilidades</a></li>
+            <li><a href="#proyectos" aria-label="Ir a Proyectos" class="nav-link">Proyectos</a></li>
+            <li><a href="#contacto" aria-label="Ir a Contacto" class="nav-link">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="lang-switch" id="lang-switch" aria-label="Selector de idioma">
+          <!-- Eliminado el switch de idioma -->
+        </div>
+      </div>
+    </header>
+
+    <main class="container" id="main-content">
+      <section id="presentacion" class="section section--hero" tabindex="-1" data-aos="fade-up">
+        <div class="hero__background">
+          <div class="hero__particles"></div>
+          <div class="hero__gradient"></div>
+        </div>
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-text">Disponible para proyectos</span>
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__greeting">Hola, soy</span>
+            <span class="hero__name">Julio Pintos</span>
+          </h1>
+          <h2 class="hero__subtitle">
+            <span class="hero__role">Senior Fullstack Developer</span>
+            <span class="hero__divider">•</span>
+            <span class="hero__role">Socio Fundador & Tech Lead WebXpert</span>
+            <span class="hero__divider">•</span>
+            <span class="hero__role">Solutions Architect</span>
+          </h2>
+          <p class="hero__desc">De técnico a fundador: <strong>18+ años transformando ideas en soluciones digitales</strong> que realmente funcionan. Especialista en crear arquitecturas robustas y experiencias excepcionales que generan <strong>resultados medibles</strong> para empresas y startups.</p>
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__number">18+</span>
+              <span class="stat__label">Años de Experiencia</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">50+</span>
+              <span class="stat__label">Proyectos Completados</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">100%</span>
+              <span class="stat__label">Satisfacción Cliente</span>
+            </div>
+          </div>
+          <div class="hero__actions">
+            <a href="#contacto" class="btn btn--primary btn--glow">
+              <span>Agenda una consulta gratis</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="/api/cv" class="btn btn--secondary btn--outline" download="CV-Julio-Pintos-Fullstack-Developer.pdf" aria-label="Descargar CV en PDF">
+              <span>Descargar CV</span>
+              <i class="fas fa-download" aria-hidden="true"></i>
+            </a>
+            <a href="#proyectos" class="btn btn--tertiary btn--ghost">
+              <span>Ver mi trabajo</span>
+              <i class="fas fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="perfil" class="section section--profile" data-aos="fade-up">
+        <div class="section__header">
+          <h2 class="section__title">¿Por qué elegir trabajar conmigo?</h2>
+          <div class="section__subtitle">El valor que aporto a tu proyecto y organización</div>
+        </div>
+        <div class="profile__content">
+          <div class="profile__text">
+            <p>Como <strong>Senior Fullstack Developer y Socio Fundador de WebXpert</strong>, combino 18+ años de experiencia técnica con visión empresarial. Me especializo en crear <strong>soluciones web robustas</strong> que realmente funcionen y aporten valor a las empresas, desde pequeños emprendimientos hasta organizaciones más grandes.</p>
+            <p>Mi enfoque es integral: <strong>entiendo las necesidades del negocio</strong>, trabajo en equipo, y me enfoco en entregar proyectos de calidad que cumplan objetivos reales. He aprendido que la mejor tecnología es la que <strong>resuelve problemas de forma simple y efectiva</strong>.</p>
+            <div class="profile__metrics">
+              <div class="metric">
+                <span class="metric__number">18+</span>
+                <span class="metric__label">Años de experiencia práctica</span>
+              </div>
+              <div class="metric">
+                <span class="metric__number">2025</span>
+                <span class="metric__label">Co-fundé WebXpert</span>
+              </div>
+              <div class="metric">
+                <span class="metric__number">3</span>
+                <span class="metric__label">Áreas de especialización</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile__highlights">
+            <div class="highlight">
+              <i class="fas fa-code"></i>
+              <h3>Desarrollo Integral</h3>
+              <p>Trabajo desde el diseño hasta el deploy, asegurando que cada proyecto funcione correctamente</p>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-handshake"></i>
+              <h3>Colaboración Efectiva</h3>
+              <p>Me adapto bien a equipos, comunico claramente y busco siempre la mejor solución en conjunto</p>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-tools"></i>
+              <h3>Enfoque Práctico</h3>
+              <p>Elijo las tecnologías adecuadas para cada proyecto, priorizando funcionalidad y mantenibilidad</p>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Aprendizaje Continuo</h3>
+              <p>Me mantengo actualizado con nuevas tecnologías como Python, siempre buscando mejorar mis habilidades</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" class="section section--experience" data-aos="fade-up">
+        <div class="section__header">
+          <h2 class="section__title">Experiencia Laboral</h2>
+          <div class="section__subtitle">Mi trayectoria profesional en el mundo tech</div>
+        </div>
+        <div class="exp-grid">
+          <div class="exp-card exp-card--featured">
+            <div class="exp-card__header">
+              <div class="exp-card__icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="exp-card__title">
+                <h3>WebXpert - Socio Fundador & Tech Lead</h3>
+                <span class="exp-date">Marzo 2025 - Actualidad</span>
+              </div>
+            </div>
+            <p class="exp-card__summary">Agencia digital especializada en desarrollo web, optimización y estrategias digitales para empresas.</p>
+            <ul class="exp-card__list">
+              <li><i class="fas fa-check"></i> <span>Liderazgo técnico y arquitectura de soluciones web escalables, desde landing pages hasta e-commerce complejos con integración de APIs y sistemas de pago.</span></li>
+              <li><i class="fas fa-check"></i> <span>Gestión de equipo técnico y supervisión de proyectos end-to-end, asegurando calidad de código, performance y experiencia de usuario excepcional.</span></li>
+              <li><i class="fas fa-check"></i> <span>Desarrollo de estrategias de transformación digital para PyMEs, implementando soluciones que optimizan procesos y aumentan la conversión hasta un 300%.</span></li>
+              <li><i class="fas fa-check"></i> <span>Especialización en SEO técnico, Core Web Vitals y optimización de performance, logrando tiempos de carga sub-2 segundos en proyectos enterprise.</span></li>
+            </ul>
+            <div class="exp-card__tech">
+              <span class="tech-tag">Technical Leadership</span>
+              <span class="tech-tag">Digital Strategy</span>
+              <span class="tech-tag">Team Management</span>
+              <span class="tech-tag">Performance Optimization</span>
+            </div>
+          </div>
+          
+          <div class="exp-card">
+            <div class="exp-card__header">
+              <div class="exp-card__icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="exp-card__title">
+                <h3>Freelancer</h3>
+                <span class="exp-date">2006 - Actualidad</span>
+              </div>
+            </div>
+            <p class="exp-card__summary">Desarrollo de soluciones informáticas para empresas locales.</p>
+            <ul class="exp-card__list">
+              <li><i class="fas fa-check"></i> <span>Análisis, diseño y desarrollo de aplicaciones web y de escritorio, desde el levantamiento de requisitos hasta la implementación final.</span></li>
+              <li><i class="fas fa-check"></i> <span>Gestión completa de bases de datos, incluyendo diseño, implementación y optimización en PostgreSQL, SQL Server y MySQL.</span></li>
+              <li><i class="fas fa-check"></i> <span>Auditoría de sistemas existentes para identificar vulnerabilidades, proponer mejoras y optimizar el rendimiento.</span></li>
+            </ul>
+            <div class="exp-card__tech">
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">Database Design</span>
+              <span class="tech-tag">System Audit</span>
+            </div>
+          </div>
+          
+          <div class="exp-card">
+            <div class="exp-card__header">
+              <div class="exp-card__icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="exp-card__title">
+                <h3>Poder Judicial de Misiones</h3>
+                <span class="exp-date">2007 - Actualidad</span>
+              </div>
+            </div>
+            <p class="exp-card__summary">Soporte técnico, redes LAN/MAN, sistemas operativos.</p>
+            <ul class="exp-card__list">
+              <li><i class="fas fa-check"></i> <span>Provisión de soporte técnico integral a usuarios, resolviendo incidencias de hardware y software en entornos Windows, Linux y macOS.</span></li>
+              <li><i class="fas fa-check"></i> <span>Administración, mantenimiento y monitoreo de la infraestructura de redes LAN y MAN, asegurando la conectividad y seguridad de los sistemas.</span></li>
+              <li><i class="fas fa-check"></i> <span>Instalación, configuración y mantenimiento de sistemas operativos y software de aplicación para garantizar la continuidad operativa.</span></li>
+            </ul>
+            <div class="exp-card__tech">
+              <span class="tech-tag">IT Support</span>
+              <span class="tech-tag">Network Admin</span>
+              <span class="tech-tag">System Maintenance</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formacion" class="section section--education" data-aos="fade-up">
+        <div class="section__header">
+          <h2 class="section__title">Formación Académica</h2>
+          <div class="section__subtitle">Mi camino de aprendizaje continuo</div>
+        </div>
+        <ul class="timeline timeline--vertical">
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="100">
+            <div class="timeline__date">1996 - 2000</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="timeline__title">EPET Nº1 "UNESCO"</h3>
+              <p class="timeline__desc">Técnico en Informática</p>
+              <div class="timeline__badge">Título Tecnico Secundario</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="200">
+            <div class="timeline__date">2000 - 2010</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <h3 class="timeline__title">Universidad Americana</h3>
+              <p class="timeline__desc">Ingeniería en Sistemas (incompleto)</p>
+              <!-- Elimino el badge "En Progreso" por solicitud -->
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="300">
+            <div class="timeline__date">2024 - Actualidad</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+              <p class="timeline__desc">Técnico Superior en Análisis de Sistemas</p>
+              <div class="timeline__badge timeline__badge--current">En Curso</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="400">
+            <div class="timeline__date">2024</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+              <p class="timeline__desc">Técnico en Redes Informáticas, optimización y reparación de Computadoras</p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="500">
+            <div class="timeline__date">2024</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3 class="timeline__title">Instituto Combate Mbororé</h3>
+              <p class="timeline__desc">Formación Profesional "OPERADOR EN ELECTRÓNICA Y ROBÓTICA"</p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="600">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Ecommerce para pymes: vende más online<br><small>6 Horas | 2 Módulos | Autoevaluación | Contenido desarrollado por IE University</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="700">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Storytelling en el Marketing Digital<br><small>8 Horas | 2 Módulos | Autoevaluación | Contenido desarrollado por The University of Chicago</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="800">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fab fa-python"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Python<br><small>8 Horas | 2 Módulos | Autoevaluación | Curso terminado el 17 de septiembre de 2025</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="900">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Marca personal y networking profesional<br><small>Desarrollo de marca personal y construcción de relaciones profesionales</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="1000">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-table"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Excel – del básico al intermedio<br><small>8 Horas | Formulación, tablas dinámicas y análisis de datos</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="1100">
+            <div class="timeline__date">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Competencias en Marketing Digital<br><small>8 Horas | SEO, SEM, email marketing, redes sociales | Contenido con The University of Chicago</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left" data-aos-delay="1200">
+            <div class="timeline__date">2026</div>
+            <div class="timeline__content">
+              <div class="timeline__icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <h3 class="timeline__title">Santander Open Academy</h3>
+              <p class="timeline__desc">Power BI<br><small>8 Horas | 2 Módulos | Autoevaluación | Curso terminado el 14 de abril de 2026</small></p>
+              <div class="timeline__badge timeline__badge--completed">Completado</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="habilidades" class="section section--skills" aria-labelledby="skills-title">
+        <div class="section__header">
+          <h2 class="section__title" id="skills-title">Habilidades & Tecnologías</h2>
+          <div class="section__subtitle">Stack tecnológico y herramientas que conozco</div>
+        </div>
+        <!-- Datos estructurados para SEO -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/Person",
+          "@type": "Person",
+          "name": "Julio Pintos",
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Fullstack Developer & Web Designer"
+          },
+          "knowsAbout": [
+            "HTML5", "CSS3", "JavaScript", "React.js", "Node.js", "Python", "PostgreSQL", "SQL Server", "MySQL", "MariaDB", "VS Code", "Cursor IDE", "Visual Studio", "Git", "Windows", "Scrum", "DIA", "Canva", "Copilot", "ChatGPT-4", "Linux", "macOS"
+          ]
+        }
+        </script>
+        <div class="skills-groups-wrapper">
+          <!-- Todos los grupos en una sola fila para visual más limpia -->
+          <div class="skills-group" role="group" aria-labelledby="skills-frontend" aria-describedby="desc-frontend">
+            <h3 class="skills-group__title" id="skills-frontend">Frontend</h3>
+            <p id="desc-frontend" class="sr-only">Tecnologías y lenguajes que utilizo para el desarrollo de interfaces de usuario modernas y responsivas.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="HTML5" title="HTML5: Lenguaje de marcado para la web" data-tooltip="HTML5: Lenguaje de marcado para la web">
+                <i class="fab fa-html5" aria-hidden="true"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="CSS3" title="CSS3: Hojas de estilo en cascada" data-tooltip="CSS3: Hojas de estilo en cascada">
+                <i class="fab fa-css3-alt" aria-hidden="true"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="JavaScript" title="JavaScript: Lenguaje de programación web" data-tooltip="JavaScript: Lenguaje de programación web">
+                <i class="fab fa-js" aria-hidden="true"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="React.js" title="React.js: Librería para interfaces reactivas" data-tooltip="React.js: Librería para interfaces reactivas">
+                <i class="fab fa-react" aria-hidden="true"></i>
+                <span>React.js</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-group" role="group" aria-labelledby="skills-backend" aria-describedby="desc-backend">
+            <h3 class="skills-group__title" id="skills-backend">Backend</h3>
+            <p id="desc-backend" class="sr-only">Lenguajes y frameworks para lógica de servidor y APIs.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="Node.js" title="Node.js: Entorno de ejecución para JavaScript" data-tooltip="Node.js: Entorno de ejecución para JavaScript">
+                <i class="fab fa-node-js" aria-hidden="true"></i>
+                <span>Node.js</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Python" title="Python: Lenguaje de programación versátil" data-tooltip="Python: Lenguaje de programación versátil">
+                <i class="fab fa-python" aria-hidden="true"></i>
+                <span>Python</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="C++" title="C++: Lenguaje de programación de propósito general" data-tooltip="C++: Lenguaje de programación de propósito general">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>C++</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="C#" title="C#: Lenguaje de programación orientado a objetos" data-tooltip="C#: Lenguaje de programación orientado a objetos">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>C#</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Visual Basic" title="Visual Basic: Lenguaje de programación para aplicaciones" data-tooltip="Visual Basic: Lenguaje de programación para aplicaciones">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>Visual Basic</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label=".NET Framework" title=".NET Framework: Plataforma de desarrollo de Microsoft" data-tooltip=".NET Framework: Plataforma de desarrollo de Microsoft">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>.NET Framework</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-group" role="group" aria-labelledby="skills-databases" aria-describedby="desc-databases">
+            <h3 class="skills-group__title" id="skills-databases">Bases de Datos</h3>
+            <p id="desc-databases" class="sr-only">Motores y sistemas de gestión de bases de datos relacionales y no relacionales.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="PostgreSQL" title="PostgreSQL: Base de datos relacional avanzada" data-tooltip="PostgreSQL: Base de datos relacional avanzada">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="48" height="48"/></svg>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="SQL Server" title="SQL Server: Base de datos de Microsoft" data-tooltip="SQL Server: Base de datos de Microsoft">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" width="48" height="48"/></svg>
+                <span>SQL Server</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="MySQL" title="MySQL: Base de datos relacional popular" data-tooltip="MySQL: Base de datos relacional popular">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="48" height="48"/></svg>
+                <span>MySQL</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="MariaDB" title="MariaDB: Fork de MySQL, base de datos open source" data-tooltip="MariaDB: Fork de MySQL, base de datos open source">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" width="48" height="48"/></svg>
+                <span>MariaDB</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-group" role="group" aria-labelledby="skills-tools" aria-describedby="desc-tools">
+            <h3 class="skills-group__title" id="skills-tools">Herramientas</h3>
+            <p id="desc-tools" class="sr-only">Herramientas de desarrollo, diseño y control de versiones.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="VS Code" title="VS Code: Editor de código fuente" data-tooltip="VS Code: Editor de código fuente">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="48" height="48"/></svg>
+                <span>VS Code</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Cursor IDE" title="Cursor IDE: Editor de código con IA" data-tooltip="Cursor IDE: Editor de código con IA">
+                <svg class="icon-svg" width="48" height="48" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#bdbdbd"/><path d="M8 8L24 16L8 24V8Z" fill="#e0e0e0"/></svg>
+                <span>Cursor IDE</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Visual Studio" title="Visual Studio: IDE de Microsoft" data-tooltip="Visual Studio: IDE de Microsoft">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" width="48" height="48"/></svg>
+                <span>Visual Studio</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Git" title="Git: Control de versiones distribuido" data-tooltip="Git: Control de versiones distribuido">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="48" height="48"/></svg>
+                <span>Git</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Windows" title="Windows: Sistema operativo de Microsoft" data-tooltip="Windows: Sistema operativo de Microsoft">
+                <i class="fab fa-windows" aria-hidden="true"></i>
+                <span>Windows</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Scrum" title="Scrum: Metodología ágil" data-tooltip="Scrum: Metodología ágil">
+                <i class="fas fa-project-diagram" aria-hidden="true"></i>
+                <span>Scrum</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="DIA" title="DIA: Herramienta de diagramación" data-tooltip="DIA: Herramienta de diagramación">
+                <i class="fas fa-sitemap" aria-hidden="true"></i>
+                <span>DIA</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Canva" title="Canva: Herramienta de diseño gráfico" data-tooltip="Canva: Herramienta de diseño gráfico">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" width="48" height="48"/></svg>
+                <span>Canva</span>
+              </div>
+            </div>
+          </div>
+          <!-- Elimino la tarjeta de Inteligencia Artificial (IA) por solicitud -->
+          <!--
+          <div class="skills-group" role="group" aria-labelledby="skills-ai" aria-describedby="desc-ai">
+            <h3 class="skills-group__title" id="skills-ai">Inteligencia Artificial</h3>
+            <p id="desc-ai" class="sr-only">Herramientas y plataformas de inteligencia artificial y asistentes de código.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="Copilot" title="Copilot: Asistente de código con IA" data-tooltip="Copilot: Asistente de código con IA">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubcopilot/githubcopilot-original.svg" width="48" height="48"/></svg>
+                <span>Copilot</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="ChatGPT-4" title="ChatGPT-4: Asistente conversacional de OpenAI" data-tooltip="ChatGPT-4: Asistente conversacional de OpenAI">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" width="48" height="48"/></svg>
+                <span>ChatGPT-4</span>
+              </div>
+            </div>
+          </div>
+          -->
+          <div class="skills-group" role="group" aria-labelledby="skills-os" aria-describedby="desc-os">
+            <h3 class="skills-group__title" id="skills-os">Sistemas Operativos</h3>
+            <p id="desc-os" class="sr-only">Sistemas operativos que utilizo para desarrollo y administración.</p>
+            <div class="skills-icons-grid">
+              <div class="icon-skill" role="img" aria-label="Windows" title="Windows: Sistema operativo de Microsoft" data-tooltip="Windows: Sistema operativo de Microsoft">
+                <i class="fab fa-windows" aria-hidden="true"></i>
+                <span>Windows</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="Linux (GNOME)" title="Linux: Sistema operativo de código abierto" data-tooltip="Linux: Sistema operativo de código abierto">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="48" height="48"/></svg>
+                <span>Linux (GNOME)</span>
+              </div>
+              <div class="icon-skill" role="img" aria-label="macOS" title="macOS: Sistema operativo de Apple" data-tooltip="macOS: Sistema operativo de Apple">
+                <svg class="icon-svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="48" height="48"/></svg>
+                <span>macOS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proyectos" class="section section--projects" data-aos="fade-up">
+        <div class="section__header">
+          <h2 class="section__title">Proyectos Destacados</h2>
+          <div class="section__subtitle">Algunos de mis trabajos más relevantes</div>
+        </div>
+        <div class="proyectos-grid">
+          <article class="proyecto-card proyecto-card--featured" tabindex="0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="proyecto-card__image">
+              <img src="/Img/carrito de compras.jpg" alt="Captura de pantalla del Carrito de Compras" loading="lazy" width="600" height="400" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <i class="fab fa-react" aria-label="React" title="React" data-tooltip="React"></i>
+                  <i class="fab fa-node-js" aria-label="Node.js" title="Node.js" data-tooltip="Node.js"></i>
+                  <svg class="icon-svg" viewBox="0 0 48 48" width="24" height="24" aria-label="PostgreSQL" title="PostgreSQL" data-tooltip="PostgreSQL"><image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="24" height="24"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">Carrito de Compras WebXpert</h3>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Crear un e-commerce completo con experiencia fluida. <strong>Solución:</strong> SPA responsiva con React y Vite, catálogo interactivo, filtros avanzados y checkout optimizado. <strong>Resultado:</strong> Tiempo de carga &lt; 2s, experiencia mobile-first y conversión optimizada.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">React + Vite</span>
+                <span class="feature">JavaScript ES6+</span>
+                <span class="feature">CSS3 Modular</span>
+                <span class="feature">API REST</span>
+                <span class="feature">SPA Responsive</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="https://carritocompraswebxpert.vercel.app/catalogo" target="_blank" rel="noopener">
+                  <span>Ver proyecto</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+              <div class="project-tech" style="display: none;">React, Vite, JavaScript ES6+, CSS3, API REST, SPA</div>
+            </div>
+          </article>
+          
+          <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="proyecto-card__image">
+              <img src="/Img/proyecto2.jpg" alt="Captura de pantalla de la Landing para WebXpert" loading="lazy" width="600" height="400" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
+                  <i class="fab fa-css3-alt" aria-label="CSS3" title="CSS3" data-tooltip="CSS3"></i>
+                  <i class="fab fa-js" aria-label="JavaScript" title="JavaScript" data-tooltip="JavaScript"></i>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">Landing para WebXpert</h3>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Posicionar WebXpert como agencia digital líder. <strong>Solución:</strong> Landing moderna con animaciones SVG, diseño responsive y SEO técnico. <strong>Resultado:</strong> Aumento del 40% en consultas y mejor posicionamiento en búsquedas locales.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">Responsive Design</span>
+                <span class="feature">Animaciones SVG</span>
+                <span class="feature">SEO Optimizado</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="https://www.webxpert.com.ar" target="_blank" rel="noopener">
+                  <span>Ver sitio</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto2"><span>Detalles</span><i class="fas fa-info-circle"></i></button>
+              </div>
+              <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript</div>
+            </div>
+          </article>
+          
+          <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="proyecto-card__image">
+              <img src="/Img/oudin.jpg" alt="Captura de pantalla del sitio Oudin, Duarte & Asociados" loading="lazy" width="600" height="400" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
+                  <i class="fab fa-css3-alt" aria-label="CSS3" title="CSS3" data-tooltip="CSS3"></i>
+                  <i class="fab fa-js" aria-label="JavaScript" title="JavaScript" data-tooltip="JavaScript"></i>
+                  <i class="fas fa-paint-brush" aria-label="Diseño Web" title="Diseño Web" data-tooltip="Diseño Web"></i>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">Oudin, Duarte & Asociados</h3>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Modernizar presencia digital de estudio jurídico. <strong>Solución:</strong> Sitio institucional accesible con WCAG AA, SEO optimizado y diseño profesional. <strong>Resultado:</strong> Mejora en credibilidad y aumento de consultas online.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">Responsive Design</span>
+                <span class="feature">SEO Optimizado</span>
+                <span class="feature">Accesibilidad</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="https://japintos.github.io/estudioOudin/" target="_blank" rel="noopener">
+                  <span>Ver sitio</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto3"><span>Detalles</span><i class="fas fa-info-circle"></i></button>
+              </div>
+              <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript, Diseño Web</div>
+            </div>
+          </article>
+          <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="proyecto-card__image">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="DevXpert Runner: El Juego del Desarrollador" loading="lazy" width="600" height="400" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
+                  <i class="fab fa-css3-alt" aria-label="CSS3" title="CSS3" data-tooltip="CSS3"></i>
+                  <i class="fab fa-js" aria-label="JavaScript" title="JavaScript" data-tooltip="JavaScript"></i>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">DevXpert Runner: El Juego del Desarrollador</h3>
+              <p class="proyecto-card__desc">Minijuego runner inspirado en el clásico T-Rex de Google Chrome, pero protagonizado por un desarrollador que debe esquivar logos de herramientas y sistemas operativos. ¡Pon a prueba tus reflejos y conocimientos tech!<br><strong>Créditos:</strong> Desarrollado por Julio Pintos para WebXpert.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">Salta y agáchate para esquivar obstáculos</span>
+                <span class="feature">Obstáculos: logos de herramientas y sistemas operativos</span>
+                <span class="feature">Dificultad progresiva</span>
+                <span class="feature">Hecho con HTML, CSS y JS puro</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="/devrunner.html" class="btn btn--project" target="_blank" rel="noopener">
+                  <span>Jugar DevXpert Runner</span>
+                  <i class="fas fa-gamepad"></i>
+                </a>
+              </div>
+              <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript, WebXpert</div>
+            </div>
+          </article>
+          <article class="proyecto-card" tabindex="0" data-aos="zoom-in" data-aos-delay="500">
+            <div class="proyecto-card__image">
+              <img src="/Img/web-consecionario.jpg" alt="Captura de pantalla de Concesionario Web" loading="lazy" width="600" height="400" />
+              <div class="proyecto-card__overlay">
+                <div class="proyecto-card__tech-stack">
+                  <i class="fab fa-html5" aria-label="HTML5" title="HTML5" data-tooltip="HTML5"></i>
+                  <i class="fab fa-css3-alt" aria-label="CSS3" title="CSS3" data-tooltip="CSS3"></i>
+                  <i class="fab fa-js" aria-label="JavaScript" title="JavaScript" data-tooltip="JavaScript"></i>
+                </div>
+              </div>
+            </div>
+            <div class="proyecto-card__content">
+              <h3 class="proyecto-card__title">Concesionario Web</h3>
+              <p class="proyecto-card__desc"><strong>Desafío:</strong> Mostrar catálogo de vehículos de forma atractiva. <strong>Solución:</strong> Plataforma moderna con filtros avanzados, galería interactiva y contacto directo. <strong>Resultado:</strong> Mejor experiencia de usuario y aumento en tiempo de navegación.</p>
+              <div class="proyecto-card__features">
+                <span class="feature">Catálogo de vehículos</span>
+                <span class="feature">Filtros avanzados</span>
+                <span class="feature">Responsive Design</span>
+                <span class="feature">Contacto directo</span>
+              </div>
+              <div class="proyecto-card__actions">
+                <a href="https://concesionarioweb.vercel.app/" target="_blank" rel="noopener">
+                  <span>Ver sitio</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <button class="btn btn--outline btn--small btn-details" data-project="proyecto4"><span>Detalles</span><i class="fas fa-info-circle"></i></button>
+              </div>
+              <div class="project-tech" style="display: none;">HTML5, CSS3, JavaScript</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacto" class="section section--contact" data-aos="fade-up">
+        <div class="section__header">
+          <h2 class="section__title">Contacto</h2>
+          <div class="section__subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</div>
+        </div>
+        <div class="contact__content">
+          <div class="contact__form contact__card">
+            <h3>Envíame un mensaje directo a WhatsApp</h3>
+            <form id="whatsapp-contact-form" autocomplete="off">
+              <input type="text" id="wa-name" name="name" placeholder="Tu nombre" required />
+              <input type="email" id="wa-email" name="email" placeholder="Tu email" required />
+              <textarea id="wa-message" name="message" placeholder="Tu mensaje" required></textarea>
+              <button type="submit" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </form>
+          </div>
+          <div class="contact__info contact__card">
+            <h3 class="contact__info-title"><i class="fas fa-info-circle"></i> Información de contacto</h3>
+            <div class="contact__card-item">
+              <div class="contact__icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact__details">
+                <h4>Ubicación</h4>
+                <p>Posadas, Misiones, Argentina</p>
+              </div>
+            </div>
+            <div class="contact__card-item">
+              <div class="contact__icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact__details">
+                <h4>Disponibilidad</h4>
+                <p>Disponible para proyectos freelance</p>
+              </div>
+            </div>
+            <div class="contact__card-item">
+              <div class="contact__icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="contact__details">
+                <h4>Respuesta</h4>
+                <p>Respondo en menos de 24 horas</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact__social contact__card">
+            <h3>Redes y otros medios</h3>
+            <ul class="contact-list">
+              <li>
+                <a href="https://www.linkedin.com/in/julio-pintos-0638a8200/" target="_blank" aria-label="LinkedIn de Julio Pintos" rel="noopener" class="social-link social-link--linkedin">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:julioapintos1@gmail.com" aria-label="Enviar correo a Julio Pintos" class="social-link social-link--email">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  <span>Correo Electrónico</span>
+                  <button class="btn-copy" data-copy="julioapintos1@gmail.com" aria-label="Copiar email">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/julioapintos" target="_blank" aria-label="Facebook de Julio Pintos" rel="noopener" class="social-link social-link--facebook">
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/3764724202" target="_blank" aria-label="WhatsApp de Julio Pintos" rel="noopener" class="social-link social-link--whatsapp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/julioapintos/" target="_blank" aria-label="Instagram de Julio Pintos" rel="noopener" class="social-link social-link--instagram">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/japintos" target="_blank" aria-label="GitHub de Julio Pintos" rel="noopener" class="social-link social-link--github">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                  <span>GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Details Modal -->
+      <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <button class="modal-close" aria-label="Cerrar modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <img class="modal-image" alt="" />
+            <div class="modal-info">
+              <p id="modalDesc"></p>
+              <div class="modal-tech"></div>
+              <div class="modal-links">
+                <a href="#" class="btn btn--project modal-demo-link" target="_blank" rel="noopener" data-i18n="modal.demo">Ver Demo</a>
+                <a href="#" class="btn btn--outline modal-code-link" target="_blank" rel="noopener" data-i18n="modal.codigo">Ver Código</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="scrollTopBtn" class="scroll-top" aria-label="Ir arriba" data-i18n="accesibilidad.irArriba">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <div class="footer__info">
+            <h3>Julio Pintos</h3>
+            <p>Fullstack Developer & Web Designer</p>
+          </div>
+        </div>
+        <div class="footer__links">
+          <a href="#presentacion" data-i18n="footer.inicio">Inicio</a>
+          <a href="#proyectos" data-i18n="footer.proyectos">Proyectos</a>
+          <a href="#contacto" data-i18n="footer.contacto">Contacto</a>
+        </div>
+        <div class="footer__contact">
+          <a href="mailto:julioapintos1@gmail.com">julioapintos1@gmail.com</a>
+          <a href="https://github.com/japintos" target="_blank" rel="noopener" class="footer__github">github.com/japintos</a>
+          <p>&copy; 2025 - Julio Pintos. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+
+</html>
