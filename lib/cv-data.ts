@@ -151,13 +151,30 @@ export const cvData: CvData = {
     },
   ],
   educationSantander: [
+    { year: '2025', text: 'SEO y content marketing — 8 h (terminado jul. 2025)' },
     { year: '2025', text: 'Ecommerce para PyMEs (IE University) — 6 h' },
     { year: '2025', text: 'Storytelling en marketing digital (UChicago) — 8 h' },
     { year: '2025', text: 'Python — 8 h (terminado sep. 2025)' },
     { year: '2025', text: 'Marca personal y networking profesional' },
+    {
+      year: '2025',
+      text: 'Marca personal 360º: de profesional anonimo a referente visible — 8 h (terminado sep. 2025)',
+    },
     { year: '2025', text: 'Excel básico a intermedio — 8 h' },
     { year: '2025', text: 'Competencias en marketing digital (UChicago) — 8 h' },
+    {
+      year: '2025',
+      text: 'Gestion de Proyectos y Fundamentos de metodologia Agile — 8 h (terminado dic. 2025)',
+    },
+    { year: '2026', text: 'Gestion Efectiva de proyectos y equipos — 8 h (terminado mar. 2026)' },
+    {
+      year: '2026',
+      text: 'Prompting responsable: maximiza la IA en tu negocio — 8 h (terminado abr. 2026)',
+    },
+    { year: '2026', text: 'Iniciacion al Desarrollo con IA (BIG school) — 6 h (terminado mar. 2026)' },
     { year: '2026', text: 'Power BI — 8 h (terminado abr. 2026)' },
+    { year: '2026', text: 'Power BI Intermedio: analisis y modelado de datos — 8 h (terminado abr. 2026)' },
+    { year: '2026', text: 'SEO para IA y Google (BIG school) — 6 h (terminado may. 2026)' },
   ],
   skills: {
     Frontend: ['HTML5', 'CSS3', 'JavaScript', 'React.js'],
