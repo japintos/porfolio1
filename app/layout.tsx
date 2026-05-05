@@ -3,8 +3,32 @@ import type { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.webxpert.com.ar'),
   title: 'Julio A. Pintos — Portfolio',
-  description: 'Senior Fullstack Developer & Tech Lead',
+  description:
+    'Julio A. Pintos — Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+  alternates: {
+    canonical: '/japintos',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.webxpert.com.ar/japintos',
+    title: 'Julio A. Pintos — Portfolio',
+    description:
+      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+    images: ['/Img/foto_Perfil.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Julio A. Pintos — Portfolio',
+    description:
+      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+    images: ['/Img/foto_Perfil.jpg'],
+  },
 };
 
 export default function RootLayout({

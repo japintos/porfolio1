@@ -59,7 +59,7 @@ export const cvData: CvData = {
     email: 'julioapintos1@gmail.com',
     phone: '+54 376 4724207',
     location: 'Posadas, Misiones, Argentina',
-    portfolio: 'https://japintos.github.io/porfolio1/',
+    portfolio: 'https://www.webxpert.com.ar/japintos',
     linkedin: 'https://www.linkedin.com/in/julio-pintos-0638a8200/',
     github: 'https://github.com/japintos',
   },
