@@ -1,6 +1,6 @@
 import { renderToBuffer } from '@react-pdf/renderer';
 import { NextResponse } from 'next/server';
-import { CvPdfDocument } from '@/components/pdf/CvPdfDocument';
+import { CvPrintDocument } from '@/components/pdf/CvPrintDocument';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
   try {
     const origin = new URL(request.url).origin;
-    const buf = await renderToBuffer(<CvPdfDocument baseUrl={origin} />);
+    const buf = await renderToBuffer(<CvPrintDocument baseUrl={origin} />);
 
     return new NextResponse(new Uint8Array(buf), {
       status: 200,

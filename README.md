@@ -68,7 +68,8 @@ porfolio1/
 │   ├── globals.css
 │   └── api/cv/route.tsx          # GET /api/cv → PDF
 ├── components/
-│   ├── pdf/CvPdfDocument.tsx
+│   ├── pdf/CvPrintDocument.tsx   # CV imprimible premium
+│   ├── pdf/CvPdfDocument.tsx     # Versión anterior conservada
 │   └── portfolio/                # Home visual del portfolio
 │       ├── PortfolioExperience.tsx
 │       ├── PortfolioExperience.module.css
@@ -96,8 +97,8 @@ porfolio1/
 ## CV en PDF (cómo funciona)
 
 1. El visitante pulsa **Descargar CV** en el hero (`components/portfolio/PortfolioExperience.tsx` → enlace a **`/api/cv`**).
-2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPdfDocument`** con **`renderToBuffer`** y responde `application/pdf`.
-3. Los textos y secciones del CV viven en **`lib/cv-data.ts`**. Si actualizas el contenido del CV, edita ese archivo y, si hace falta, el layout en **`components/pdf/CvPdfDocument.tsx`**.
+2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPrintDocument`** con **`renderToBuffer`** y responde `application/pdf`.
+3. Los textos base del CV viven en **`lib/cv-data.ts`** y el layout imprimible en **`components/pdf/CvPrintDocument.tsx`**. También reutiliza datos reales del portfolio para experiencia, educación, certificaciones, stack y proyectos.
 
 Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`**).
 
@@ -153,7 +154,7 @@ Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás la 
 
 | Qué cambiar | Dónde |
 |-------------|--------|
-| Textos y secciones del **PDF** | `lib/cv-data.ts` y, si hace falta, `components/pdf/CvPdfDocument.tsx` |
+| Textos y secciones del **PDF** | `lib/cv-data.ts`, `components/portfolio/data.ts` y `components/pdf/CvPrintDocument.tsx` |
 | Contenido visual del **sitio** | `components/portfolio/data.ts` y `components/portfolio/PortfolioExperience.tsx` |
 | Imágenes | `public/Img/` (y rutas `/Img/...` en HTML) |
 | Metadatos / título Next | `app/layout.tsx` |

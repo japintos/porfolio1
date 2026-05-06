@@ -5,6 +5,7 @@ import type { CSSProperties, FormEvent } from 'react';
 import { useMemo, useState } from 'react';
 import {
   certifications,
+  education,
   experiences,
   highlights,
   metrics,
@@ -68,7 +69,7 @@ export default function PortfolioExperience() {
           <span className={styles.brandMark}>JP</span>
           <span>
             <strong>Julio A. Pintos</strong>
-            <small>Fullstack Developer & Tech Lead</small>
+            <small>Senior Fullstack · Tech Lead · Solutions Architect</small>
           </span>
         </a>
 
@@ -107,12 +108,12 @@ export default function PortfolioExperience() {
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>Disponible para proyectos seleccionados</p>
             <h1>
-              Desarrollo experiencias digitales con mirada de negocio, arquitectura y detalle visual.
+              Desarrollo soluciones web robustas con arquitectura, liderazgo tecnico y entrega end-to-end.
             </h1>
             <p className={styles.heroLead}>
-              Soy Senior Fullstack Developer, Socio Fundador y Tech Lead de WebXpert. Ayudo a
-              empresas y emprendedores a convertir ideas en productos web rapidos, claros y
-              preparados para crecer.
+              Soy Senior Fullstack Developer, Socio Fundador y Tech Lead de WebXpert, con 18+
+              anos de experiencia transformando necesidades de negocio en productos digitales
+              simples, mantenibles y orientados a resultados.
             </p>
             <div className={styles.heroActions}>
               <a className={styles.primaryAction} href="#contacto">
@@ -140,11 +141,11 @@ export default function PortfolioExperience() {
                 />
               </div>
               <div>
-                <span className={styles.availability}>Open to collaborate</span>
-                <h2>Tech Lead con foco en delivery real</h2>
+                <span className={styles.availability}>Posadas, Misiones · Argentina</span>
+                <h2>Arquitectura, liderazgo tecnico y ejecucion real</h2>
                 <p>
-                  Combino experiencia tecnica, criterio comercial y ejecucion para construir sitios
-                  que generen confianza desde el primer scroll.
+                  Combino experiencia tecnica con vision empresarial para acompanar desde el
+                  analisis hasta el deploy, priorizando calidad, performance y objetivos medibles.
                 </p>
               </div>
             </div>
@@ -162,11 +163,32 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="perfil">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Perfil profesional</p>
-            <h2>Una marca personal pensada como producto digital.</h2>
+            <h2>Senior Fullstack Developer con vision empresarial.</h2>
             <p>
-              La pagina no tiene que parecer un CV pegado en internet. Tiene que contar una historia
-              clara: quien sos, que resolviste, como trabajas y por que conviene contactarte.
+              Como Senior Fullstack Developer y Socio Fundador de WebXpert, combino 18+ anos de
+              experiencia tecnica con vision empresarial. Me especializo en crear soluciones web
+              robustas que aporten valor desde PyMEs hasta organizaciones mas grandes.
             </p>
+          </div>
+          <div className={styles.profileStatement}>
+            <article>
+              <h3>Mi enfoque</h3>
+              <p>
+                Trabajo de forma integral: entiendo las necesidades del negocio, traduzco objetivos
+                en decisiones tecnicas y acompano el proyecto desde el analisis hasta la puesta en
+                produccion. Busco entregar soluciones de calidad, con una experiencia clara para el
+                usuario y resultados medibles para la organizacion.
+              </p>
+            </article>
+            <article>
+              <h3>Mi criterio tecnico</h3>
+              <p>
+                Elijo la tecnologia adecuada para cada contexto, priorizando simplicidad,
+                mantenibilidad, performance y escalabilidad real. Para mi, una buena solucion no es
+                la mas compleja: es la que resuelve el problema, se puede mantener y aporta valor al
+                negocio.
+              </p>
+            </article>
           </div>
           <div className={styles.highlightGrid}>
             {highlights.map((highlight) => (
@@ -182,7 +204,7 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="experiencia">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Experiencia</p>
-            <h2>Trayectoria tecnica con contexto operativo y comercial.</h2>
+            <h2>Trayectoria tecnica con contexto operativo, institucional y comercial.</h2>
           </div>
           <div className={styles.timeline}>
             {experiences.map((experience) => (
@@ -213,7 +235,7 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="habilidades">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Stack y criterio</p>
-            <h2>Herramientas agrupadas por el problema que ayudan a resolver.</h2>
+            <h2>Stack tecnico alineado al CV: frontend, backend, datos, herramientas y sistemas.</h2>
           </div>
           <div className={styles.skillsGrid}>
             {skillGroups.map((group) => (
@@ -234,6 +256,28 @@ export default function PortfolioExperience() {
                     </div>
                   ))}
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={cx(styles.section, styles.educationSection)} id="educacion">
+          <div className={styles.sectionHeader}>
+            <p className={styles.kicker}>Educacion</p>
+            <h2>Educacion formal, base tecnica y especializacion actual.</h2>
+            <p>
+              Esta seccion queda separada de las certificaciones porque es parte central de mi
+              recorrido: tecnico en informatica, estudios universitarios, analisis de sistemas en
+              curso y formacion tecnica complementaria en redes, electronica y robotica.
+            </p>
+          </div>
+          <div className={styles.educationGrid}>
+            {education.map((item) => (
+              <article className={styles.educationCard} key={`${item.period}-${item.title}`}>
+                <span>{item.period}</span>
+                <h3>{item.title}</h3>
+                <strong>{item.institution}</strong>
+                <p>{item.status}</p>
               </article>
             ))}
           </div>
@@ -303,16 +347,53 @@ export default function PortfolioExperience() {
 
         <section className={styles.section} id="certificaciones">
           <div className={styles.sectionHeader}>
-            <p className={styles.kicker}>Formacion continua</p>
-            <h2>Aprendizaje reciente alineado a producto, datos, SEO e IA.</h2>
+            <p className={styles.kicker}>Certificaciones</p>
+            <h2>15 certificaciones que respaldan mis skills tecnicas, de negocio y de liderazgo.</h2>
+            <p>
+              Esta formacion continua es parte de la base real de mi perfil: refuerza frontend,
+              Python, SEO, ecommerce, marketing digital, datos, Power BI, gestion de proyectos,
+              equipos e inteligencia artificial aplicada.
+            </p>
+          </div>
+          <div className={styles.certProof}>
+            <article>
+              <strong>{certifications.length}</strong>
+              <span>certificaciones cargadas desde mi CV</span>
+            </article>
+            <article>
+              <strong>2025-2026</strong>
+              <span>actualizacion profesional reciente y verificable</span>
+            </article>
+            <article>
+              <strong>Santander + BIG</strong>
+              <span>formacion en tecnologia, negocio, datos, IA y marketing</span>
+            </article>
           </div>
           <div className={styles.certGrid}>
             {certifications.map((certification) => (
               <article className={styles.certCard} key={`${certification.year}-${certification.title}`}>
-                <span>{certification.year}</span>
+                <span>{certification.area}</span>
                 <h3>{certification.title}</h3>
                 <strong>{certification.issuer}</strong>
+                <div className={styles.certMeta}>
+                  <small>{certification.completedAt}</small>
+                  {certification.hours ? <small>{certification.hours}</small> : null}
+                  {certification.modules ? <small>{certification.modules}</small> : null}
+                </div>
                 <p>{certification.focus}</p>
+                {certification.serial ? (
+                  <code className={styles.certSerial}>{certification.serial}</code>
+                ) : null}
+                {certification.credentialUrl ? (
+                  <a
+                    className={styles.certLink}
+                    href={certification.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver certificado
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>
@@ -323,8 +404,9 @@ export default function PortfolioExperience() {
             <p className={styles.kicker}>Contacto</p>
             <h2>Si hay una idea, la bajamos a una solucion concreta.</h2>
             <p>
-              Contame que necesitás construir, mejorar o vender. Te respondo con una mirada tecnica
-              y una proxima accion clara.
+              Estoy en Posadas, Misiones, y trabajo con proyectos web, e-commerce, optimizacion,
+              sistemas y presencia digital. Te respondo con una mirada tecnica y una proxima accion
+              clara.
             </p>
             <div className={styles.contactLinks}>
               <a href="mailto:julioapintos1@gmail.com">julioapintos1@gmail.com</a>

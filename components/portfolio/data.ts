@@ -32,6 +32,13 @@ export type SkillGroup = {
   }[];
 };
 
+export type Education = {
+  period: string;
+  institution: string;
+  title: string;
+  status: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -50,6 +57,12 @@ export type Certification = {
   title: string;
   issuer: string;
   focus: string;
+  area: string;
+  completedAt: string;
+  hours?: string;
+  modules?: string;
+  serial?: string;
+  credentialUrl?: string;
 };
 
 export const navItems: NavItem[] = [
@@ -57,36 +70,43 @@ export const navItems: NavItem[] = [
   { href: '#perfil', label: 'Perfil' },
   { href: '#experiencia', label: 'Experiencia' },
   { href: '#habilidades', label: 'Stack' },
+  { href: '#educacion', label: 'Educacion' },
   { href: '#proyectos', label: 'Proyectos' },
-  { href: '#certificaciones', label: 'Formacion' },
+  { href: '#certificaciones', label: 'Certificaciones' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
 export const metrics: Metric[] = [
   { value: '18+', label: 'anos de experiencia tecnica' },
-  { value: '20+', label: 'proyectos entregados' },
-  { value: '3', label: 'areas de especializacion' },
-  { value: '24h', label: 'tiempo objetivo de respuesta' },
+  { value: '50+', label: 'proyectos completados' },
+  { value: '2025', label: 'fundacion de WebXpert' },
+  { value: '3', label: 'frentes: arquitectura, liderazgo y delivery' },
 ];
 
 export const highlights: Highlight[] = [
   {
-    eyebrow: 'Producto',
-    title: 'Interfaces con criterio de negocio',
+    eyebrow: 'Desarrollo integral',
+    title: 'Del diseno al deploy',
     description:
-      'No diseno pantallas aisladas: ordeno el recorrido para que cada seccion responda a una pregunta real del visitante.',
+      'Trabajo desde el analisis y el diseno hasta la implementacion, cuidando que cada proyecto funcione correctamente en produccion.',
   },
   {
-    eyebrow: 'Arquitectura',
-    title: 'Base tecnica preparada para crecer',
+    eyebrow: 'Colaboracion efectiva',
+    title: 'Comunicacion clara y trabajo en equipo',
     description:
-      'Componentes claros, contenido separado y estilos gobernados por tokens para evitar que el sitio vuelva a ser dificil de mantener.',
+      'Me adapto a equipos, comunico con claridad y busco la mejor solucion en conjunto, alineando tecnologia con objetivos reales.',
   },
   {
-    eyebrow: 'Conversion',
-    title: 'Contacto directo y confianza visible',
+    eyebrow: 'Enfoque practico',
+    title: 'Tecnologia adecuada para cada contexto',
     description:
-      'Proyectos, resultados, certificaciones y llamados a la accion trabajan juntos para convertir visitas en conversaciones.',
+      'Priorizo simplicidad, mantenibilidad y resultados. La mejor solucion es la que resuelve el problema sin complejidad innecesaria.',
+  },
+  {
+    eyebrow: 'Aprendizaje continuo',
+    title: 'Actualizacion constante',
+    description:
+      'Mantengo una formacion activa en Python, SEO, ecommerce, gestion de proyectos, Power BI, IA y buenas practicas de desarrollo.',
   },
 ];
 
@@ -96,82 +116,118 @@ export const experiences: Experience[] = [
     organization: 'WebXpert',
     period: '2025 - Actualidad',
     summary:
-      'Direccion tecnica de soluciones web, e-commerce y presencia digital para empresas que necesitan vender y operar mejor.',
+      'Agencia digital especializada en desarrollo web, optimizacion y estrategias digitales para empresas.',
     impact: [
-      'Arquitectura de proyectos end-to-end desde discovery hasta deploy.',
-      'Optimizacion de performance, SEO tecnico y experiencia mobile-first.',
-      'Acompanamiento tecnico para PyMEs que necesitan decisiones simples y mantenibles.',
+      'Liderazgo tecnico y arquitectura de soluciones escalables, desde landings hasta e-commerce con APIs y pagos.',
+      'Gestion de equipo y proyectos end-to-end, cuidando calidad de codigo, performance y experiencia de usuario.',
+      'Estrategias de transformacion digital para PyMEs, optimizacion de conversion y mejora de procesos.',
+      'SEO tecnico, Core Web Vitals y performance, con tiempos de carga por debajo de 2 segundos en proyectos exigentes.',
     ],
-    tags: ['Leadership', 'Web Strategy', 'SEO tecnico', 'Performance'],
+    tags: ['Technical Leadership', 'Digital Strategy', 'Team Management', 'Performance'],
   },
   {
-    role: 'Fullstack Developer Freelance',
-    organization: 'Clientes y empresas locales',
+    role: 'Desarrollo y consultoria',
+    organization: 'Freelancer',
     period: '2006 - Actualidad',
     summary:
-      'Desarrollo de aplicaciones web, sistemas administrativos, sitios institucionales y soluciones a medida.',
+      'Soluciones informaticas para empresas locales, con foco en desarrollo web, sistemas administrativos y consultoria tecnica.',
     impact: [
-      'Analisis, diseno, desarrollo e implementacion de sistemas.',
-      'Modelado y optimizacion de bases de datos relacionales.',
-      'Modernizacion de procesos con foco en utilidad real.',
+      'Analisis, diseno y desarrollo web y de escritorio, desde relevamiento de requisitos hasta implementacion.',
+      'Diseno, implementacion y optimizacion de bases de datos en PostgreSQL, SQL Server y MySQL.',
+      'Auditoria de sistemas, deteccion de vulnerabilidades, mejoras y optimizacion de rendimiento.',
     ],
-    tags: ['Fullstack', 'Databases', 'Legacy systems', 'Consultoria'],
+    tags: ['Web Development', 'Database Design', 'System Audit'],
   },
   {
     role: 'Soporte tecnico e infraestructura',
     organization: 'Poder Judicial de Misiones',
     period: '2007 - Actualidad',
     summary:
-      'Soporte, redes, sistemas operativos y continuidad operativa en entornos institucionales.',
+      'Soporte tecnico, redes LAN/MAN y sistemas operativos en un entorno institucional de alta continuidad operativa.',
     impact: [
-      'Resolucion de incidencias de hardware, software y conectividad.',
-      'Administracion de infraestructura LAN/MAN.',
-      'Instalacion y mantenimiento de entornos Windows, Linux y macOS.',
+      'Soporte integral a usuarios en hardware y software en entornos Windows, Linux y macOS.',
+      'Administracion y monitoreo de redes LAN/MAN, conectividad y seguridad.',
+      'Instalacion, configuracion y mantenimiento de sistemas operativos y aplicaciones.',
     ],
-    tags: ['IT Support', 'Networks', 'Operations', 'Security'],
+    tags: ['IT Support', 'Network Admin', 'System Maintenance'],
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
-    description: 'Interfaces rapidas, responsivas y faciles de usar.',
+    description: 'Construccion de interfaces web responsivas, claras y orientadas a experiencia de usuario.',
     skills: [
-      { name: 'HTML5 semantico', level: 94 },
-      { name: 'CSS moderno', level: 92 },
+      { name: 'HTML5', level: 94 },
+      { name: 'CSS3', level: 92 },
       { name: 'JavaScript', level: 88 },
-      { name: 'React / Next.js', level: 82 },
+      { name: 'React.js', level: 82 },
     ],
   },
   {
     title: 'Backend',
-    description: 'APIs, integraciones y logica de negocio mantenible.',
+    description: 'Lenguajes, plataformas y criterio fullstack para resolver logica de negocio.',
     skills: [
       { name: 'Node.js', level: 82 },
-      { name: 'PHP', level: 80 },
       { name: 'Python', level: 72 },
-      { name: '.NET / C#', level: 70 },
+      { name: 'PHP', level: 80 },
+      { name: 'C++ / C# / Visual Basic', level: 70 },
+      { name: '.NET Framework', level: 70 },
     ],
   },
   {
-    title: 'Datos',
-    description: 'Modelado, consultas y optimizacion de bases relacionales.',
+    title: 'Bases de datos',
+    description: 'Diseno, implementacion y optimizacion de bases relacionales.',
     skills: [
       { name: 'PostgreSQL', level: 84 },
-      { name: 'MySQL / MariaDB', level: 84 },
       { name: 'SQL Server', level: 78 },
-      { name: 'Power BI', level: 68 },
+      { name: 'MySQL', level: 84 },
+      { name: 'MariaDB', level: 80 },
     ],
   },
   {
-    title: 'Delivery',
-    description: 'Herramientas y criterio para llevar ideas a produccion.',
+    title: 'Herramientas y sistemas',
+    description: 'Entornos de trabajo, control de versiones, metodologias y sistemas operativos.',
     skills: [
+      { name: 'VS Code / Cursor IDE / Visual Studio', level: 88 },
       { name: 'Git / GitHub', level: 86 },
-      { name: 'Vercel', level: 78 },
       { name: 'Scrum', level: 76 },
-      { name: 'SEO tecnico', level: 80 },
+      { name: 'Windows / Linux GNOME / macOS', level: 84 },
+      { name: 'DIA / Canva', level: 72 },
     ],
+  },
+];
+
+export const education: Education[] = [
+  {
+    period: '1996 - 2000',
+    institution: 'EPET No 1 UNESCO',
+    title: 'Tecnico en Informatica',
+    status: 'Titulo tecnico secundario',
+  },
+  {
+    period: '2000 - 2010',
+    institution: 'Universidad Americana',
+    title: 'Ingenieria en Sistemas',
+    status: 'Incompleto',
+  },
+  {
+    period: '2024 - Actualidad',
+    institution: 'Instituto Combate Mborore',
+    title: 'Tecnico Superior en Analisis de Sistemas',
+    status: 'En curso',
+  },
+  {
+    period: '2024',
+    institution: 'Instituto Combate Mborore',
+    title: 'Tecnico en redes informaticas, optimizacion y reparacion de computadoras',
+    status: 'Completado',
+  },
+  {
+    period: '2024',
+    institution: 'Instituto Combate Mborore',
+    title: 'Operador en electronica y robotica',
+    status: 'Completado',
   },
 ];
 
@@ -254,36 +310,166 @@ export const certifications: Certification[] = [
     year: '2026',
     title: 'SEO para IA y Google',
     issuer: 'BIG school',
-    focus: 'Visibilidad organica moderna y busquedas asistidas por IA.',
+    area: 'SEO + IA',
+    completedAt: '3 de mayo de 2026',
+    hours: '6 h',
+    focus: 'Visibilidad organica moderna, posicionamiento en Google y busquedas asistidas por IA.',
+    credentialUrl: '/certificados/seo-ia-google-big-school.pdf',
   },
   {
     year: '2026',
-    title: 'Power BI Intermedio',
+    title: 'Power BI Intermedio: analisis y modelado de datos',
     issuer: 'Santander Open Academy',
-    focus: 'Analisis, modelado de datos y visualizacion ejecutiva.',
+    area: 'Datos',
+    completedAt: '22 de abril de 2026',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2026-0422002515907',
+    focus: 'Analisis, modelado de datos y visualizacion ejecutiva para toma de decisiones.',
+    credentialUrl: '/certificados/power-bi-intermedio-santander.pdf',
   },
   {
     year: '2026',
-    title: 'Prompting responsable',
+    title: 'Power BI',
     issuer: 'Santander Open Academy',
-    focus: 'Uso practico de IA generativa para productividad y negocio.',
+    area: 'Datos',
+    completedAt: '14 de abril de 2026',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2026-0414002479164',
+    focus: 'Fundamentos de analisis, visualizacion de datos y construccion de reportes.',
+    credentialUrl: '/certificados/power-bi-santander.pdf',
+  },
+  {
+    year: '2026',
+    title: 'Iniciacion al Desarrollo con IA',
+    issuer: 'BIG school',
+    area: 'IA + Desarrollo',
+    completedAt: '13 de marzo de 2026',
+    hours: '6 h',
+    focus: 'Desarrollo asistido por inteligencia artificial y uso practico de IA en flujos tecnicos.',
+    credentialUrl: '/certificados/iniciacion-desarrollo-ia-big-school.pdf',
+  },
+  {
+    year: '2026',
+    title: 'Prompting responsable: maximiza la IA en tu negocio',
+    issuer: 'Santander Open Academy',
+    area: 'IA + Negocio',
+    completedAt: '9 de abril de 2026',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2026-0409002459496',
+    focus: 'Uso practico y responsable de IA generativa para productividad, negocio y comunicacion.',
+    credentialUrl: '/certificados/prompting-responsable-santander.pdf',
+  },
+  {
+    year: '2026',
+    title: 'Gestion Efectiva de proyectos y equipos',
+    issuer: 'Santander Open Academy',
+    area: 'Gestion + Liderazgo',
+    completedAt: '10 de marzo de 2026',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2026-0310002341766',
+    focus: 'Liderazgo, coordinacion de equipos, ejecucion y gestion efectiva de proyectos.',
+    credentialUrl: '/certificados/gestion-efectiva-proyectos-equipos-santander.pdf',
   },
   {
     year: '2025',
-    title: 'Gestion de Proyectos y Agile',
+    title: 'Gestion de Proyectos y Fundamentos de metodologia Agile',
     issuer: 'Santander Open Academy',
-    focus: 'Organizacion de equipos, entregables y mejora continua.',
+    area: 'Agile + Delivery',
+    completedAt: '22 de diciembre de 2025',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-1222002103734',
+    focus: 'Organizacion de equipos, entregables, metodologia Agile y mejora continua.',
+    credentialUrl: '/certificados/gestion-proyectos-agile-santander.pdf',
+  },
+  {
+    year: '2025',
+    title: 'Competencias en marketing digital',
+    issuer: 'Santander Open Academy / The University of Chicago',
+    area: 'Marketing digital',
+    completedAt: '2025',
+    hours: '8 h',
+    focus: 'SEO, SEM, email marketing, redes sociales y estrategia digital aplicada a negocio.',
+  },
+  {
+    year: '2025',
+    title: 'Excel basico a intermedio',
+    issuer: 'Santander Open Academy',
+    area: 'Datos + Productividad',
+    completedAt: '2025',
+    hours: '8 h',
+    focus: 'Formulacion, tablas dinamicas y analisis de datos para tareas operativas y reportes.',
+  },
+  {
+    year: '2025',
+    title: 'Marca personal 360',
+    issuer: 'Santander Open Academy',
+    area: 'Marca personal',
+    completedAt: '17 de septiembre de 2025',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-0917001727809',
+    focus: 'Construccion de visibilidad profesional: de profesional anonimo a referente visible.',
+    credentialUrl: '/certificados/marca-personal-360-santander.pdf',
+  },
+  {
+    year: '2025',
+    title: 'Marca personal y networking profesional',
+    issuer: 'Santander Open Academy',
+    area: 'Marca personal',
+    completedAt: '2025',
+    focus: 'Desarrollo de marca personal y construccion de relaciones profesionales.',
   },
   {
     year: '2025',
     title: 'Python',
     issuer: 'Santander Open Academy',
-    focus: 'Fundamentos de programacion y automatizacion.',
+    area: 'Backend + Automatizacion',
+    completedAt: '17 de septiembre de 2025',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-0917001727889',
+    focus: 'Fundamentos de programacion, automatizacion y pensamiento logico aplicado al backend.',
+    credentialUrl: '/certificados/python-santander.pdf',
+  },
+  {
+    year: '2025',
+    title: 'Storytelling en marketing digital',
+    issuer: 'Santander Open Academy / The University of Chicago',
+    area: 'Marketing digital',
+    completedAt: '30 de julio de 2025',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-0730001506045',
+    focus: 'Comunicacion, narrativa y marketing digital para presentar propuestas con mayor claridad.',
+    credentialUrl: '/certificados/storytelling-marketing-digital-santander.pdf',
+  },
+  {
+    year: '2025',
+    title: 'Ecommerce para PyMEs',
+    issuer: 'Santander Open Academy / IE University',
+    area: 'E-commerce',
+    completedAt: '30 de julio de 2025',
+    hours: '6 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-0730001505823',
+    focus: 'Venta online, canales digitales y oportunidades para pequenas empresas.',
+    credentialUrl: '/certificados/ecommerce-pymes-santander.pdf',
   },
   {
     year: '2025',
     title: 'SEO y Content Marketing',
     issuer: 'Santander Open Academy',
-    focus: 'Contenido, posicionamiento y estrategia digital.',
+    area: 'SEO + Contenido',
+    completedAt: '24 de julio de 2025',
+    hours: '8 h',
+    modules: '2 modulos',
+    serial: 'OA-2025-0724001468156',
+    focus: 'Contenido, posicionamiento organico y estrategia digital para mejorar visibilidad.',
+    credentialUrl: '/certificados/seo-content-marketing-santander.pdf',
   },
 ];

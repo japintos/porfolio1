@@ -404,8 +404,41 @@
   line-height: 1.8;
 }
 
+.profileStatement {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profileStatement article {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background:
+    linear-gradient(135deg, rgba(124, 58, 237, 0.18), transparent 45%),
+    var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.profileStatement h3 {
+  margin: 0 0 0.8rem;
+  color: var(--text);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.profileStatement p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
 .highlightGrid,
 .skillsGrid,
+.educationGrid,
 .certGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -414,12 +447,14 @@
 
 .highlightCard,
 .skillCard,
+.educationCard,
 .certCard {
   border-radius: var(--radius-md);
   padding: 1.5rem;
 }
 
 .highlightCard span,
+.educationCard span,
 .certCard span,
 .modalContent > span {
   color: var(--accent-2);
@@ -431,6 +466,7 @@
 
 .highlightCard h3,
 .skillCard h3,
+.educationCard h3,
 .certCard h3,
 .experienceBody h3,
 .projectContent h3,
@@ -442,6 +478,7 @@
 
 .highlightCard p,
 .skillCard p,
+.educationCard p,
 .certCard p,
 .experienceBody p,
 .projectContent p,
@@ -505,6 +542,39 @@
 
 .skillsGrid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.educationSection {
+  border-block: 1px solid var(--line);
+}
+
+.educationGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.educationCard strong {
+  display: block;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 0.7rem;
+}
+
+.educationCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.educationCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+
+.educationCard:first-child,
+.educationCard:nth-child(3) {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), var(--panel));
 }
 
 .skillList {
@@ -646,10 +716,88 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.certProof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.certProof article {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), var(--panel));
+  box-shadow: var(--shadow);
+}
+
+.certProof strong,
+.certProof span {
+  display: block;
+}
+
+.certProof strong {
+  color: var(--text);
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.certProof span {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
 .certCard strong {
   display: block;
   color: var(--text);
   margin-bottom: 0.6rem;
+}
+
+.certMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.8rem 0;
+}
+
+.certMeta small {
+  color: var(--text);
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.32rem 0.52rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.certSerial {
+  display: inline-flex;
+  max-width: 100%;
+  margin-top: 0.8rem;
+  color: var(--accent-2);
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 10px;
+  padding: 0.42rem 0.55rem;
+  font-size: 0.72rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.certLink {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  padding: 0.64rem 0.85rem;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 900;
 }
 
 .contactSection {
@@ -852,7 +1000,10 @@
   }
 
   .highlightGrid,
+  .profileStatement,
   .skillsGrid,
+  .educationGrid,
+  .certProof,
   .certGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -903,7 +1054,10 @@
 
   .metricGrid,
   .highlightGrid,
+  .profileStatement,
   .skillsGrid,
+  .educationGrid,
+  .certProof,
   .projectsGrid,
   .certGrid {
     grid-template-columns: 1fr;
