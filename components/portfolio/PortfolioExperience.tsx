@@ -232,10 +232,91 @@ export default function PortfolioExperience() {
           </div>
         </section>
 
+        <section className={cx(styles.section, styles.educationSection)} id="educacion">
+          <div className={styles.sectionHeader}>
+            <p className={styles.kicker}>Educacion</p>
+            <h2>Educacion formal, base tecnica y especializacion actual.</h2>
+            <p>
+              Esta seccion queda separada de las certificaciones porque es parte central de mi
+              recorrido: tecnico en informatica, estudios universitarios, analisis de sistemas en
+              curso y formacion tecnica complementaria en redes, electronica y robotica.
+            </p>
+          </div>
+          <div className={styles.educationGrid}>
+            {education.map((item) => (
+              <article className={styles.educationCard} key={`${item.period}-${item.title}`}>
+                <span>{item.period}</span>
+                <h3>{item.title}</h3>
+                <strong>{item.institution}</strong>
+                <p>{item.status}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section} id="certificaciones">
+          <div className={styles.sectionHeader}>
+            <p className={styles.kicker}>Certificaciones</p>
+            <h2>15 certificaciones que respaldan mis skills tecnicas, de negocio y de liderazgo.</h2>
+            <p>
+              Esta formacion continua es parte de la base real de mi perfil: refuerza frontend,
+              Python, SEO, ecommerce, marketing digital, datos, Power BI, gestion de proyectos,
+              equipos e inteligencia artificial aplicada.
+            </p>
+          </div>
+          <div className={styles.certProof}>
+            <article>
+              <strong>{certifications.length}</strong>
+              <span>certificaciones cargadas desde mi CV</span>
+            </article>
+            <article>
+              <strong>2025-2026</strong>
+              <span>actualizacion profesional reciente y verificable</span>
+            </article>
+            <article>
+              <strong>Santander + BIG</strong>
+              <span>formacion en tecnologia, negocio, datos, IA y marketing</span>
+            </article>
+          </div>
+          <div className={styles.certGrid}>
+            {certifications.map((certification) => (
+              <article className={styles.certCard} key={`${certification.year}-${certification.title}`}>
+                <span>{certification.area}</span>
+                <h3>{certification.title}</h3>
+                <strong>{certification.issuer}</strong>
+                <div className={styles.certMeta}>
+                  <small>{certification.completedAt}</small>
+                  {certification.hours ? <small>{certification.hours}</small> : null}
+                  {certification.modules ? <small>{certification.modules}</small> : null}
+                </div>
+                <p>{certification.focus}</p>
+                {certification.serial ? (
+                  <code className={styles.certSerial}>{certification.serial}</code>
+                ) : null}
+                {certification.credentialUrl ? (
+                  <a
+                    className={styles.certLink}
+                    href={certification.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver certificado
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section} id="habilidades">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Stack y criterio</p>
-            <h2>Stack tecnico alineado al CV: frontend, backend, datos, herramientas y sistemas.</h2>
+            <h2>Stack tecnico validado por educacion formal, certificaciones y experiencia real.</h2>
+            <p>
+              Esta seccion aparece despues de educacion y certificaciones porque las habilidades no
+              son solo una lista de tecnologias: estan respaldadas por formacion, practica y
+              proyectos entregados.
+            </p>
           </div>
           <div className={styles.skillsGrid}>
             {skillGroups.map((group) => (
@@ -256,28 +337,6 @@ export default function PortfolioExperience() {
                     </div>
                   ))}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className={cx(styles.section, styles.educationSection)} id="educacion">
-          <div className={styles.sectionHeader}>
-            <p className={styles.kicker}>Educacion</p>
-            <h2>Educacion formal, base tecnica y especializacion actual.</h2>
-            <p>
-              Esta seccion queda separada de las certificaciones porque es parte central de mi
-              recorrido: tecnico en informatica, estudios universitarios, analisis de sistemas en
-              curso y formacion tecnica complementaria en redes, electronica y robotica.
-            </p>
-          </div>
-          <div className={styles.educationGrid}>
-            {education.map((item) => (
-              <article className={styles.educationCard} key={`${item.period}-${item.title}`}>
-                <span>{item.period}</span>
-                <h3>{item.title}</h3>
-                <strong>{item.institution}</strong>
-                <p>{item.status}</p>
               </article>
             ))}
           </div>
@@ -340,60 +399,6 @@ export default function PortfolioExperience() {
                     </a>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.section} id="certificaciones">
-          <div className={styles.sectionHeader}>
-            <p className={styles.kicker}>Certificaciones</p>
-            <h2>15 certificaciones que respaldan mis skills tecnicas, de negocio y de liderazgo.</h2>
-            <p>
-              Esta formacion continua es parte de la base real de mi perfil: refuerza frontend,
-              Python, SEO, ecommerce, marketing digital, datos, Power BI, gestion de proyectos,
-              equipos e inteligencia artificial aplicada.
-            </p>
-          </div>
-          <div className={styles.certProof}>
-            <article>
-              <strong>{certifications.length}</strong>
-              <span>certificaciones cargadas desde mi CV</span>
-            </article>
-            <article>
-              <strong>2025-2026</strong>
-              <span>actualizacion profesional reciente y verificable</span>
-            </article>
-            <article>
-              <strong>Santander + BIG</strong>
-              <span>formacion en tecnologia, negocio, datos, IA y marketing</span>
-            </article>
-          </div>
-          <div className={styles.certGrid}>
-            {certifications.map((certification) => (
-              <article className={styles.certCard} key={`${certification.year}-${certification.title}`}>
-                <span>{certification.area}</span>
-                <h3>{certification.title}</h3>
-                <strong>{certification.issuer}</strong>
-                <div className={styles.certMeta}>
-                  <small>{certification.completedAt}</small>
-                  {certification.hours ? <small>{certification.hours}</small> : null}
-                  {certification.modules ? <small>{certification.modules}</small> : null}
-                </div>
-                <p>{certification.focus}</p>
-                {certification.serial ? (
-                  <code className={styles.certSerial}>{certification.serial}</code>
-                ) : null}
-                {certification.credentialUrl ? (
-                  <a
-                    className={styles.certLink}
-                    href={certification.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver certificado
-                  </a>
-                ) : null}
               </article>
             ))}
           </div>
