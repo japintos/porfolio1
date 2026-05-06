@@ -6,7 +6,7 @@
 
 ¡Bienvenido a mi portafolio web! Soy **Senior Fullstack Developer**, **Socio Fundador & Tech Lead** de WebXpert, con 18+ años de experiencia transformando ideas en soluciones digitales escalables.
 
-**Despliegue actual:** la aplicación corre en **[Vercel](https://vercel.com)** con **[Next.js](https://nextjs.org)**. El contenido visible del sitio sigue siendo HTML/CSS/JS estático servido desde la carpeta `public/`, y el **CV en PDF** se genera en el servidor con **`@react-pdf/renderer`** (sin depender del canvas del navegador).
+**Despliegue actual:** la aplicación corre en **[Vercel](https://vercel.com)** con **[Next.js](https://nextjs.org)**. La home principal está construida con componentes React/TypeScript y CSS Modules, mientras que el **CV en PDF** se genera en el servidor con **`@react-pdf/renderer`** (sin depender del canvas del navegador).
 
 ---
 
@@ -25,8 +25,8 @@ Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer
 | Framework | **Next.js 14** (App Router) |
 | Lenguaje | **TypeScript** |
 | PDF del CV | **`@react-pdf/renderer`** (generación en servidor) |
-| Estilos del sitio | CSS propio (`public/css/style.css`, variables CSS) |
-| Contenido estático | HTML en `public/index.html`, assets en `public/` |
+| Estilos del sitio | CSS Modules (`components/portfolio/PortfolioExperience.module.css`) |
+| Contenido visual | Componentes React en `components/portfolio/`, assets en `public/` |
 | Hosting | **Vercel** (producción) |
 
 ### Frontend (perfil profesional — contenido del sitio)
@@ -64,13 +64,18 @@ Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer
 porfolio1/
 ├── app/                          # Next.js (App Router)
 │   ├── layout.tsx
-│   ├── page.tsx                  # “/” — iframe → /index.html
+│   ├── page.tsx                  # “/” — Portfolio React
 │   ├── globals.css
 │   └── api/cv/route.tsx          # GET /api/cv → PDF
-├── components/pdf/CvPdfDocument.tsx
+├── components/
+│   ├── pdf/CvPdfDocument.tsx
+│   └── portfolio/                # Home visual del portfolio
+│       ├── PortfolioExperience.tsx
+│       ├── PortfolioExperience.module.css
+│       └── data.ts
 ├── lib/cv-data.ts                # Datos del CV (PDF)
 ├── public/                       # Sitio estático (sirve Vercel en /)
-│   ├── index.html
+│   ├── index.html                # Version estatica legacy
 │   ├── devrunner.html
 │   ├── css/                      # style.css, devrunner.css
 │   ├── js/                       # main.js, devrunner.js
@@ -81,15 +86,16 @@ porfolio1/
 └── README.md
 ```
 
-- **`public/`** es lo que Vercel/Next sirve en la raíz del dominio (`/index.html`, `/css/...`, `/Img/...`).
-- La **página principal de Next** (`app/page.tsx`) incrusta ese HTML en un **iframe** para no duplicar todo el markup en JSX de golpe.
+- **`app/page.tsx`** renderiza la experiencia principal del portfolio con React.
+- **`components/portfolio/data.ts`** concentra contenido editable: navegación, métricas, experiencia, stack, proyectos y certificaciones.
+- **`public/`** conserva assets e incluye una versión HTML estática legacy (`/index.html`) más recursos como `/devrunner.html`.
 - El **PDF del CV** no se arma con html2canvas en el cliente: la ruta **`/api/cv`** usa **`renderToBuffer`** de `@react-pdf/renderer` y los datos de **`lib/cv-data.ts`**.
 
 ---
 
 ## CV en PDF (cómo funciona)
 
-1. El visitante pulsa **Descargar CV** en el hero (`public/index.html` → enlace a **`/api/cv`**).
+1. El visitante pulsa **Descargar CV** en el hero (`components/portfolio/PortfolioExperience.tsx` → enlace a **`/api/cv`**).
 2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPdfDocument`** con **`renderToBuffer`** y responde `application/pdf`.
 3. Los textos y secciones del CV viven en **`lib/cv-data.ts`**. Si actualizas el contenido del CV, edita ese archivo y, si hace falta, el layout en **`components/pdf/CvPdfDocument.tsx`**.
 
@@ -99,9 +105,9 @@ Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (de
 
 ## Características destacadas (sitio)
 
-- **Diseño responsive**, loading screen, animaciones con `IntersectionObserver`, barra de scroll, menú hamburguesa.
+- **Diseño responsive premium**, tema claro/oscuro, navegación mobile, filtros de proyectos y modales accesibles.
 - **Descarga de CV** vía **`GET /api/cv`** (PDF generado en servidor).
-- **Formulario WhatsApp**, copiar email, tooltips en habilidades, modales de proyectos.
+- **Formulario WhatsApp**, presentación de proyectos como case studies, stack por áreas y certificaciones destacadas.
 - **Accesibilidad y SEO:** skip links, ARIA, Schema.org, Open Graph, Twitter Cards.
 - **DevXpert Runner:** minijuego en **`/devrunner.html`** (HTML/CSS/JS).
 
@@ -116,7 +122,7 @@ npm install
 npm run dev
 ```
 
-Abre **http://localhost:3000**: verás el portfolio dentro del iframe (contenido desde **`/index.html`**). El PDF se prueba en **http://localhost:3000/api/cv**.
+Abre **http://localhost:3000**: verás la home principal construida con Next/React. El PDF se prueba en **http://localhost:3000/api/cv**.
 
 ### Scripts útiles
 
@@ -128,7 +134,7 @@ Abre **http://localhost:3000**: verás el portfolio dentro del iframe (contenido
 
 ### Solo archivos estáticos (sin Next)
 
-Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás el sitio, pero **`/api/cv`** no existirá y el botón de descarga del CV no funcionará.
+Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás la versión HTML legacy, pero **`/api/cv`** no existirá y el botón de descarga del CV no funcionará.
 
 ---
 
@@ -148,16 +154,16 @@ Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás el 
 | Qué cambiar | Dónde |
 |-------------|--------|
 | Textos y secciones del **PDF** | `lib/cv-data.ts` y, si hace falta, `components/pdf/CvPdfDocument.tsx` |
-| Contenido visual del **sitio** | `public/index.html`, `public/css/style.css`, `public/js/main.js` |
+| Contenido visual del **sitio** | `components/portfolio/data.ts` y `components/portfolio/PortfolioExperience.tsx` |
 | Imágenes | `public/Img/` (y rutas `/Img/...` en HTML) |
 | Metadatos / título Next | `app/layout.tsx` |
-| Paleta y variables CSS | `public/css/style.css` (`:root`) |
+| Paleta y variables CSS | `components/portfolio/PortfolioExperience.module.css` |
 
 ---
 
 ## Proyectos destacados, formación, experiencia, contacto
 
-*(Secciones informativas del portfolio; el detalle sigue alineado con el contenido de `public/index.html` y con mi perfil público.)*
+*(Secciones informativas del portfolio; el detalle sigue alineado con el contenido de `components/portfolio/data.ts` y con mi perfil público.)*
 
 ### Proyectos (demos)
 
