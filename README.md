@@ -80,7 +80,8 @@ porfolio1/
 │   ├── devrunner.html
 │   ├── css/                      # style.css, devrunner.css
 │   ├── js/                       # main.js, devrunner.js
-│   └── Img/
+│   ├── Img/
+│   └── logo.jpg
 ├── package.json
 ├── next.config.mjs
 ├── tsconfig.json
@@ -100,7 +101,7 @@ porfolio1/
 2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPrintDocument`** con **`renderToBuffer`** y responde `application/pdf`.
 3. Los textos base del CV viven en **`lib/cv-data.ts`** y el layout imprimible en **`components/pdf/CvPrintDocument.tsx`**. También reutiliza datos reales del portfolio para experiencia, educación, certificaciones, stack y proyectos.
 
-Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`**).
+Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`). Logo de marca: **`{origen del sitio}/logo.jpg`**.
 
 ---
 
@@ -156,7 +157,7 @@ Si sirves únicamente **`public/`** (por ejemplo `npx serve public`), verás la 
 |-------------|--------|
 | Textos y secciones del **PDF** | `lib/cv-data.ts`, `components/portfolio/data.ts` y `components/pdf/CvPrintDocument.tsx` |
 | Contenido visual del **sitio** | `components/portfolio/data.ts` y `components/portfolio/PortfolioExperience.tsx` |
-| Imágenes | `public/Img/` (y rutas `/Img/...` en HTML) |
+| Imágenes y logo | `public/Img/` y `public/logo.jpg` |
 | Metadatos / título Next | `app/layout.tsx` |
 | Paleta y variables CSS | `components/portfolio/PortfolioExperience.module.css` |
 

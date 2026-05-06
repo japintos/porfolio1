@@ -50,6 +50,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 26,
   },
+  logoStrip: {
+    alignSelf: 'flex-start',
+    width: 112,
+    padding: 5,
+    borderRadius: 14,
+    backgroundColor: '#000000',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.12)',
+    marginBottom: 12,
+  },
+  logo: {
+    width: 102,
+    height: 28,
+    objectFit: 'contain',
+  },
   photoRing: {
     width: 108,
     height: 108,
@@ -470,6 +485,7 @@ function Section({ num, title }: { num: string; title: string }) {
 export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
   const origin = baseUrl.replace(/\/$/, '');
   const photoSrc = `${origin}${cvData.photoPath}`;
+  const logoSrc = `${origin}/logo.jpg`;
   const profileText = cvData.summary.join(' ');
 
   return (
@@ -485,6 +501,9 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
               <Image src={photoSrc} style={styles.photo} />
             </View>
             <View style={styles.coverCopy}>
+              <View style={styles.logoStrip}>
+                <Image src={logoSrc} style={styles.logo} />
+              </View>
               <Text style={styles.eyebrow}>Senior Fullstack · 18+ anos · 50+ proyectos</Text>
               <Text style={styles.name}>{cvData.name}</Text>
               <Text style={styles.roles}>{cvData.roles}</Text>

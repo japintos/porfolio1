@@ -74,17 +74,22 @@
 }
 
 .brandMark {
-  display: grid;
-  width: 46px;
+  display: flex;
+  width: 76px;
   height: 46px;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: rgba(0, 0, 0, 0.78);
   box-shadow: 0 14px 30px rgba(6, 182, 212, 0.2);
-  color: white;
-  font-weight: 900;
-  letter-spacing: -0.05em;
+  overflow: hidden;
+}
+
+.brandLogo {
+  width: 68px;
+  height: auto;
+  object-fit: contain;
 }
 
 .brand strong,
@@ -870,6 +875,7 @@
 .footer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   width: min(1180px, calc(100% - 32px));
@@ -883,6 +889,21 @@
   color: var(--text);
   text-decoration: none;
   font-weight: 900;
+}
+
+.footerBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  font-weight: 900;
+}
+
+.footerLogo {
+  width: 58px;
+  height: auto;
+  border-radius: 8px;
+  background: #000;
 }
 
 .modalBackdrop {

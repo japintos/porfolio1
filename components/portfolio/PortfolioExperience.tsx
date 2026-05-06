@@ -66,7 +66,16 @@ export default function PortfolioExperience() {
       <div className={styles.noise} aria-hidden="true" />
       <header className={styles.header}>
         <a className={styles.brand} href="#presentacion" onClick={() => setIsMenuOpen(false)}>
-          <span className={styles.brandMark}>JP</span>
+          <span className={styles.brandMark}>
+            <Image
+              src="/logo.jpg"
+              alt="Logo personal JAP"
+              width={92}
+              height={46}
+              className={styles.brandLogo}
+              priority
+            />
+          </span>
           <span>
             <strong>Julio A. Pintos</strong>
             <small>Senior Fullstack · Tech Lead · Solutions Architect</small>
@@ -443,7 +452,16 @@ export default function PortfolioExperience() {
       </main>
 
       <footer className={styles.footer}>
-        <span>Julio A. Pintos</span>
+        <span className={styles.footerBrand}>
+          <Image
+            src="/logo.jpg"
+            alt=""
+            width={58}
+            height={29}
+            className={styles.footerLogo}
+          />
+          Julio A. Pintos
+        </span>
         <span>Senior Fullstack Developer | WebXpert</span>
         <a href="#presentacion">Volver arriba</a>
       </footer>
