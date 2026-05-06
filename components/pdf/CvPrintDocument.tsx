@@ -467,7 +467,7 @@ function Footer() {
   return (
     <View style={styles.footer} fixed>
       <Text>Portfolio: {cvData.contact.portfolio}</Text>
-      <Text render={({ pageNumber, totalPages }) => `Pagina ${pageNumber} de ${totalPages}`} />
+      <Text render={({ pageNumber, totalPages }) => `Página ${pageNumber} de ${totalPages}`} />
     </View>
   );
 }
@@ -504,7 +504,7 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
               <View style={styles.logoStrip}>
                 <Image src={logoSrc} style={styles.logo} />
               </View>
-              <Text style={styles.eyebrow}>Senior Fullstack · 18+ anos · 50+ proyectos</Text>
+              <Text style={styles.eyebrow}>Senior Fullstack · 18+ años · 50+ proyectos</Text>
               <Text style={styles.name}>{cvData.name}</Text>
               <Text style={styles.roles}>{cvData.roles}</Text>
               <Text style={styles.contactLine}>
@@ -573,8 +573,8 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
       </Page>
 
       <Page size="A4" style={styles.page}>
-        <Header eyebrow="Educacion y certificaciones" />
-        <Section num="02" title="EDUCACION FORMAL" />
+        <Header eyebrow="Educación y certificaciones" />
+        <Section num="02" title="EDUCACIÓN FORMAL" />
         <View style={styles.educationGrid}>
           {education.map((item) => (
             <View key={`${item.period}-${item.title}`} style={styles.educationCard}>
@@ -600,7 +600,7 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
           </View>
           <View style={styles.proofCard}>
             <Text style={styles.proofValue}>IA · SEO · Datos</Text>
-            <Text style={styles.proofLabel}>formacion aplicada a tecnologia y negocio</Text>
+            <Text style={styles.proofLabel}>formación aplicada a tecnología y negocio</Text>
           </View>
         </View>
         <View style={styles.certGrid}>
@@ -625,7 +625,7 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
 
       <Page size="A4" style={styles.page}>
         <Header eyebrow="Stack, proyectos y contacto" />
-        <Section num="04" title="STACK TECNICO" />
+        <Section num="04" title="STACK TÉCNICO" />
         <View style={styles.skillsGrid}>
           {skillGroups.map((group) => (
             <View key={group.title} style={styles.skillCard}>
@@ -665,7 +665,7 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
           <Section num="06" title="CONTACTO" />
         </View>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Disponible para proyectos freelance, web, e-commerce, optimizacion y sistemas.</Text>
+          <Text style={styles.cardTitle}>Disponible para proyectos freelance, web, e-commerce, optimización y sistemas.</Text>
           <Text style={styles.paragraph}>
             {cvData.contact.email} · {cvData.contact.phone} · {cvData.contact.location}
           </Text>

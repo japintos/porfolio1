@@ -69,7 +69,7 @@ export const navItems: NavItem[] = [
   { href: '#presentacion', label: 'Inicio' },
   { href: '#perfil', label: 'Perfil' },
   { href: '#experiencia', label: 'Experiencia' },
-  { href: '#educacion', label: 'Educacion' },
+  { href: '#educacion', label: 'Educación' },
   { href: '#certificaciones', label: 'Certificaciones' },
   { href: '#habilidades', label: 'Stack' },
   { href: '#proyectos', label: 'Proyectos' },
@@ -77,36 +77,36 @@ export const navItems: NavItem[] = [
 ];
 
 export const metrics: Metric[] = [
-  { value: '18+', label: 'anos de experiencia tecnica' },
+  { value: '18+', label: 'años de experiencia técnica' },
   { value: '50+', label: 'proyectos completados' },
-  { value: '2025', label: 'fundacion de WebXpert' },
+  { value: '2025', label: 'fundación de WebXpert' },
   { value: '3', label: 'frentes: arquitectura, liderazgo y delivery' },
 ];
 
 export const highlights: Highlight[] = [
   {
     eyebrow: 'Desarrollo integral',
-    title: 'Del diseno al deploy',
+    title: 'Del diseño al deploy',
     description:
-      'Trabajo desde el analisis y el diseno hasta la implementacion, cuidando que cada proyecto funcione correctamente en produccion.',
+      'Trabajo desde el análisis y el diseño hasta la implementación, cuidando que cada proyecto funcione correctamente en producción.',
   },
   {
-    eyebrow: 'Colaboracion efectiva',
-    title: 'Comunicacion clara y trabajo en equipo',
+    eyebrow: 'Colaboración efectiva',
+    title: 'Comunicación clara y trabajo en equipo',
     description:
-      'Me adapto a equipos, comunico con claridad y busco la mejor solucion en conjunto, alineando tecnologia con objetivos reales.',
+      'Me adapto a equipos, comunico con claridad y busco la mejor solución en conjunto, alineando tecnología con objetivos reales.',
   },
   {
-    eyebrow: 'Enfoque practico',
-    title: 'Tecnologia adecuada para cada contexto',
+    eyebrow: 'Enfoque práctico',
+    title: 'Tecnología adecuada para cada contexto',
     description:
-      'Priorizo simplicidad, mantenibilidad y resultados. La mejor solucion es la que resuelve el problema sin complejidad innecesaria.',
+      'Priorizo simplicidad, mantenibilidad y resultados. La mejor solución es la que resuelve el problema sin complejidad innecesaria.',
   },
   {
     eyebrow: 'Aprendizaje continuo',
-    title: 'Actualizacion constante',
+    title: 'Actualización constante',
     description:
-      'Mantengo una formacion activa en Python, SEO, ecommerce, gestion de proyectos, Power BI, IA y buenas practicas de desarrollo.',
+      'Mantengo una formación activa en Python, SEO, ecommerce, gestión de proyectos, Power BI, IA y buenas prácticas de desarrollo.',
   },
 ];
 
@@ -116,38 +116,38 @@ export const experiences: Experience[] = [
     organization: 'WebXpert',
     period: '2025 - Actualidad',
     summary:
-      'Agencia digital especializada en desarrollo web, optimizacion y estrategias digitales para empresas.',
+      'Agencia digital especializada en desarrollo web, optimización y estrategias digitales para empresas.',
     impact: [
-      'Liderazgo tecnico y arquitectura de soluciones escalables, desde landings hasta e-commerce con APIs y pagos.',
-      'Gestion de equipo y proyectos end-to-end, cuidando calidad de codigo, performance y experiencia de usuario.',
-      'Estrategias de transformacion digital para PyMEs, optimizacion de conversion y mejora de procesos.',
-      'SEO tecnico, Core Web Vitals y performance, con tiempos de carga por debajo de 2 segundos en proyectos exigentes.',
+      'Liderazgo técnico y arquitectura de soluciones escalables, desde landings hasta e-commerce con APIs y pagos.',
+      'Gestión de equipo y proyectos end-to-end, cuidando calidad de código, performance y experiencia de usuario.',
+      'Estrategias de transformación digital para PyMEs, optimización de conversión y mejora de procesos.',
+      'SEO técnico, Core Web Vitals y performance, con tiempos de carga por debajo de 2 segundos en proyectos exigentes.',
     ],
     tags: ['Technical Leadership', 'Digital Strategy', 'Team Management', 'Performance'],
   },
   {
-    role: 'Desarrollo y consultoria',
+    role: 'Desarrollo y consultoría',
     organization: 'Freelancer',
     period: '2006 - Actualidad',
     summary:
-      'Soluciones informaticas para empresas locales, con foco en desarrollo web, sistemas administrativos y consultoria tecnica.',
+      'Soluciones informáticas para empresas locales, con foco en desarrollo web, sistemas administrativos y consultoría técnica.',
     impact: [
-      'Analisis, diseno y desarrollo web y de escritorio, desde relevamiento de requisitos hasta implementacion.',
-      'Diseno, implementacion y optimizacion de bases de datos en PostgreSQL, SQL Server y MySQL.',
-      'Auditoria de sistemas, deteccion de vulnerabilidades, mejoras y optimizacion de rendimiento.',
+      'Análisis, diseño y desarrollo web y de escritorio, desde relevamiento de requisitos hasta implementación.',
+      'Diseño, implementación y optimización de bases de datos en PostgreSQL, SQL Server y MySQL.',
+      'Auditoría de sistemas, detección de vulnerabilidades, mejoras y optimización de rendimiento.',
     ],
     tags: ['Web Development', 'Database Design', 'System Audit'],
   },
   {
-    role: 'Soporte tecnico e infraestructura',
+    role: 'Soporte técnico e infraestructura',
     organization: 'Poder Judicial de Misiones',
     period: '2007 - Actualidad',
     summary:
-      'Soporte tecnico, redes LAN/MAN y sistemas operativos en un entorno institucional de alta continuidad operativa.',
+      'Soporte técnico, redes LAN/MAN y sistemas operativos en un entorno institucional de alta continuidad operativa.',
     impact: [
       'Soporte integral a usuarios en hardware y software en entornos Windows, Linux y macOS.',
-      'Administracion y monitoreo de redes LAN/MAN, conectividad y seguridad.',
-      'Instalacion, configuracion y mantenimiento de sistemas operativos y aplicaciones.',
+      'Administración y monitoreo de redes LAN/MAN, conectividad y seguridad.',
+      'Instalación, configuración y mantenimiento de sistemas operativos y aplicaciones.',
     ],
     tags: ['IT Support', 'Network Admin', 'System Maintenance'],
   },
@@ -156,7 +156,7 @@ export const experiences: Experience[] = [
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
-    description: 'Construccion de interfaces web responsivas, claras y orientadas a experiencia de usuario.',
+    description: 'Construcción de interfaces web responsivas, claras y orientadas a experiencia de usuario.',
     skills: [
       { name: 'HTML5', level: 94 },
       { name: 'CSS3', level: 92 },
@@ -166,7 +166,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Backend',
-    description: 'Lenguajes, plataformas y criterio fullstack para resolver logica de negocio.',
+    description: 'Lenguajes, plataformas y criterio fullstack para resolver lógica de negocio.',
     skills: [
       { name: 'Node.js', level: 82 },
       { name: 'Python', level: 72 },
@@ -177,7 +177,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Bases de datos',
-    description: 'Diseno, implementacion y optimizacion de bases relacionales.',
+    description: 'Diseño, implementación y optimización de bases relacionales.',
     skills: [
       { name: 'PostgreSQL', level: 84 },
       { name: 'SQL Server', level: 78 },
@@ -187,7 +187,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Herramientas y sistemas',
-    description: 'Entornos de trabajo, control de versiones, metodologias y sistemas operativos.',
+    description: 'Entornos de trabajo, control de versiones, metodologías y sistemas operativos.',
     skills: [
       { name: 'VS Code / Cursor IDE / Visual Studio', level: 88 },
       { name: 'Git / GitHub', level: 86 },
@@ -201,32 +201,32 @@ export const skillGroups: SkillGroup[] = [
 export const education: Education[] = [
   {
     period: '1996 - 2000',
-    institution: 'EPET No 1 UNESCO',
-    title: 'Tecnico en Informatica',
-    status: 'Titulo tecnico secundario',
+    institution: 'EPET N.º 1 UNESCO',
+    title: 'Técnico en Informática',
+    status: 'Título técnico secundario',
   },
   {
     period: '2000 - 2010',
     institution: 'Universidad Americana',
-    title: 'Ingenieria en Sistemas',
+    title: 'Ingeniería en Sistemas',
     status: 'Incompleto',
   },
   {
     period: '2024 - Actualidad',
-    institution: 'Instituto Combate Mborore',
-    title: 'Tecnico Superior en Analisis de Sistemas',
+    institution: 'Instituto Combate Mbororé',
+    title: 'Técnico Superior en Análisis de Sistemas',
     status: 'En curso',
   },
   {
     period: '2024',
-    institution: 'Instituto Combate Mborore',
-    title: 'Tecnico en redes informaticas, optimizacion y reparacion de computadoras',
+    institution: 'Instituto Combate Mbororé',
+    title: 'Técnico en redes informáticas, optimización y reparación de computadoras',
     status: 'Completado',
   },
   {
     period: '2024',
-    institution: 'Instituto Combate Mborore',
-    title: 'Operador en electronica y robotica',
+    institution: 'Instituto Combate Mbororé',
+    title: 'Operador en electrónica y robótica',
     status: 'Completado',
   },
 ];
@@ -240,11 +240,11 @@ export const projects: Project[] = [
     href: 'https://carritocompraswebxpert.vercel.app/catalogo',
     featured: true,
     challenge:
-      'Crear una experiencia de compra clara y rapida para que el usuario llegue al producto correcto sin friccion.',
+      'Crear una experiencia de compra clara y rápida para que el usuario llegue al producto correcto sin fricción.',
     solution:
-      'SPA con catalogo interactivo, filtros, interfaz mobile-first y un flujo de checkout pensado para conversion.',
+      'SPA con catálogo interactivo, filtros, interfaz mobile-first y un flujo de checkout pensado para conversión.',
     result:
-      'Carga percibida liviana, navegacion simple y una base preparada para evolucionar hacia integraciones comerciales.',
+      'Carga percibida liviana, navegación simple y una base preparada para evolucionar hacia integraciones comerciales.',
     stack: ['React', 'Vite', 'JavaScript', 'CSS3', 'API REST'],
   },
   {
@@ -256,7 +256,7 @@ export const projects: Project[] = [
     challenge:
       'Presentar una agencia nueva con credibilidad inmediata y una propuesta comercial entendible.',
     solution:
-      'Landing responsive, estructura comercial directa, narrativa de servicios y optimizacion SEO tecnica.',
+      'Landing responsive, estructura comercial directa, narrativa de servicios y optimización SEO técnica.',
     result:
       'Mayor claridad para potenciales clientes y una presencia digital alineada al posicionamiento de la marca.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'SEO'],
@@ -268,11 +268,11 @@ export const projects: Project[] = [
     image: '/Img/oudin.jpg',
     href: 'https://japintos.github.io/estudioOudin/',
     challenge:
-      'Modernizar la presencia digital de un estudio juridico sin perder sobriedad ni confianza profesional.',
+      'Modernizar la presencia digital de un estudio jurídico sin perder sobriedad ni confianza profesional.',
     solution:
       'Sitio institucional accesible, responsive, con contenidos ordenados y llamados de contacto claros.',
     result:
-      'Mejor percepcion de marca, mas claridad en servicios y acceso directo a canales de consulta.',
+      'Mejor percepción de marca, más claridad en servicios y acceso directo a canales de consulta.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Accesibilidad'],
   },
   {
@@ -286,7 +286,7 @@ export const projects: Project[] = [
     solution:
       'Catalogo visual con cards, filtros, detalles y contacto directo para reducir pasos innecesarios.',
     result:
-      'Experiencia mas simple para comparar opciones y aumentar la intencion de consulta.',
+      'Experiencia más simple para comparar opciones y aumentar la intención de consulta.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive'],
   },
   {
@@ -300,7 +300,7 @@ export const projects: Project[] = [
     solution:
       'Minijuego runner en HTML, CSS y JavaScript puro inspirado en el universo dev.',
     result:
-      'Un punto de diferenciacion que muestra creatividad, logica e interaccion liviana.',
+      'Un punto de diferenciación que muestra creatividad, lógica e interacción liviana.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Game loop'],
   },
 ];
@@ -313,19 +313,19 @@ export const certifications: Certification[] = [
     area: 'SEO + IA',
     completedAt: '3 de mayo de 2026',
     hours: '6 h',
-    focus: 'Visibilidad organica moderna, posicionamiento en Google y busquedas asistidas por IA.',
+    focus: 'Visibilidad orgánica moderna, posicionamiento en Google y búsquedas asistidas por IA.',
     credentialUrl: '/certificados/seo-ia-google-big-school.pdf',
   },
   {
     year: '2026',
-    title: 'Power BI Intermedio: analisis y modelado de datos',
+    title: 'Power BI Intermedio: análisis y modelado de datos',
     issuer: 'Santander Open Academy',
     area: 'Datos',
     completedAt: '22 de abril de 2026',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2026-0422002515907',
-    focus: 'Analisis, modelado de datos y visualizacion ejecutiva para toma de decisiones.',
+    focus: 'Análisis, modelado de datos y visualización ejecutiva para toma de decisiones.',
     credentialUrl: '/certificados/power-bi-intermedio-santander.pdf',
   },
   {
@@ -335,19 +335,19 @@ export const certifications: Certification[] = [
     area: 'Datos',
     completedAt: '14 de abril de 2026',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2026-0414002479164',
-    focus: 'Fundamentos de analisis, visualizacion de datos y construccion de reportes.',
+    focus: 'Fundamentos de análisis, visualización de datos y construcción de reportes.',
     credentialUrl: '/certificados/power-bi-santander.pdf',
   },
   {
     year: '2026',
-    title: 'Iniciacion al Desarrollo con IA',
+    title: 'Iniciación al Desarrollo con IA',
     issuer: 'BIG school',
     area: 'IA + Desarrollo',
     completedAt: '13 de marzo de 2026',
     hours: '6 h',
-    focus: 'Desarrollo asistido por inteligencia artificial y uso practico de IA en flujos tecnicos.',
+    focus: 'Desarrollo asistido por inteligencia artificial y uso práctico de IA en flujos técnicos.',
     credentialUrl: '/certificados/iniciacion-desarrollo-ia-big-school.pdf',
   },
   {
@@ -357,9 +357,9 @@ export const certifications: Certification[] = [
     area: 'IA + Negocio',
     completedAt: '9 de abril de 2026',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2026-0409002459496',
-    focus: 'Uso practico y responsable de IA generativa para productividad, negocio y comunicacion.',
+    focus: 'Uso práctico y responsable de IA generativa para productividad, negocio y comunicación.',
     credentialUrl: '/certificados/prompting-responsable-santander.pdf',
   },
   {
@@ -369,21 +369,21 @@ export const certifications: Certification[] = [
     area: 'Gestion + Liderazgo',
     completedAt: '10 de marzo de 2026',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2026-0310002341766',
-    focus: 'Liderazgo, coordinacion de equipos, ejecucion y gestion efectiva de proyectos.',
+    focus: 'Liderazgo, coordinación de equipos, ejecución y gestión efectiva de proyectos.',
     credentialUrl: '/certificados/gestion-efectiva-proyectos-equipos-santander.pdf',
   },
   {
     year: '2025',
-    title: 'Gestion de Proyectos y Fundamentos de metodologia Agile',
+    title: 'Gestión de Proyectos y Fundamentos de metodología Agile',
     issuer: 'Santander Open Academy',
     area: 'Agile + Delivery',
     completedAt: '22 de diciembre de 2025',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-1222002103734',
-    focus: 'Organizacion de equipos, entregables, metodologia Agile y mejora continua.',
+    focus: 'Organización de equipos, entregables, metodología Agile y mejora continua.',
     credentialUrl: '/certificados/gestion-proyectos-agile-santander.pdf',
   },
   {
@@ -397,12 +397,12 @@ export const certifications: Certification[] = [
   },
   {
     year: '2025',
-    title: 'Excel basico a intermedio',
+    title: 'Excel básico a intermedio',
     issuer: 'Santander Open Academy',
     area: 'Datos + Productividad',
     completedAt: '2025',
     hours: '8 h',
-    focus: 'Formulacion, tablas dinamicas y analisis de datos para tareas operativas y reportes.',
+    focus: 'Formulación, tablas dinámicas y análisis de datos para tareas operativas y reportes.',
   },
   {
     year: '2025',
@@ -411,9 +411,9 @@ export const certifications: Certification[] = [
     area: 'Marca personal',
     completedAt: '17 de septiembre de 2025',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-0917001727809',
-    focus: 'Construccion de visibilidad profesional: de profesional anonimo a referente visible.',
+    focus: 'Construcción de visibilidad profesional: de profesional anónimo a referente visible.',
     credentialUrl: '/certificados/marca-personal-360-santander.pdf',
   },
   {
@@ -428,12 +428,12 @@ export const certifications: Certification[] = [
     year: '2025',
     title: 'Python',
     issuer: 'Santander Open Academy',
-    area: 'Backend + Automatizacion',
+    area: 'Backend + Automatización',
     completedAt: '17 de septiembre de 2025',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-0917001727889',
-    focus: 'Fundamentos de programacion, automatizacion y pensamiento logico aplicado al backend.',
+    focus: 'Fundamentos de programación, automatización y pensamiento lógico aplicado al backend.',
     credentialUrl: '/certificados/python-santander.pdf',
   },
   {
@@ -443,9 +443,9 @@ export const certifications: Certification[] = [
     area: 'Marketing digital',
     completedAt: '30 de julio de 2025',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-0730001506045',
-    focus: 'Comunicacion, narrativa y marketing digital para presentar propuestas con mayor claridad.',
+    focus: 'Comunicación, narrativa y marketing digital para presentar propuestas con mayor claridad.',
     credentialUrl: '/certificados/storytelling-marketing-digital-santander.pdf',
   },
   {
@@ -455,9 +455,9 @@ export const certifications: Certification[] = [
     area: 'E-commerce',
     completedAt: '30 de julio de 2025',
     hours: '6 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-0730001505823',
-    focus: 'Venta online, canales digitales y oportunidades para pequenas empresas.',
+    focus: 'Venta online, canales digitales y oportunidades para pequeñas empresas.',
     credentialUrl: '/certificados/ecommerce-pymes-santander.pdf',
   },
   {
@@ -467,7 +467,7 @@ export const certifications: Certification[] = [
     area: 'SEO + Contenido',
     completedAt: '24 de julio de 2025',
     hours: '8 h',
-    modules: '2 modulos',
+    modules: '2 módulos',
     serial: 'OA-2025-0724001468156',
     focus: 'Contenido, posicionamiento organico y estrategia digital para mejorar visibilidad.',
     credentialUrl: '/certificados/seo-content-marketing-santander.pdf',

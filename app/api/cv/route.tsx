@@ -4,6 +4,7 @@ import { CvPrintDocument } from '@/components/pdf/CvPrintDocument';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET(request: Request) {
   try {
@@ -15,8 +16,11 @@ export async function GET(request: Request) {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition':
-          'attachment; filename="CV-Julio-Pintos-Fullstack-Developer.pdf"',
-        'Cache-Control': 'public, max-age=3600',
+          'attachment; filename="CV-Julio-Pintos-Senior-Fullstack-Developer.pdf"',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        Pragma: 'no-cache',
+        Expires: '0',
+        'X-CV-Version': 'print-2026-05-06',
       },
     });
   } catch (e) {

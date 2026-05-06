@@ -85,7 +85,7 @@ export default function PortfolioExperience() {
         <button
           className={styles.menuButton}
           type="button"
-          aria-label={isMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
+          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((value) => !value)}
         >
@@ -94,7 +94,7 @@ export default function PortfolioExperience() {
           <span />
         </button>
 
-        <nav className={cx(styles.nav, isMenuOpen && styles.navOpen)} aria-label="Menu principal">
+        <nav className={cx(styles.nav, isMenuOpen && styles.navOpen)} aria-label="Menú principal">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setIsMenuOpen(false)}>
               {item.label}
@@ -117,18 +117,18 @@ export default function PortfolioExperience() {
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>Disponible para proyectos seleccionados</p>
             <h1>
-              Desarrollo soluciones web robustas con arquitectura, liderazgo tecnico y entrega end-to-end.
+              Desarrollo soluciones web robustas con arquitectura, liderazgo técnico y entrega end-to-end.
             </h1>
             <p className={styles.heroLead}>
               Soy Senior Fullstack Developer, Socio Fundador y Tech Lead de WebXpert, con 18+
-              anos de experiencia transformando necesidades de negocio en productos digitales
+              años de experiencia transformando necesidades de negocio en productos digitales
               simples, mantenibles y orientados a resultados.
             </p>
             <div className={styles.heroActions}>
               <a className={styles.primaryAction} href="#contacto">
                 Agendar una consulta
               </a>
-              <a className={styles.secondaryAction} href="/api/cv">
+              <a className={styles.secondaryAction} href="/api/cv?v=print-2026-05-06">
                 Descargar CV
               </a>
               <a className={styles.textAction} href="#proyectos">
@@ -151,10 +151,10 @@ export default function PortfolioExperience() {
               </div>
               <div>
                 <span className={styles.availability}>Posadas, Misiones · Argentina</span>
-                <h2>Arquitectura, liderazgo tecnico y ejecucion real</h2>
+                <h2>Arquitectura, liderazgo técnico y ejecución real</h2>
                 <p>
-                  Combino experiencia tecnica con vision empresarial para acompanar desde el
-                  analisis hasta el deploy, priorizando calidad, performance y objetivos medibles.
+                  Combino experiencia técnica con visión empresarial para acompañar desde el
+                  análisis hasta el deploy, priorizando calidad, performance y objetivos medibles.
                 </p>
               </div>
             </div>
@@ -172,11 +172,11 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="perfil">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Perfil profesional</p>
-            <h2>Senior Fullstack Developer con vision empresarial.</h2>
+            <h2>Senior Fullstack Developer con visión empresarial.</h2>
             <p>
-              Como Senior Fullstack Developer y Socio Fundador de WebXpert, combino 18+ anos de
-              experiencia tecnica con vision empresarial. Me especializo en crear soluciones web
-              robustas que aporten valor desde PyMEs hasta organizaciones mas grandes.
+              Como Senior Fullstack Developer y Socio Fundador de WebXpert, combino 18+ años de
+              experiencia técnica con visión empresarial. Me especializo en crear soluciones web
+              robustas que aporten valor desde PyMEs hasta organizaciones más grandes.
             </p>
           </div>
           <div className={styles.profileStatement}>
@@ -184,17 +184,17 @@ export default function PortfolioExperience() {
               <h3>Mi enfoque</h3>
               <p>
                 Trabajo de forma integral: entiendo las necesidades del negocio, traduzco objetivos
-                en decisiones tecnicas y acompano el proyecto desde el analisis hasta la puesta en
-                produccion. Busco entregar soluciones de calidad, con una experiencia clara para el
-                usuario y resultados medibles para la organizacion.
+                en decisiones técnicas y acompaño el proyecto desde el análisis hasta la puesta en
+                producción. Busco entregar soluciones de calidad, con una experiencia clara para el
+                usuario y resultados medibles para la organización.
               </p>
             </article>
             <article>
-              <h3>Mi criterio tecnico</h3>
+              <h3>Mi criterio técnico</h3>
               <p>
-                Elijo la tecnologia adecuada para cada contexto, priorizando simplicidad,
-                mantenibilidad, performance y escalabilidad real. Para mi, una buena solucion no es
-                la mas compleja: es la que resuelve el problema, se puede mantener y aporta valor al
+                Elijo la tecnología adecuada para cada contexto, priorizando simplicidad,
+                mantenibilidad, performance y escalabilidad real. Para mí, una buena solución no es
+                la más compleja: es la que resuelve el problema, se puede mantener y aporta valor al
                 negocio.
               </p>
             </article>
@@ -213,7 +213,7 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="experiencia">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Experiencia</p>
-            <h2>Trayectoria tecnica con contexto operativo, institucional y comercial.</h2>
+            <h2>Trayectoria técnica con contexto operativo, institucional y comercial.</h2>
           </div>
           <div className={styles.timeline}>
             {experiences.map((experience) => (
@@ -243,12 +243,12 @@ export default function PortfolioExperience() {
 
         <section className={cx(styles.section, styles.educationSection)} id="educacion">
           <div className={styles.sectionHeader}>
-            <p className={styles.kicker}>Educacion</p>
-            <h2>Educacion formal, base tecnica y especializacion actual.</h2>
+            <p className={styles.kicker}>Educación</p>
+            <h2>Educación formal, base técnica y especialización actual.</h2>
             <p>
-              Esta seccion queda separada de las certificaciones porque es parte central de mi
-              recorrido: tecnico en informatica, estudios universitarios, analisis de sistemas en
-              curso y formacion tecnica complementaria en redes, electronica y robotica.
+              Esta sección queda separada de las certificaciones porque es parte central de mi
+              recorrido: técnico en informática, estudios universitarios, análisis de sistemas en
+              curso y formación técnica complementaria en redes, electrónica y robótica.
             </p>
           </div>
           <div className={styles.educationGrid}>
@@ -266,10 +266,10 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="certificaciones">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Certificaciones</p>
-            <h2>15 certificaciones que respaldan mis skills tecnicas, de negocio y de liderazgo.</h2>
+            <h2>15 certificaciones que respaldan mis skills técnicas, de negocio y de liderazgo.</h2>
             <p>
-              Esta formacion continua es parte de la base real de mi perfil: refuerza frontend,
-              Python, SEO, ecommerce, marketing digital, datos, Power BI, gestion de proyectos,
+              Esta formación continua es parte de la base real de mi perfil: refuerza frontend,
+              Python, SEO, ecommerce, marketing digital, datos, Power BI, gestión de proyectos,
               equipos e inteligencia artificial aplicada.
             </p>
           </div>
@@ -280,11 +280,11 @@ export default function PortfolioExperience() {
             </article>
             <article>
               <strong>2025-2026</strong>
-              <span>actualizacion profesional reciente y verificable</span>
+              <span>actualización profesional reciente y verificable</span>
             </article>
             <article>
               <strong>Santander + BIG</strong>
-              <span>formacion en tecnologia, negocio, datos, IA y marketing</span>
+              <span>formación en tecnología, negocio, datos, IA y marketing</span>
             </article>
           </div>
           <div className={styles.certGrid}>
@@ -320,10 +320,10 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="habilidades">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Stack y criterio</p>
-            <h2>Stack tecnico validado por educacion formal, certificaciones y experiencia real.</h2>
+            <h2>Stack técnico validado por educación formal, certificaciones y experiencia real.</h2>
             <p>
-              Esta seccion aparece despues de educacion y certificaciones porque las habilidades no
-              son solo una lista de tecnologias: estan respaldadas por formacion, practica y
+              Esta sección aparece después de educación y certificaciones porque las habilidades no
+              son solo una lista de tecnologías: están respaldadas por formación, práctica y
               proyectos entregados.
             </p>
           </div>
@@ -354,7 +354,7 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="proyectos">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Case studies</p>
-            <h2>Proyectos presentados por desafio, solucion y resultado.</h2>
+            <h2>Proyectos presentados por desafío, solución y resultado.</h2>
           </div>
 
           <div className={styles.filterBar} aria-label="Filtrar proyectos por categoria">
@@ -416,10 +416,10 @@ export default function PortfolioExperience() {
         <section className={cx(styles.section, styles.contactSection)} id="contacto">
           <div className={styles.contactCopy}>
             <p className={styles.kicker}>Contacto</p>
-            <h2>Si hay una idea, la bajamos a una solucion concreta.</h2>
+            <h2>Si hay una idea, la bajamos a una solución concreta.</h2>
             <p>
-              Estoy en Posadas, Misiones, y trabajo con proyectos web, e-commerce, optimizacion,
-              sistemas y presencia digital. Te respondo con una mirada tecnica y una proxima accion
+              Estoy en Posadas, Misiones, y trabajo con proyectos web, e-commerce, optimización,
+              sistemas y presencia digital. Te respondo con una mirada técnica y una próxima acción
               clara.
             </p>
             <div className={styles.contactLinks}>
@@ -497,11 +497,11 @@ export default function PortfolioExperience() {
               <h2 id="project-modal-title">{selectedProject.title}</h2>
               <dl>
                 <div>
-                  <dt>Desafio</dt>
+                  <dt>Desafío</dt>
                   <dd>{selectedProject.challenge}</dd>
                 </div>
                 <div>
-                  <dt>Solucion</dt>
+                  <dt>Solución</dt>
                   <dd>{selectedProject.solution}</dd>
                 </div>
                 <div>

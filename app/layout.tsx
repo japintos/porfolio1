@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.webxpert.com.ar'),
   title: 'Julio A. Pintos — Portfolio',
   description:
-    'Julio A. Pintos — Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+    'Julio A. Pintos — Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimización SEO técnica.',
   alternates: {
     canonical: '/japintos',
   },
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     url: 'https://www.webxpert.com.ar/japintos',
     title: 'Julio A. Pintos — Portfolio',
     description:
-      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimización SEO técnica.',
     images: ['/Img/foto_Perfil.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Julio A. Pintos — Portfolio',
     description:
-      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimizacion SEO tecnica.',
+      'Senior Fullstack Developer y Tech Lead en Posadas, Misiones. Desarrollo web, e-commerce, APIs y optimización SEO técnica.',
     images: ['/Img/foto_Perfil.jpg'],
   },
 };

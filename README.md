@@ -76,7 +76,7 @@ porfolio1/
 │       └── data.ts
 ├── lib/cv-data.ts                # Datos del CV (PDF)
 ├── public/                       # Sitio estático (sirve Vercel en /)
-│   ├── index.html                # Version estatica legacy
+│   ├── index.html                # Versión estática legacy
 │   ├── devrunner.html
 │   ├── css/                      # style.css, devrunner.css
 │   ├── js/                       # main.js, devrunner.js
@@ -101,7 +101,7 @@ porfolio1/
 2. El servidor ejecuta **`app/api/cv/route.tsx`**, renderiza **`CvPrintDocument`** con **`renderToBuffer`** y responde `application/pdf`.
 3. Los textos base del CV viven en **`lib/cv-data.ts`** y el layout imprimible en **`components/pdf/CvPrintDocument.tsx`**. También reutiliza datos reales del portfolio para experiencia, educación, certificaciones, stack y proyectos.
 
-Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`). Logo de marca: **`{origen del sitio}/logo.jpg`**.
+Imagen de perfil en el PDF: URL **`{origen del sitio}/Img/foto_Perfil.jpg`** (debe existir en **`public/Img/`**). Logo de marca: **`{origen del sitio}/logo.jpg`**.
 
 ---
 
