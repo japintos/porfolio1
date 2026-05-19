@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Link,
 } from '@react-pdf/renderer';
-import { cvData } from '@/lib/cv-data';
+import { cvDataLegacy as cvData } from '@/lib/cv-data';
 
 const c = {
   ink: '#0f172a',

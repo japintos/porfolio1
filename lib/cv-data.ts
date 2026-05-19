@@ -7,54 +7,51 @@ export interface CvContact {
   github: string;
 }
 
-export interface CvHighlight {
+export interface CvStrength {
   title: string;
   text: string;
 }
 
 export interface CvExperience {
-  title: string;
-  date: string;
-  summary: string;
+  role: string;
+  organization: string;
+  period: string;
+  context?: string;
   bullets: string[];
-  tags: string[];
 }
 
-export interface CvEducationFormal {
-  years: string;
+export interface CvEducation {
+  period: string;
+  title: string;
   institution: string;
-  detail: string;
+  status: string;
 }
 
-export interface CvEducationShort {
+export interface CvFeaturedCert {
   year: string;
-  text: string;
+  title: string;
+  issuer: string;
+  hours?: string;
 }
 
-export interface CvData {
-  name: string;
-  photoPath: string;
-  roles: string;
-  summary: string[];
-  contact: CvContact;
-  stats: { label: string; value: string }[];
-  highlights: CvHighlight[];
-  experience: CvExperience[];
-  educationFormal: CvEducationFormal[];
-  educationSantander: CvEducationShort[];
-  skills: Record<string, string[]>;
+export interface CvCertGroup {
+  theme: string;
+  items: string[];
 }
 
-/** Fuente única para el PDF (react-pdf) y documentación; alinear con el contenido del portfolio. */
-export const cvData: CvData = {
+export interface CvSkillGroup {
+  title: string;
+  items: string[];
+}
+
+/** Fuente única del CV imprimible (PDF). Alineado con el portfolio; sin proyectos. */
+export const cvData = {
   name: 'Julio A. Pintos',
   photoPath: '/Img/foto_Perfil.jpg',
-  roles:
-    'Senior Fullstack Developer · Socio Fundador & Tech Lead WebXpert · Solutions Architect',
-  summary: [
-    'Como Senior Fullstack Developer y Socio Fundador de WebXpert, combino 18+ años de experiencia técnica con visión empresarial. Me especializo en crear soluciones web robustas que aporten valor desde PyMEs hasta organizaciones más grandes.',
-    'Mi enfoque es integral: entiendo las necesidades del negocio, trabajo en equipo y entrego proyectos de calidad con objetivos medibles. Elijo la tecnología adecuada priorizando simplicidad, mantenibilidad y resultados.',
-  ],
+  logoPath: '/logo.jpg',
+  headline: 'Senior Fullstack Developer · Socio Fundador & Tech Lead',
+  subtitle: 'WebXpert · Arquitectura de soluciones y delivery end-to-end',
+  yearsExperience: '18+',
   contact: {
     email: 'julioapintos1@gmail.com',
     phone: '+54 376 4724207',
@@ -62,134 +59,234 @@ export const cvData: CvData = {
     portfolio: 'https://www.webxpert.com.ar/japintos',
     linkedin: 'https://www.linkedin.com/in/julio-pintos-0638a8200/',
     github: 'https://github.com/japintos',
-  },
-  stats: [
-    { label: 'Años de experiencia', value: '18+' },
-    { label: 'Proyectos completados', value: '50+' },
-    { label: 'WebXpert', value: '2025' },
+  } satisfies CvContact,
+  availability:
+    'Disponible para roles de liderazgo técnico, consultoría y proyectos freelance (remoto / híbrido / Posadas).',
+  languages: [
+    { label: 'Español', level: 'Nativo' },
+    { label: 'Inglés', level: 'Técnico — lectura de documentación y recursos' },
   ],
-  highlights: [
+  profile: [
+    'Senior Fullstack con más de 18 años en desarrollo web, arquitectura de soluciones y liderazgo técnico. Socio fundador de WebXpert (2025), con foco en productos digitales escalables, performance, SEO técnico y transformación digital.',
+    'Combino ejecución hands-on con visión de negocio: relevamiento, diseño, implementación y despliegue con criterio de simplicidad, mantenibilidad y resultados medibles.',
+  ],
+  strengths: [
     {
       title: 'Desarrollo integral',
-      text: 'Del diseño al deploy, asegurando que cada proyecto funcione correctamente.',
+      text: 'Del análisis al deploy, con calidad en producción y foco en mantenibilidad.',
     },
     {
-      title: 'Colaboración efectiva',
-      text: 'Me adapto a equipos, comunico con claridad y busco la mejor solución en conjunto.',
+      title: 'Liderazgo técnico',
+      text: 'Arquitectura, equipos, code review y decisiones alineadas a objetivos de negocio.',
     },
     {
       title: 'Enfoque práctico',
-      text: 'Tecnologías adecuadas por proyecto: funcionalidad y mantenibilidad primero.',
+      text: 'Tecnología adecuada por contexto, sin sobreingeniería innecesaria.',
     },
     {
-      title: 'Aprendizaje continuo',
-      text: 'Actualización constante (p. ej. Python, arquitecturas y buenas prácticas).',
+      title: 'Formación continua',
+      text: 'Python, Agile, Power BI, IA aplicada, SEO y buenas prácticas de desarrollo.',
     },
-  ],
+  ] satisfies CvStrength[],
   experience: [
     {
-      title: 'WebXpert — Socio Fundador & Tech Lead',
-      date: 'Marzo 2025 – Actualidad',
-      summary:
-        'Agencia digital especializada en desarrollo web, optimización y estrategias digitales.',
+      role: 'Socio Fundador & Tech Lead',
+      organization: 'WebXpert',
+      period: 'Mar 2025 – Actualidad',
+      context: 'Agencia digital · Posadas, Misiones',
       bullets: [
-        'Liderazgo técnico y arquitectura de soluciones escalables: desde landings hasta e-commerce con APIs y pagos.',
-        'Gestión de equipo y proyectos end-to-end: calidad de código, performance y UX.',
-        'Estrategias de transformación digital para PyMEs; optimización de conversión y procesos.',
-        'SEO técnico, Core Web Vitals y performance; tiempos de carga por debajo de 2 s en proyectos exigentes.',
+        'Liderazgo técnico de proyectos web y e-commerce: landings, APIs e integraciones de pago.',
+        'Gestión de entregas end-to-end: calidad de código, UX y performance.',
+        'Transformación digital para PyMEs; optimización de conversión y procesos.',
+        'SEO técnico y Core Web Vitals; tiempos de carga por debajo de 2 s en entornos exigentes.',
       ],
-      tags: ['Technical Leadership', 'Digital Strategy', 'Team Management', 'Performance'],
     },
     {
-      title: 'Freelancer — Desarrollo y consultoría',
-      date: '2006 – Actualidad',
-      summary: 'Soluciones informáticas para empresas locales.',
+      role: 'Desarrollo y consultoría independiente',
+      organization: 'Freelance',
+      period: '2006 – Actualidad',
+      context: 'Remoto / Posadas, Misiones',
       bullets: [
-        'Análisis, diseño y desarrollo web y de escritorio, de requisitos a implementación.',
-        'Bases de datos: diseño, implementación y optimización en PostgreSQL, SQL Server y MySQL.',
-        'Auditoría de sistemas, vulnerabilidades, mejoras y optimización de rendimiento.',
+        'Análisis, diseño e implementación de soluciones web y de escritorio para empresas locales.',
+        'Modelado y optimización de bases de datos (PostgreSQL, SQL Server, MySQL).',
+        'Auditoría de sistemas, detección de vulnerabilidades y mejoras de rendimiento.',
       ],
-      tags: ['Web Development', 'Database Design', 'System Audit'],
     },
     {
-      title: 'Poder Judicial de Misiones — Soporte técnico e infraestructura',
-      date: '2007 – Actualidad',
-      summary: 'Soporte técnico, redes LAN/MAN y sistemas operativos.',
+      role: 'Infraestructura, redes y sistemas',
+      organization: 'Poder Judicial de Misiones',
+      period: '2007 – Actualidad',
+      context: 'Entorno institucional · continuidad operativa',
       bullets: [
-        'Soporte integral a usuarios en hardware y software (Windows, Linux, macOS).',
-        'Administración y monitoreo de redes LAN/MAN; conectividad y seguridad.',
-        'Instalación, configuración y mantenimiento de sistemas operativos y aplicaciones.',
+        'Soporte técnico integral en Windows, Linux y macOS.',
+        'Administración y monitoreo de redes LAN/MAN; conectividad y seguridad operativa.',
+        'Instalación, configuración y mantenimiento de sistemas y aplicaciones críticas.',
       ],
-      tags: ['IT Support', 'Network Admin', 'System Maintenance'],
     },
-  ],
-  educationFormal: [
+  ] satisfies CvExperience[],
+  education: [
     {
-      years: '1996 – 2000',
-      institution: 'EPET Nº1 UNESCO',
-      detail: 'Técnico en Informática — Título técnico secundario',
+      period: '1996 – 2000',
+      title: 'Técnico en Informática',
+      institution: 'EPET N.º 1 UNESCO',
+      status: 'Título técnico secundario',
     },
     {
-      years: '2000 – 2010',
+      period: '2000 – 2010',
+      title: 'Ingeniería en Sistemas',
       institution: 'Universidad Americana',
-      detail: 'Ingeniería en Sistemas (incompleto)',
+      status: 'Incompleto',
     },
     {
-      years: '2024 – Actualidad',
+      period: '2024 – Actualidad',
+      title: 'Técnico Superior en Análisis de Sistemas',
       institution: 'Instituto Combate Mbororé',
-      detail: 'Técnico Superior en Análisis de Sistemas — En curso',
+      status: 'En curso',
     },
     {
-      years: '2024',
+      period: '2024',
+      title: 'Técnico en redes, optimización y reparación de equipos',
       institution: 'Instituto Combate Mbororé',
-      detail: 'Técnico en Redes informáticas, optimización y reparación de computadoras — Completado',
+      status: 'Completado',
     },
     {
-      years: '2024',
+      period: '2024',
+      title: 'Operador en electrónica y robótica',
       institution: 'Instituto Combate Mbororé',
-      detail: 'Operador en electrónica y robótica — Completado',
+      status: 'Completado',
     },
-  ],
-  educationSantander: [
-    { year: '2025', text: 'SEO y content marketing — 8 h (terminado jul. 2025)' },
-    { year: '2025', text: 'Ecommerce para PyMEs (IE University) — 6 h' },
-    { year: '2025', text: 'Storytelling en marketing digital (UChicago) — 8 h' },
-    { year: '2025', text: 'Python — 8 h (terminado sep. 2025)' },
-    { year: '2025', text: 'Marca personal y networking profesional' },
+  ] satisfies CvEducation[],
+  featuredCertifications: [
+    { year: '2025', title: 'Python', issuer: 'Santander Open Academy', hours: '8 h' },
     {
       year: '2025',
-      text: 'Marca personal 360º: de profesional anónimo a referente visible — 8 h (terminado sep. 2025)',
+      title: 'Gestión de Proyectos y metodología Agile',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
     },
-    { year: '2025', text: 'Excel básico a intermedio — 8 h' },
-    { year: '2025', text: 'Competencias en marketing digital (UChicago) — 8 h' },
-    {
-      year: '2025',
-      text: 'Gestión de Proyectos y Fundamentos de metodología Agile — 8 h (terminado dic. 2025)',
-    },
-    { year: '2026', text: 'Gestión Efectiva de proyectos y equipos — 8 h (terminado mar. 2026)' },
     {
       year: '2026',
-      text: 'Prompting responsable: maximiza la IA en tu negocio — 8 h (terminado abr. 2026)',
+      title: 'Gestión efectiva de proyectos y equipos',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
     },
-    { year: '2026', text: 'Iniciación al Desarrollo con IA (BIG school) — 6 h (terminado mar. 2026)' },
-    { year: '2026', text: 'Power BI — 8 h (terminado abr. 2026)' },
-    { year: '2026', text: 'Power BI Intermedio: análisis y modelado de datos — 8 h (terminado abr. 2026)' },
-    { year: '2026', text: 'SEO para IA y Google (BIG school) — 6 h (terminado may. 2026)' },
+    {
+      year: '2026',
+      title: 'Iniciación al Desarrollo con IA',
+      issuer: 'BIG school',
+      hours: '6 h',
+    },
+    { year: '2026', title: 'Power BI', issuer: 'Santander Open Academy', hours: '8 h' },
+    {
+      year: '2026',
+      title: 'Power BI Intermedio: análisis y modelado',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
+    },
+    {
+      year: '2025',
+      title: 'SEO y Content Marketing',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
+    },
+    { year: '2026', title: 'SEO para IA y Google', issuer: 'BIG school', hours: '6 h' },
+  ] satisfies CvFeaturedCert[],
+  certificationGroups: [
+    {
+      theme: 'Desarrollo, datos e IA',
+      items: [
+        'Python (2025, 8 h) · Power BI (2026, 8 h) · Power BI Intermedio (2026, 8 h)',
+        'Iniciación al Desarrollo con IA — BIG school (2026, 6 h)',
+        'Prompting responsable: IA en el negocio (2026, 8 h)',
+        'Excel básico a intermedio (2025, 8 h)',
+      ],
+    },
+    {
+      theme: 'Gestión, Agile y liderazgo',
+      items: [
+        'Gestión de Proyectos y metodología Agile (2025, 8 h)',
+        'Gestión efectiva de proyectos y equipos (2026, 8 h)',
+      ],
+    },
+    {
+      theme: 'SEO, marketing digital y e-commerce',
+      items: [
+        'SEO y Content Marketing (2025, 8 h) · SEO para IA y Google — BIG school (2026, 6 h)',
+        'Ecommerce para PyMEs — IE University (2025, 6 h)',
+        'Competencias en marketing digital — UChicago (2025, 8 h)',
+        'Storytelling en marketing digital — UChicago (2025, 8 h)',
+      ],
+    },
+    {
+      theme: 'Marca personal y networking',
+      items: [
+        'Marca personal y networking profesional (2025)',
+        'Marca personal 360: de profesional anónimo a referente visible (2025, 8 h)',
+      ],
+    },
+  ] satisfies CvCertGroup[],
+  skillGroups: [
+    {
+      title: 'Frontend',
+      items: ['HTML5', 'CSS3', 'JavaScript', 'React.js'],
+    },
+    {
+      title: 'Backend',
+      items: ['Node.js', 'Python', 'PHP', 'C++', 'C#', 'Visual Basic', '.NET Framework'],
+    },
+    {
+      title: 'Bases de datos',
+      items: ['PostgreSQL', 'SQL Server', 'MySQL', 'MariaDB'],
+    },
+    {
+      title: 'Herramientas y metodologías',
+      items: [
+        'Git',
+        'VS Code',
+        'Cursor IDE',
+        'Visual Studio',
+        'Scrum',
+        'DIA',
+        'Canva',
+      ],
+    },
+    {
+      title: 'Sistemas operativos',
+      items: ['Windows', 'Linux (GNOME)', 'macOS'],
+    },
+  ] satisfies CvSkillGroup[],
+  footerNote:
+    'Portfolio con certificados verificables y detalle de trayectoria disponible bajo solicitud.',
+};
+
+export type CvData = typeof cvData;
+
+/** Campos legacy para `CvPdfDocument.tsx` (no usar en producción; ver `CvPrintDocument`). */
+export const cvDataLegacy = {
+  ...cvData,
+  roles: `${cvData.headline} · ${cvData.subtitle}`,
+  summary: cvData.profile,
+  stats: [
+    { label: 'Años de experiencia', value: cvData.yearsExperience },
+    { label: 'WebXpert', value: '2025' },
   ],
-  skills: {
-    Frontend: ['HTML5', 'CSS3', 'JavaScript', 'React.js'],
-    Backend: ['Node.js', 'Python', 'PHP', 'C++', 'C#', 'Visual Basic', '.NET Framework'],
-    Bases_de_datos: ['PostgreSQL', 'SQL Server', 'MySQL', 'MariaDB'],
-    Herramientas: [
-      'VS Code',
-      'Cursor IDE',
-      'Visual Studio',
-      'Git',
-      'Windows',
-      'Scrum',
-      'DIA',
-      'Canva',
-    ],
-    Sistemas_operativos: ['Windows', 'Linux (GNOME)', 'macOS'],
-  },
+  highlights: cvData.strengths.map((s) => ({ title: s.title, text: s.text })),
+  experience: cvData.experience.map((ex) => ({
+    title: `${ex.organization} — ${ex.role}`,
+    date: ex.period,
+    summary: ex.context ?? '',
+    bullets: ex.bullets,
+    tags: [] as string[],
+  })),
+  educationFormal: cvData.education.map((ed) => ({
+    years: ed.period,
+    institution: ed.institution,
+    detail: `${ed.title} — ${ed.status}`,
+  })),
+  educationSantander: cvData.certificationGroups.flatMap((g) =>
+    g.items.map((text) => ({ year: '2025–2026', text: `${g.theme}: ${text}` })),
+  ),
+  skills: Object.fromEntries(
+    cvData.skillGroups.map((g) => [g.title.replace(/\s+/g, '_'), g.items]),
+  ),
 };
