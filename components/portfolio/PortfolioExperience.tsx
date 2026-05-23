@@ -247,8 +247,9 @@ export default function PortfolioExperience() {
             <h2>Educación formal, base técnica y especialización actual.</h2>
             <p>
               Esta sección queda separada de las certificaciones porque es parte central de mi
-              recorrido: técnico en informática, estudios universitarios, análisis de sistemas en
-              curso y formación técnica complementaria en redes, electrónica y robótica.
+              recorrido: técnico en informática, estudios universitarios, título de Técnico Analista
+              Programador, superior en sistemas en curso y formación complementaria en redes,
+              electrónica y robótica.
             </p>
           </div>
           <div className={styles.educationGrid}>
@@ -258,6 +259,16 @@ export default function PortfolioExperience() {
                 <h3>{item.title}</h3>
                 <strong>{item.institution}</strong>
                 <p>{item.status}</p>
+                {item.credentialUrl ? (
+                  <a
+                    className={styles.certLink}
+                    href={item.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver título
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>

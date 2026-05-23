@@ -37,6 +37,7 @@ export type Education = {
   institution: string;
   title: string;
   status: string;
+  credentialUrl?: string;
 };
 
 export type Project = {
@@ -212,10 +213,18 @@ export const education: Education[] = [
     status: 'Incompleto',
   },
   {
+    period: '2024 - 2026',
+    institution: 'Instituto Superior Combate Mbororé',
+    title: 'Técnico Analista Programador',
+    status:
+      'Título oficial · Formación Profesional Nivel II · 1.424 h · Res. SPEPM 1.362/23 · Abr 2026',
+    credentialUrl: '/certificados/tecnico-analista-programador-combate-mbore.pdf',
+  },
+  {
     period: '2024 - Actualidad',
-    institution: 'Instituto Combate Mbororé',
-    title: 'Técnico Superior en Análisis de Sistemas',
-    status: 'En curso',
+    institution: 'Instituto Superior Combate Mbororé',
+    title: 'Técnico Superior Analista de Sistemas de Computación',
+    status: 'En curso · titulación final del trayecto formativo',
   },
   {
     period: '2024',
