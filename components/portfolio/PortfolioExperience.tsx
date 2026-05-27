@@ -277,7 +277,7 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="certificaciones">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Certificaciones</p>
-            <h2>15 certificaciones que respaldan mis skills técnicas, de negocio y de liderazgo.</h2>
+            <h2>16 certificaciones que respaldan mis skills técnicas, de negocio y de liderazgo.</h2>
             <p>
               Esta formación continua es parte de la base real de mi perfil: refuerza frontend,
               Python, SEO, ecommerce, marketing digital, datos, Power BI, gestión de proyectos,

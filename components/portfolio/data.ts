@@ -317,6 +317,16 @@ export const projects: Project[] = [
 export const certifications: Certification[] = [
   {
     year: '2026',
+    title: 'Workshop IA: Spec-Driven Development y Agentes Autónomos',
+    issuer: 'Silicon Misiones',
+    area: 'IA + Desarrollo',
+    completedAt: '20 de mayo de 2026',
+    focus:
+      'Spec-driven development, agentes autónomos y prácticas de IA aplicadas al desarrollo de software. Modalidad híbrida — Posadas, Misiones.',
+    credentialUrl: '/certificados/workshop-ia-spec-driven-silicon-misiones.pdf',
+  },
+  {
+    year: '2026',
     title: 'SEO para IA y Google',
     issuer: 'BIG school',
     area: 'SEO + IA',

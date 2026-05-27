@@ -204,6 +204,7 @@ export const cvData = {
     {
       theme: 'Desarrollo, datos e IA',
       items: [
+        'Workshop IA: Spec-Driven Development y Agentes Autónomos — Silicon Misiones (2026, modalidad híbrida)',
         'Python (2025, 8 h) · Power BI (2026, 8 h) · Power BI Intermedio (2026, 8 h)',
         'Iniciación al Desarrollo con IA — BIG school (2026, 6 h)',
         'Prompting responsable: IA en el negocio (2026, 8 h)',
