@@ -61,8 +61,7 @@ export const cvData = {
     { label: 'Inglés', level: 'Técnico — lectura de documentación' },
   ],
   profile: [
-    'Senior Fullstack con 18+ años en desarrollo web, arquitectura de soluciones y liderazgo técnico. Socio fundador de WebXpert (2025). Enfoque en productos digitales escalables, performance, SEO técnico, datos e IA aplicada al negocio.',
-    'Combino ejecución hands-on y visión de negocio: relevamiento, diseño, implementación y despliegue con simplicidad, mantenibilidad y resultados medibles.',
+    'Senior Fullstack con 18+ años en desarrollo web, arquitectura y liderazgo técnico. Socio fundador de WebXpert (2025). Foco en productos escalables, performance, SEO técnico, datos e IA aplicada. Ejecución hands-on con visión de negocio y resultados medibles.',
   ],
   strengths: [
     {
