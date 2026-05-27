@@ -128,7 +128,7 @@ export default function PortfolioExperience() {
               <a className={styles.primaryAction} href="#contacto">
                 Agendar una consulta
               </a>
-              <a className={styles.secondaryAction} href="/api/cv?v=print-2026-05-19">
+              <a className={styles.secondaryAction} href="/api/cv?v=print-2026-05-20">
                 Descargar CV
               </a>
               <a className={styles.textAction} href="#proyectos">
