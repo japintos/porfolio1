@@ -317,6 +317,29 @@ export const projects: Project[] = [
 export const certifications: Certification[] = [
   {
     year: '2026',
+    title: 'De 0 a Agentes: domina la IA, gana competitividad y agentes que trabajan por ti',
+    issuer: 'BIG school / Jon Hernández',
+    area: 'IA + Agentes',
+    completedAt: '29 de mayo de 2026',
+    hours: '6 h',
+    serial: 'odiwash2',
+    focus:
+      'Fundamentos de IA aplicada, competitividad digital y diseño de agentes que automatizan tareas con criterio de negocio.',
+    credentialUrl: '/certificados/de-0-a-agentes-ia-big-school.pdf',
+  },
+  {
+    year: '2026',
+    title: 'IA Heroes Live: iniciación en inteligencia artificial',
+    issuer: 'Learning Heroes',
+    area: 'IA + Desarrollo',
+    completedAt: '2026',
+    hours: '8 h',
+    focus:
+      'Curso intensivo de iniciación en IA: conceptos base, uso práctico y primeros pasos con inteligencia artificial aplicada.',
+    credentialUrl: '/certificados/ia-heroes-live-iniciacion-learning-heroes.pdf',
+  },
+  {
+    year: '2026',
     title: 'Workshop IA: Spec-Driven Development y Agentes Autónomos',
     issuer: 'Silicon Misiones',
     area: 'IA + Desarrollo',

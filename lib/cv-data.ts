@@ -153,6 +153,14 @@ export const cvData = {
   apaCertifications: [
     {
       year: '2026',
+      text: 'BIG school & Jon Hernández. (2026). De 0 a Agentes: domina la IA, gana competitividad y agentes que trabajan por ti [Curso en línea, 6 h].',
+    },
+    {
+      year: '2026',
+      text: 'Learning Heroes. (2026). IA Heroes Live: iniciación en inteligencia artificial [Curso en línea, 8 h].',
+    },
+    {
+      year: '2026',
       text: 'Silicon Misiones. (2026). Workshop IA: Spec-Driven Development y Agentes Autónomos [Taller híbrido].',
     },
     {
