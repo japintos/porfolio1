@@ -20,7 +20,7 @@ export async function GET(request: Request) {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
         Pragma: 'no-cache',
         Expires: '0',
-        'X-CV-Version': 'print-2026-05-29',
+        'X-CV-Version': 'print-2026-05-30-sidebar',
       },
     });
   } catch (e) {

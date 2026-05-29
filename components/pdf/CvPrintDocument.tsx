@@ -9,303 +9,358 @@ import {
 } from '@react-pdf/renderer';
 import { cvData } from '@/lib/cv-data';
 
-const theme = {
-  navy: '#1e3a5f',
-  blue: '#2563eb',
-  blueSoft: '#dbeafe',
-  ink: '#0f172a',
+/** Alineado con el portfolio: navy + cyan + violeta */
+const c = {
+  bg: '#0f172a',
+  bgDeep: '#060816',
+  accent: '#06b6d4',
+  accentSoft: '#22d3ee',
+  violet: '#7c3aed',
+  white: '#ffffff',
+  paper: '#ffffff',
+  ink: '#111827',
   text: '#334155',
   muted: '#64748b',
   line: '#e2e8f0',
   panel: '#f8fafc',
-  white: '#ffffff',
 };
 
-const SECTIONS = {
-  profile: { label: 'Perfil profesional', icon: 'P' },
-  strengths: { label: 'Fortalezas', icon: 'F' },
-  experience: { label: 'Experiencia laboral', icon: 'E' },
-  education: { label: 'Formación académica', icon: 'A' },
-  certifications: { label: 'Certificaciones', icon: 'C' },
-  skills: { label: 'Competencias técnicas', icon: 'S' },
-  contact: { label: 'Contacto', icon: '@' },
-} as const;
+const SIDEBAR_W = 152;
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 18,
-    paddingBottom: 28,
-    paddingHorizontal: 28,
     fontFamily: 'Helvetica',
-    fontSize: 7.8,
-    lineHeight: 1.28,
-    color: theme.text,
-    backgroundColor: theme.white,
-  },
-  headerBand: {
-    marginHorizontal: -28,
-    marginTop: -18,
-    paddingHorizontal: 28,
-    paddingTop: 12,
-    paddingBottom: 10,
-    backgroundColor: theme.navy,
-    flexDirection: 'row',
-    gap: 10,
-    marginBottom: 6,
-  },
-  photoWrap: {
-    width: 52,
-    height: 52,
-    borderRadius: 6,
-    overflow: 'hidden',
-    borderWidth: 1.5,
-    borderColor: theme.blueSoft,
-  },
-  photo: { width: 52, height: 52, objectFit: 'cover' },
-  headerContent: { flex: 1 },
-  headerTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  name: {
-    fontSize: 16,
-    fontFamily: 'Helvetica-Bold',
-    color: theme.white,
-    marginBottom: 2,
-  },
-  headline: {
-    fontSize: 8.8,
-    fontFamily: 'Helvetica-Bold',
-    color: theme.blueSoft,
-    marginBottom: 1,
-  },
-  subtitle: { fontSize: 7.5, color: '#cbd5e1', marginBottom: 4 },
-  contactLine: { fontSize: 7.2, color: '#e2e8f0', marginBottom: 1 },
-  linksRow: { flexDirection: 'row', gap: 10, marginTop: 2 },
-  link: {
-    fontSize: 7,
-    color: '#93c5fd',
-    textDecoration: 'none',
-    fontFamily: 'Helvetica-Bold',
-  },
-  logo: { width: 68, height: 18, objectFit: 'contain' },
-  metaStrip: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginBottom: 5,
-    paddingVertical: 4,
-    paddingHorizontal: 6,
-    backgroundColor: theme.panel,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: theme.line,
-  },
-  metaPill: { fontSize: 7.1, color: theme.text },
-  metaBold: { fontFamily: 'Helvetica-Bold', color: theme.navy },
-  section: { marginBottom: 4 },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-    marginBottom: 3,
-    paddingBottom: 2,
-    borderBottomWidth: 0.75,
-    borderBottomColor: theme.line,
-  },
-  sectionIcon: {
-    width: 14,
-    height: 14,
-    borderRadius: 3,
-    backgroundColor: theme.blue,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sectionIconText: {
-    fontSize: 7,
-    fontFamily: 'Helvetica-Bold',
-    color: theme.white,
-  },
-  sectionTitle: {
     fontSize: 8.5,
-    fontFamily: 'Helvetica-Bold',
-    color: theme.navy,
-    letterSpacing: 0.2,
-    textTransform: 'uppercase',
+    lineHeight: 1.35,
+    color: c.text,
+    backgroundColor: c.paper,
+    paddingBottom: 32,
   },
-  paragraph: {
-    fontSize: 7.6,
-    lineHeight: 1.32,
-    color: theme.text,
+  sidebar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: SIDEBAR_W,
+    backgroundColor: c.bg,
+    paddingHorizontal: 14,
+    paddingTop: 20,
+    paddingBottom: 24,
+  },
+  sidebarPhoto: {
+    width: 72,
+    height: 72,
+    borderRadius: 10,
+    objectFit: 'cover',
+    marginBottom: 8,
+    borderWidth: 2,
+    borderColor: c.accent,
+  },
+  sidebarLogo: {
+    width: 90,
+    height: 24,
+    objectFit: 'contain',
+    marginBottom: 12,
+  },
+  sidebarName: {
+    fontSize: 11,
+    fontFamily: 'Helvetica-Bold',
+    color: c.white,
+    lineHeight: 1.2,
+    marginBottom: 4,
+  },
+  sidebarRole: {
+    fontSize: 7.8,
+    color: c.accentSoft,
+    fontFamily: 'Helvetica-Bold',
+    marginBottom: 10,
+  },
+  sidebarBlock: {
+    marginBottom: 10,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.12)',
+  },
+  sidebarLabel: {
+    fontSize: 7,
+    fontFamily: 'Helvetica-Bold',
+    color: c.accent,
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+    marginBottom: 4,
+  },
+  sidebarText: {
+    fontSize: 7.4,
+    color: '#e2e8f0',
+    lineHeight: 1.38,
     marginBottom: 2,
   },
-  strengthGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
-  strengthCard: {
-    width: '48.8%',
-    paddingVertical: 3,
-    paddingHorizontal: 5,
-    backgroundColor: theme.panel,
-    borderLeftWidth: 2,
-    borderLeftColor: theme.blue,
+  sidebarLink: {
+    fontSize: 7.2,
+    color: c.accentSoft,
+    textDecoration: 'none',
+    marginBottom: 2,
   },
-  strengthTitle: {
+  sidebarSkillTitle: {
     fontSize: 7.2,
     fontFamily: 'Helvetica-Bold',
-    color: theme.navy,
+    color: c.white,
+    marginBottom: 2,
+    marginTop: 3,
   },
-  strengthText: { fontSize: 6.9, color: theme.muted, lineHeight: 1.25 },
-  jobBlock: {
-    marginBottom: 4,
-    paddingLeft: 6,
-    borderLeftWidth: 2,
-    borderLeftColor: theme.blue,
+  sidebarSkillItems: {
+    fontSize: 6.9,
+    color: '#cbd5e1',
+    lineHeight: 1.32,
+  },
+  sidebarBadge: {
+    marginTop: 6,
+    paddingVertical: 5,
+    paddingHorizontal: 6,
+    backgroundColor: 'rgba(6, 182, 212, 0.15)',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(6, 182, 212, 0.35)',
+  },
+  sidebarBadgeValue: {
+    fontSize: 14,
+    fontFamily: 'Helvetica-Bold',
+    color: c.accentSoft,
+  },
+  sidebarBadgeLabel: {
+    fontSize: 6.8,
+    color: '#94a3b8',
+    marginTop: 1,
+  },
+  main: {
+    marginLeft: SIDEBAR_W,
+    paddingHorizontal: 22,
+    paddingTop: 18,
+  },
+  mainHero: {
+    marginBottom: 10,
+    paddingBottom: 8,
+    borderBottomWidth: 2,
+    borderBottomColor: c.accent,
+  },
+  mainHeroTitle: {
+    fontSize: 9,
+    fontFamily: 'Helvetica-Bold',
+    color: c.violet,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginBottom: 5,
+  },
+  mainHeroText: {
+    fontSize: 8.8,
+    lineHeight: 1.42,
+    color: c.ink,
+    marginBottom: 5,
+  },
+  bulletRow: {
+    flexDirection: 'row',
+    marginBottom: 2,
+  },
+  bulletMark: {
+    width: 10,
+    fontSize: 8,
+    color: c.accent,
+    fontFamily: 'Helvetica-Bold',
+  },
+  bulletText: {
+    flex: 1,
+    fontSize: 8.2,
+    lineHeight: 1.34,
+    color: c.text,
+  },
+  section: {
+    marginBottom: 8,
+  },
+  sectionTitle: {
+    fontSize: 9.5,
+    fontFamily: 'Helvetica-Bold',
+    color: c.bg,
+    marginBottom: 5,
+    paddingBottom: 3,
+    borderBottomWidth: 1,
+    borderBottomColor: c.line,
+  },
+  job: {
+    marginBottom: 7,
+    padding: 8,
+    backgroundColor: c.panel,
+    borderRadius: 6,
+    borderLeftWidth: 3,
+    borderLeftColor: c.accent,
   },
   jobHead: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 6,
-    marginBottom: 1,
+    gap: 8,
+    marginBottom: 2,
   },
-  jobTitle: {
+  jobRole: {
     flex: 1,
-    fontSize: 7.8,
+    fontSize: 9.2,
     fontFamily: 'Helvetica-Bold',
-    color: theme.ink,
+    color: c.ink,
   },
   jobPeriod: {
-    fontSize: 6.9,
+    fontSize: 7.6,
     fontFamily: 'Helvetica-Bold',
-    color: theme.blue,
+    color: c.violet,
   },
-  jobContext: { fontSize: 6.8, color: theme.muted, marginBottom: 2 },
-  bulletRow: { flexDirection: 'row', marginBottom: 1 },
-  bulletDot: { width: 8, fontSize: 7, color: theme.blue },
-  bulletText: { flex: 1, fontSize: 7.2, lineHeight: 1.28, color: theme.text },
-  eduRow: {
+  jobContext: {
+    fontSize: 7.4,
+    color: c.muted,
+    marginBottom: 4,
+  },
+  eduItem: {
+    marginBottom: 5,
     flexDirection: 'row',
-    gap: 6,
-    marginBottom: 2,
-    paddingBottom: 2,
-    borderBottomWidth: 0.5,
-    borderBottomColor: theme.line,
+    gap: 8,
   },
   eduPeriod: {
-    width: 54,
-    fontSize: 6.8,
+    width: 58,
+    fontSize: 7.4,
     fontFamily: 'Helvetica-Bold',
-    color: theme.blue,
+    color: c.accent,
   },
-  eduTitle: { fontSize: 7.4, fontFamily: 'Helvetica-Bold', color: theme.ink },
-  eduInst: { fontSize: 6.9, color: theme.text },
-  eduStatus: { fontSize: 6.7, color: theme.muted },
-  apaColWrap: { flexDirection: 'row', gap: 8 },
-  apaCol: { flex: 1 },
-  apaCitation: {
-    fontSize: 6.5,
-    lineHeight: 1.26,
-    color: theme.text,
-    marginBottom: 1.5,
-    paddingLeft: 10,
-    textIndent: -10,
+  eduTitle: {
+    fontSize: 8.2,
+    fontFamily: 'Helvetica-Bold',
+    color: c.ink,
   },
-  skillLine: { marginBottom: 2 },
+  eduMeta: {
+    fontSize: 7.5,
+    color: c.muted,
+  },
+  certGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 5,
+  },
+  certCard: {
+    width: '48.5%',
+    padding: 6,
+    backgroundColor: c.panel,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: c.line,
+  },
+  certTitle: {
+    fontSize: 7.6,
+    fontFamily: 'Helvetica-Bold',
+    color: c.ink,
+    lineHeight: 1.28,
+    marginBottom: 2,
+  },
+  certMeta: {
+    fontSize: 7,
+    color: c.muted,
+  },
+  certNote: {
+    fontSize: 7.4,
+    color: c.muted,
+    fontStyle: 'italic',
+    marginTop: 4,
+    lineHeight: 1.35,
+  },
+  skillRow: {
+    marginBottom: 3,
+    flexDirection: 'row',
+    gap: 4,
+  },
   skillLabel: {
-    fontSize: 7.1,
+    width: 72,
+    fontSize: 7.6,
     fontFamily: 'Helvetica-Bold',
-    color: theme.navy,
+    color: c.ink,
   },
-  skillItems: { fontSize: 6.9, color: theme.text },
-  contactStrip: {
-    paddingVertical: 5,
-    paddingHorizontal: 6,
-    backgroundColor: theme.navy,
-    borderRadius: 4,
+  skillValues: {
+    flex: 1,
+    fontSize: 7.6,
+    color: c.text,
+    lineHeight: 1.32,
   },
-  contactStripLine: { fontSize: 7, color: '#e2e8f0', marginBottom: 1 },
-  contactBold: { fontFamily: 'Helvetica-Bold', color: theme.white },
-  footerNote: { fontSize: 6.2, color: '#94a3b8', marginTop: 2 },
-  pageFooter: {
+  footer: {
     position: 'absolute',
-    left: 28,
-    right: 28,
-    bottom: 12,
+    left: SIDEBAR_W + 22,
+    right: 22,
+    bottom: 14,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    fontSize: 6.5,
+    color: c.muted,
+    borderTopWidth: 1,
+    borderTopColor: c.line,
     paddingTop: 4,
-    borderTopWidth: 0.75,
-    borderTopColor: theme.line,
-    fontSize: 6.2,
-    color: theme.muted,
   },
 });
 
-function SectionHeader({ id }: { id: keyof typeof SECTIONS }) {
-  const section = SECTIONS[id];
+function Sidebar({
+  photoSrc,
+  logoSrc,
+}: {
+  photoSrc: string;
+  logoSrc: string;
+}) {
   return (
-    <View style={styles.sectionHeader}>
-      <View style={styles.sectionIcon}>
-        <Text style={styles.sectionIconText}>{section.icon}</Text>
-      </View>
-      <Text style={styles.sectionTitle}>{section.label}</Text>
-    </View>
-  );
-}
-
-function PageFooter() {
-  return (
-    <View style={styles.pageFooter} fixed>
-      <Text>
-        {cvData.name} · {cvData.headline}
+    <View style={styles.sidebar} fixed>
+      <Image src={photoSrc} style={styles.sidebarPhoto} />
+      <Image src={logoSrc} style={styles.sidebarLogo} />
+      <Text style={styles.sidebarName}>{cvData.name}</Text>
+      <Text style={styles.sidebarRole}>
+        {cvData.headline}
+        {'\n'}
+        {cvData.subtitle}
       </Text>
-      <Text render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
-    </View>
-  );
-}
 
-function Header({ photoSrc, logoSrc }: { photoSrc: string; logoSrc: string }) {
-  return (
-    <View style={styles.headerBand} wrap={false}>
-      <View style={styles.photoWrap}>
-        <Image src={photoSrc} style={styles.photo} />
+      <View style={styles.sidebarBadge}>
+        <Text style={styles.sidebarBadgeValue}>{cvData.yearsExperience}</Text>
+        <Text style={styles.sidebarBadgeLabel}>años de experiencia</Text>
       </View>
-      <View style={styles.headerContent}>
-        <View style={styles.headerTop}>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.name}>{cvData.name}</Text>
-            <Text style={styles.headline}>
-              {cvData.headline} · {cvData.subtitle}
-            </Text>
-          </View>
-          <Image src={logoSrc} style={styles.logo} />
-        </View>
-        <Text style={styles.contactLine}>
-          {cvData.contact.email} · {cvData.contact.phone} · {cvData.contact.location}
+
+      <View style={[styles.sidebarBlock, { marginTop: 10 }]}>
+        <Text style={styles.sidebarLabel}>Contacto</Text>
+        <Text style={styles.sidebarText}>{cvData.contact.email}</Text>
+        <Text style={styles.sidebarText}>{cvData.contact.phone}</Text>
+        <Text style={styles.sidebarText}>{cvData.contact.location}</Text>
+        <Link src={cvData.contact.portfolio} style={styles.sidebarLink}>
+          Portfolio
+        </Link>
+        <Link src={cvData.contact.linkedin} style={styles.sidebarLink}>
+          LinkedIn
+        </Link>
+        <Link src={cvData.contact.github} style={styles.sidebarLink}>
+          GitHub
+        </Link>
+      </View>
+
+      <View style={styles.sidebarBlock}>
+        <Text style={styles.sidebarLabel}>Idiomas</Text>
+        {cvData.languages.map((lang) => (
+          <Text key={lang.label} style={styles.sidebarText}>
+            {lang.label}: {lang.level}
+          </Text>
+        ))}
+        <Text style={[styles.sidebarText, { marginTop: 4 }]}>
+          Disponibilidad: {cvData.availability}
         </Text>
-        <Text style={styles.contactLine}>Portfolio: {cvData.contact.portfolio}</Text>
-        <View style={styles.linksRow}>
-          <Link src={cvData.contact.linkedin} style={styles.link}>
-            LinkedIn
-          </Link>
-          <Link src={cvData.contact.github} style={styles.link}>
-            GitHub
-          </Link>
-        </View>
       </View>
+
     </View>
   );
 }
 
-function splitInHalf<T>(items: T[]): [T[], T[]] {
-  const mid = Math.ceil(items.length / 2);
-  return [items.slice(0, mid), items.slice(mid)];
+function SectionTitle({ children }: { children: string }) {
+  return <Text style={styles.sectionTitle}>{children}</Text>;
 }
 
 export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
   const origin = baseUrl.replace(/\/$/, '');
   const photoSrc = `${origin}${cvData.photoPath}`;
   const logoSrc = `${origin}${cvData.logoPath}`;
-  const [apaLeft, apaRight] = splitInHalf(cvData.apaCertifications);
 
   return (
     <Document
@@ -313,134 +368,90 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
       author={cvData.name}
       subject="Curriculum vitae — Senior Fullstack Developer"
     >
-      {/* Una sola Page: el contenido fluye en 2 hojas sin saltos forzados ni huecos */}
-      <Page size="A4" style={styles.page}>
-        <Header photoSrc={photoSrc} logoSrc={logoSrc} />
+      <Page size="A4" style={styles.page} wrap>
+        <Sidebar photoSrc={photoSrc} logoSrc={logoSrc} />
 
-        <View style={styles.metaStrip} wrap={false}>
-          <Text style={styles.metaPill}>
-            <Text style={styles.metaBold}>Experiencia: </Text>
-            {cvData.yearsExperience} años · desarrollo web, arquitectura y liderazgo técnico
-          </Text>
-          <Text style={styles.metaPill}>
-            <Text style={styles.metaBold}>Idiomas: </Text>
-            {cvData.languages.map((l) => `${l.label} (${l.level})`).join(' · ')}
-          </Text>
-        </View>
+        <View style={styles.main}>
+          <View style={styles.mainHero}>
+            <Text style={styles.mainHeroTitle}>Perfil profesional</Text>
+            <Text style={styles.mainHeroText}>{cvData.profileSummary}</Text>
+            {cvData.profileBullets.map((bullet) => (
+              <View key={bullet} style={styles.bulletRow}>
+                <Text style={styles.bulletMark}>›</Text>
+                <Text style={styles.bulletText}>{bullet}</Text>
+              </View>
+            ))}
+          </View>
 
-        <View style={styles.section}>
-          <SectionHeader id="profile" />
-          {cvData.profile.map((p) => (
-            <Text key={p.slice(0, 20)} style={styles.paragraph}>
-              {p}
-            </Text>
-          ))}
-        </View>
+          <View style={styles.section}>
+            <SectionTitle>Experiencia laboral</SectionTitle>
+            {cvData.experience.map((job) => (
+              <View key={`${job.organization}-${job.role}`} style={styles.job}>
+                <View style={styles.jobHead}>
+                  <Text style={styles.jobRole}>
+                    {job.role} — {job.organization}
+                  </Text>
+                  <Text style={styles.jobPeriod}>{job.period}</Text>
+                </View>
+                {job.context ? <Text style={styles.jobContext}>{job.context}</Text> : null}
+                {job.bullets.map((bullet) => (
+                  <View key={bullet} style={styles.bulletRow}>
+                    <Text style={styles.bulletMark}>•</Text>
+                    <Text style={styles.bulletText}>{bullet}</Text>
+                  </View>
+                ))}
+              </View>
+            ))}
+          </View>
 
-        <View style={styles.section}>
-          <SectionHeader id="strengths" />
-          <View style={styles.strengthGrid}>
-            {cvData.strengths.map((s) => (
-              <View key={s.title} style={styles.strengthCard}>
-                <Text style={styles.strengthTitle}>{s.title}</Text>
-                <Text style={styles.strengthText}>{s.text}</Text>
+          <View style={styles.section}>
+            <SectionTitle>Formación académica</SectionTitle>
+            {cvData.education.map((edu) => (
+              <View key={`${edu.period}-${edu.title}`} style={styles.eduItem}>
+                <Text style={styles.eduPeriod}>{edu.period}</Text>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.eduTitle}>{edu.title}</Text>
+                  <Text style={styles.eduMeta}>
+                    {edu.institution} · {edu.status}
+                  </Text>
+                </View>
+              </View>
+            ))}
+          </View>
+
+          <View style={styles.section}>
+            <SectionTitle>Certificaciones destacadas</SectionTitle>
+            <View style={styles.certGrid}>
+              {cvData.featuredCertifications.map((cert) => (
+                <View key={`${cert.year}-${cert.title}`} style={styles.certCard}>
+                  <Text style={styles.certTitle}>{cert.title}</Text>
+                  <Text style={styles.certMeta}>
+                    {cert.issuer} · {cert.year}
+                    {cert.hours ? ` · ${cert.hours}` : ''}
+                  </Text>
+                </View>
+              ))}
+            </View>
+            <Text style={styles.certNote}>{cvData.otherCertificationsSummary}</Text>
+          </View>
+
+          <View style={styles.section}>
+            <SectionTitle>Competencias técnicas</SectionTitle>
+            {cvData.skillGroups.map((group) => (
+              <View key={group.title} style={styles.skillRow}>
+                <Text style={styles.skillLabel}>{group.title}</Text>
+                <Text style={styles.skillValues}>{group.items.join(' · ')}</Text>
               </View>
             ))}
           </View>
         </View>
 
-        <View style={styles.section}>
-          <SectionHeader id="experience" />
-          {cvData.experience.map((job) => (
-            <View key={`${job.organization}-${job.role}`} style={styles.jobBlock}>
-              <View style={styles.jobHead}>
-                <Text style={styles.jobTitle}>
-                  {job.role} — {job.organization}
-                </Text>
-                <Text style={styles.jobPeriod}>{job.period}</Text>
-              </View>
-              {job.context ? <Text style={styles.jobContext}>{job.context}</Text> : null}
-              {job.bullets.slice(0, 5).map((bullet) => (
-                <View key={bullet} style={styles.bulletRow}>
-                  <Text style={styles.bulletDot}>•</Text>
-                  <Text style={styles.bulletText}>{bullet}</Text>
-                </View>
-              ))}
-            </View>
-          ))}
+        <View style={styles.footer} fixed>
+          <Text>
+            {cvData.name} · {cvData.contact.portfolio}
+          </Text>
+          <Text render={({ pageNumber, totalPages }) => `Página ${pageNumber} de ${totalPages}`} />
         </View>
-
-        <View style={styles.section}>
-          <SectionHeader id="education" />
-          {cvData.education.map((edu, index) => (
-            <View
-              key={`${edu.period}-${edu.title}`}
-              style={[
-                styles.eduRow,
-                index === cvData.education.length - 1
-                  ? { borderBottomWidth: 0, marginBottom: 0, paddingBottom: 0 }
-                  : {},
-              ]}
-            >
-              <Text style={styles.eduPeriod}>{edu.period}</Text>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.eduTitle}>{edu.title}</Text>
-                <Text style={styles.eduInst}>
-                  {edu.institution} — {edu.status}
-                </Text>
-              </View>
-            </View>
-          ))}
-        </View>
-
-        <View style={styles.section}>
-          <SectionHeader id="certifications" />
-          <View style={styles.apaColWrap}>
-            <View style={styles.apaCol}>
-              {apaLeft.map((cite) => (
-                <Text key={cite.text} style={styles.apaCitation}>
-                  {cite.text}
-                </Text>
-              ))}
-            </View>
-            <View style={styles.apaCol}>
-              {apaRight.map((cite) => (
-                <Text key={cite.text} style={styles.apaCitation}>
-                  {cite.text}
-                </Text>
-              ))}
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <SectionHeader id="skills" />
-          {cvData.skillGroups.map((group) => (
-            <View key={group.title} style={styles.skillLine}>
-              <Text>
-                <Text style={styles.skillLabel}>{group.title}: </Text>
-                <Text style={styles.skillItems}>{group.items.join(' · ')}</Text>
-              </Text>
-            </View>
-          ))}
-        </View>
-
-        <View style={styles.section}>
-          <SectionHeader id="contact" />
-          <View style={styles.contactStrip}>
-            <Text style={styles.contactStripLine}>
-              <Text style={styles.contactBold}>Disponibilidad: </Text>
-              {cvData.availability}
-            </Text>
-            <Text style={styles.contactStripLine}>
-              <Text style={styles.contactBold}>Contacto: </Text>
-              {cvData.contact.email} · {cvData.contact.phone} · {cvData.contact.portfolio}
-            </Text>
-            <Text style={styles.footerNote}>{cvData.footerNote}</Text>
-          </View>
-        </View>
-
-        <PageFooter />
       </Page>
     </Document>
   );

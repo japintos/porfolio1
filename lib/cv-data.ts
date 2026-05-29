@@ -7,11 +7,6 @@ export interface CvContact {
   github: string;
 }
 
-export interface CvStrength {
-  title: string;
-  text: string;
-}
-
 export interface CvExperience {
   role: string;
   organization: string;
@@ -25,17 +20,18 @@ export interface CvEducation {
   title: string;
   institution: string;
   status: string;
-  credentialUrl?: string;
+}
+
+export interface CvFeaturedCert {
+  year: string;
+  title: string;
+  issuer: string;
+  hours?: string;
 }
 
 export interface CvSkillGroup {
   title: string;
   items: string[];
-}
-
-export interface CvApaCitation {
-  year: string;
-  text: string;
 }
 
 /** Fuente única del CV imprimible (PDF). Alineado con el portfolio; sin proyectos. */
@@ -46,6 +42,7 @@ export const cvData = {
   headline: 'Senior Fullstack Developer',
   subtitle: 'Socio Fundador & Tech Lead · WebXpert',
   yearsExperience: '18+',
+  totalCertifications: 18,
   contact: {
     email: 'julioapintos1@gmail.com',
     phone: '+54 376 4724207',
@@ -54,33 +51,19 @@ export const cvData = {
     linkedin: 'https://www.linkedin.com/in/julio-pintos-0638a8200/',
     github: 'https://github.com/japintos',
   } satisfies CvContact,
-  availability:
-    'Disponible para liderazgo técnico, desarrollo, datos, IA aplicada y consultoría (remoto / híbrido / Posadas).',
+  availability: 'Remoto · híbrido · Posadas, Misiones',
   languages: [
     { label: 'Español', level: 'Nativo' },
-    { label: 'Inglés', level: 'Técnico — lectura de documentación' },
+    { label: 'Inglés', level: 'Técnico (lectura)' },
   ],
-  profile: [
-    'Senior Fullstack con 18+ años en desarrollo web, arquitectura y liderazgo técnico. Socio fundador de WebXpert (2025). Foco en productos escalables, performance, SEO técnico, datos e IA aplicada. Ejecución hands-on con visión de negocio y resultados medibles.',
+  profileSummary:
+    'Senior Fullstack con 18+ años en desarrollo web, arquitectura y liderazgo técnico. Socio fundador de WebXpert (2025). Enfoque en productos escalables, performance, SEO técnico, datos e IA aplicada al negocio.',
+  profileBullets: [
+    'Desarrollo integral del análisis al deploy, con calidad en producción.',
+    'Liderazgo técnico: arquitectura, equipos y decisiones alineadas al negocio.',
+    'Datos e IA: Python, Power BI, spec-driven development y agentes autónomos.',
+    'Formación continua en Agile, SEO, marketing digital y stack moderno.',
   ],
-  strengths: [
-    {
-      title: 'Desarrollo integral',
-      text: 'Del análisis al deploy, con calidad en producción y mantenibilidad.',
-    },
-    {
-      title: 'Liderazgo técnico',
-      text: 'Arquitectura, equipos y decisiones alineadas a objetivos de negocio.',
-    },
-    {
-      title: 'Datos e IA aplicada',
-      text: 'Python, Power BI, spec-driven development y agentes autónomos en contexto real.',
-    },
-    {
-      title: 'Formación continua',
-      text: 'Agile, SEO, marketing digital y actualización constante en stack moderno.',
-    },
-  ] satisfies CvStrength[],
   experience: [
     {
       role: 'Socio Fundador & Tech Lead',
@@ -109,11 +92,11 @@ export const cvData = {
       role: 'Infraestructura, redes y sistemas',
       organization: 'Poder Judicial de Misiones',
       period: '2007 – Actualidad',
-      context: 'Entorno institucional · continuidad operativa',
+      context: 'Entorno institucional',
       bullets: [
-        'Brindé soporte técnico integral en Windows, Linux y macOS.',
-        'Administré redes LAN/MAN con foco en conectividad y seguridad operativa.',
-        'Mantuve sistemas y aplicaciones críticas en entorno de alta disponibilidad.',
+        'Soporte técnico integral en Windows, Linux y macOS.',
+        'Administré redes LAN/MAN; conectividad y seguridad operativa.',
+        'Mantuve sistemas críticos en entorno de alta disponibilidad.',
       ],
     },
   ] satisfies CvExperience[],
@@ -122,19 +105,19 @@ export const cvData = {
       period: '2024 – 2026',
       title: 'Técnico Analista Programador',
       institution: 'Instituto Superior Combate Mbororé',
-      status: 'Título oficial · Nivel II · 1.424 h · Abr 2026',
+      status: 'Título oficial · Nivel II · Abr 2026',
     },
     {
       period: '2024 – Actualidad',
       title: 'Técnico Superior Analista de Sistemas de Computación',
       institution: 'Instituto Superior Combate Mbororé',
-      status: 'En curso · titulación final',
+      status: 'En curso',
     },
     {
       period: '1996 – 2000',
       title: 'Técnico en Informática',
       institution: 'EPET N.º 1 UNESCO',
-      status: 'Título técnico secundario',
+      status: 'Título secundario',
     },
     {
       period: '2000 – 2010',
@@ -142,126 +125,69 @@ export const cvData = {
       institution: 'Universidad Americana',
       status: 'Incompleto',
     },
-    {
-      period: '2024',
-      title: 'Redes, electrónica y robótica (complementaria)',
-      institution: 'Instituto Combate Mbororé',
-      status: 'Técnico en redes y operador en electrónica y robótica — Completado',
-    },
   ] satisfies CvEducation[],
-  /** Citas breves estilo APA para formación continua (sangría francesa en PDF). */
-  apaCertifications: [
+  featuredCertifications: [
+    { year: '2026', title: 'De 0 a Agentes: IA y agentes autónomos', issuer: 'BIG school', hours: '6 h' },
+    { year: '2026', title: 'IA Heroes Live: iniciación en IA', issuer: 'Learning Heroes', hours: '8 h' },
     {
       year: '2026',
-      text: 'BIG school & Jon Hernández. (2026). De 0 a Agentes: domina la IA, gana competitividad y agentes que trabajan por ti [Curso en línea, 6 h].',
+      title: 'Workshop IA: Spec-Driven Development y Agentes',
+      issuer: 'Silicon Misiones',
     },
+    { year: '2026', title: 'SEO para IA y Google', issuer: 'BIG school', hours: '6 h' },
     {
       year: '2026',
-      text: 'Learning Heroes. (2026). IA Heroes Live: iniciación en inteligencia artificial [Curso en línea, 8 h].',
+      title: 'Power BI Intermedio: análisis y modelado',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
     },
+    { year: '2026', title: 'Power BI', issuer: 'Santander Open Academy', hours: '8 h' },
+    { year: '2026', title: 'Iniciación al Desarrollo con IA', issuer: 'BIG school', hours: '6 h' },
     {
       year: '2026',
-      text: 'Silicon Misiones. (2026). Workshop IA: Spec-Driven Development y Agentes Autónomos [Taller híbrido].',
+      title: 'Prompting responsable: IA en el negocio',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
     },
-    {
-      year: '2026',
-      text: 'BIG school. (2026). SEO para IA y Google [Curso en línea, 6 h].',
-    },
-    {
-      year: '2026',
-      text: 'Santander Open Academy. (2026). Power BI Intermedio: análisis y modelado de datos [Curso en línea, 8 h].',
-    },
-    {
-      year: '2026',
-      text: 'Santander Open Academy. (2026). Power BI [Curso en línea, 8 h].',
-    },
-    {
-      year: '2026',
-      text: 'BIG school. (2026). Iniciación al Desarrollo con IA [Curso en línea, 6 h].',
-    },
-    {
-      year: '2026',
-      text: 'Santander Open Academy. (2026). Prompting responsable: maximiza la IA en tu negocio [Curso en línea, 8 h].',
-    },
-    {
-      year: '2026',
-      text: 'Santander Open Academy. (2026). Gestión efectiva de proyectos y equipos [Curso en línea, 8 h].',
-    },
+    { year: '2025', title: 'Python', issuer: 'Santander Open Academy', hours: '8 h' },
     {
       year: '2025',
-      text: 'Santander Open Academy. (2025). Gestión de Proyectos y metodología Agile [Curso en línea, 8 h].',
+      title: 'Gestión de Proyectos y metodología Agile',
+      issuer: 'Santander Open Academy',
+      hours: '8 h',
     },
-    {
-      year: '2025',
-      text: 'Santander Open Academy & University of Chicago. (2025). Competencias en marketing digital [Curso en línea, 8 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy. (2025). Excel básico a intermedio [Curso en línea, 8 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy. (2025). Marca personal 360 [Curso en línea, 8 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy. (2025). Marca personal y networking profesional [Curso en línea].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy. (2025). Python [Curso en línea, 8 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy & University of Chicago. (2025). Storytelling en marketing digital [Curso en línea, 8 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy & IE University. (2025). Ecommerce para PyMEs [Curso en línea, 6 h].',
-    },
-    {
-      year: '2025',
-      text: 'Santander Open Academy. (2025). SEO y Content Marketing [Curso en línea, 8 h].',
-    },
-  ] satisfies CvApaCitation[],
+  ] satisfies CvFeaturedCert[],
+  otherCertificationsSummary:
+    'Además: gestión de equipos, Excel, marca personal, ecommerce PyMEs, storytelling, competencias en marketing digital, SEO y Content Marketing, y más — 18 en total con PDF en el portfolio.',
   skillGroups: [
-    {
-      title: 'Frontend',
-      items: ['HTML5', 'CSS3', 'JavaScript', 'React.js'],
-    },
-    {
-      title: 'Backend',
-      items: ['Node.js', 'Python', 'PHP', 'C++', 'C#', '.NET'],
-    },
-    {
-      title: 'Bases de datos',
-      items: ['PostgreSQL', 'SQL Server', 'MySQL', 'MariaDB'],
-    },
-    {
-      title: 'Herramientas y metodologías',
-      items: ['Git', 'VS Code', 'Cursor', 'Visual Studio', 'Scrum'],
-    },
-    {
-      title: 'Sistemas operativos',
-      items: ['Windows', 'Linux', 'macOS'],
-    },
+    { title: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'React.js'] },
+    { title: 'Backend', items: ['Node.js', 'Python', 'PHP', 'C++', 'C#', '.NET'] },
+    { title: 'Bases de datos', items: ['PostgreSQL', 'SQL Server', 'MySQL', 'MariaDB'] },
+    { title: 'Herramientas', items: ['Git', 'VS Code', 'Cursor', 'Visual Studio', 'Scrum'] },
+    { title: 'Sistemas', items: ['Windows', 'Linux', 'macOS'] },
   ] satisfies CvSkillGroup[],
-  footerNote:
-    'Certificados verificables y trayectoria ampliada disponibles en portfolio bajo solicitud.',
 };
 
 export type CvData = typeof cvData;
 
-/** Campos legacy para `CvPdfDocument.tsx` (no usar en producción; ver `CvPrintDocument`). */
+/** Campos legacy para `CvPdfDocument.tsx`. */
 export const cvDataLegacy = {
   ...cvData,
   roles: `${cvData.headline} · ${cvData.subtitle}`,
-  summary: cvData.profile,
+  summary: [cvData.profileSummary],
   stats: [
     { label: 'Años de experiencia', value: cvData.yearsExperience },
     { label: 'WebXpert', value: '2025' },
   ],
-  highlights: cvData.strengths.map((s) => ({ title: s.title, text: s.text })),
+  highlights: cvData.profileBullets.map((text, i) => ({
+    title: `Punto ${i + 1}`,
+    text,
+  })),
+  strengths: cvData.profileBullets.map((text, i) => ({
+    title: `Punto ${i + 1}`,
+    text,
+  })),
+  profile: [cvData.profileSummary],
   experience: cvData.experience.map((ex) => ({
     title: `${ex.organization} — ${ex.role}`,
     date: ex.period,
@@ -274,9 +200,9 @@ export const cvDataLegacy = {
     institution: ed.institution,
     detail: `${ed.title} — ${ed.status}`,
   })),
-  educationSantander: cvData.apaCertifications.map((c) => ({
+  educationSantander: cvData.featuredCertifications.map((c) => ({
     year: c.year,
-    text: c.text,
+    text: `${c.issuer} — ${c.title}${c.hours ? ` (${c.hours})` : ''}`,
   })),
   skills: Object.fromEntries(
     cvData.skillGroups.map((g) => [g.title.replace(/\s+/g, '_'), g.items]),
