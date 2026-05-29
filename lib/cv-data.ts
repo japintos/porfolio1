@@ -22,10 +22,11 @@ export interface CvEducation {
   status: string;
 }
 
-export interface CvFeaturedCert {
+export interface CvCertification {
   year: string;
   title: string;
   issuer: string;
+  area: string;
   hours?: string;
 }
 
@@ -33,6 +34,8 @@ export interface CvSkillGroup {
   title: string;
   items: string[];
 }
+
+import { certifications as portfolioCertifications } from '@/components/portfolio/data';
 
 /** Fuente única del CV imprimible (PDF). Alineado con el portfolio; sin proyectos. */
 export const cvData = {
@@ -42,7 +45,7 @@ export const cvData = {
   headline: 'Senior Fullstack Developer',
   subtitle: 'Socio Fundador & Tech Lead · WebXpert',
   yearsExperience: '18+',
-  totalCertifications: 18,
+  totalCertifications: portfolioCertifications.length,
   contact: {
     email: 'julioapintos1@gmail.com',
     phone: '+54 376 4724207',
@@ -126,39 +129,13 @@ export const cvData = {
       status: 'Incompleto',
     },
   ] satisfies CvEducation[],
-  featuredCertifications: [
-    { year: '2026', title: 'De 0 a Agentes: IA y agentes autónomos', issuer: 'BIG school', hours: '6 h' },
-    { year: '2026', title: 'IA Heroes Live: iniciación en IA', issuer: 'Learning Heroes', hours: '8 h' },
-    {
-      year: '2026',
-      title: 'Workshop IA: Spec-Driven Development y Agentes',
-      issuer: 'Silicon Misiones',
-    },
-    { year: '2026', title: 'SEO para IA y Google', issuer: 'BIG school', hours: '6 h' },
-    {
-      year: '2026',
-      title: 'Power BI Intermedio: análisis y modelado',
-      issuer: 'Santander Open Academy',
-      hours: '8 h',
-    },
-    { year: '2026', title: 'Power BI', issuer: 'Santander Open Academy', hours: '8 h' },
-    { year: '2026', title: 'Iniciación al Desarrollo con IA', issuer: 'BIG school', hours: '6 h' },
-    {
-      year: '2026',
-      title: 'Prompting responsable: IA en el negocio',
-      issuer: 'Santander Open Academy',
-      hours: '8 h',
-    },
-    { year: '2025', title: 'Python', issuer: 'Santander Open Academy', hours: '8 h' },
-    {
-      year: '2025',
-      title: 'Gestión de Proyectos y metodología Agile',
-      issuer: 'Santander Open Academy',
-      hours: '8 h',
-    },
-  ] satisfies CvFeaturedCert[],
-  otherCertificationsSummary:
-    'Además: gestión de equipos, Excel, marca personal, ecommerce PyMEs, storytelling, competencias en marketing digital, SEO y Content Marketing, y más — 18 en total con PDF en el portfolio.',
+  certifications: portfolioCertifications.map((cert) => ({
+    year: cert.year,
+    title: cert.title,
+    issuer: cert.issuer,
+    area: cert.area,
+    hours: cert.hours,
+  })) satisfies CvCertification[],
   skillGroups: [
     { title: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'React.js'] },
     { title: 'Backend', items: ['Node.js', 'Python', 'PHP', 'C++', 'C#', '.NET'] },
@@ -200,7 +177,7 @@ export const cvDataLegacy = {
     institution: ed.institution,
     detail: `${ed.title} — ${ed.status}`,
   })),
-  educationSantander: cvData.featuredCertifications.map((c) => ({
+  educationSantander: cvData.certifications.map((c) => ({
     year: c.year,
     text: `${c.issuer} — ${c.title}${c.hours ? ` (${c.hours})` : ''}`,
   })),

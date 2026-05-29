@@ -248,23 +248,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: c.line,
   },
+  certArea: {
+    fontSize: 6.4,
+    fontFamily: 'Helvetica-Bold',
+    color: c.accent,
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+    marginBottom: 2,
+  },
   certTitle: {
-    fontSize: 7.6,
+    fontSize: 7.4,
     fontFamily: 'Helvetica-Bold',
     color: c.ink,
-    lineHeight: 1.28,
+    lineHeight: 1.26,
     marginBottom: 2,
   },
   certMeta: {
-    fontSize: 7,
+    fontSize: 6.8,
     color: c.muted,
-  },
-  certNote: {
-    fontSize: 7.4,
-    color: c.muted,
-    fontStyle: 'italic',
-    marginTop: 4,
-    lineHeight: 1.35,
+    lineHeight: 1.28,
   },
   skillRow: {
     marginBottom: 3,
@@ -420,10 +422,11 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
           </View>
 
           <View style={styles.section}>
-            <SectionTitle>Certificaciones destacadas</SectionTitle>
+            <SectionTitle>{`Certificaciones (${cvData.totalCertifications})`}</SectionTitle>
             <View style={styles.certGrid}>
-              {cvData.featuredCertifications.map((cert) => (
+              {cvData.certifications.map((cert) => (
                 <View key={`${cert.year}-${cert.title}`} style={styles.certCard}>
+                  <Text style={styles.certArea}>{cert.area}</Text>
                   <Text style={styles.certTitle}>{cert.title}</Text>
                   <Text style={styles.certMeta}>
                     {cert.issuer} · {cert.year}
@@ -432,7 +435,6 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
                 </View>
               ))}
             </View>
-            <Text style={styles.certNote}>{cvData.otherCertificationsSummary}</Text>
           </View>
 
           <View style={styles.section}>
