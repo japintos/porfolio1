@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
   },
-  badgeSenior: {
+  badgeHeadline: {
     alignSelf: 'flex-start',
     backgroundColor: 'rgba(255,255,255,0.11)',
     borderWidth: 1,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginBottom: 5,
   },
-  badgeSeniorText: {
+  badgeHeadlineText: {
     fontSize: 6.5,
     fontFamily: 'Helvetica-Bold',
     color: c.accentLight,
@@ -438,9 +438,9 @@ export function CvPdfDocument({ baseUrl }: { baseUrl: string }) {
           <View style={styles.heroRow}>
             <Image src={photoSrc} style={styles.photo} />
             <View style={styles.heroTextCol}>
-              <View style={styles.badgeSenior}>
-                <Text style={styles.badgeSeniorText}>
-                  SENIOR FULL STACK · 18+ AÑOS
+              <View style={styles.badgeHeadline}>
+                <Text style={styles.badgeHeadlineText}>
+                  FULLSTACK · 18+ AÑOS
                 </Text>
               </View>
               <Text style={styles.name}>{cvData.name}</Text>

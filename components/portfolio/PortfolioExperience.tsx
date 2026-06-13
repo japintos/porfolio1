@@ -78,7 +78,7 @@ export default function PortfolioExperience() {
           </span>
           <span>
             <strong>Julio A. Pintos</strong>
-            <small>Senior Fullstack · Tech Lead · Solutions Architect</small>
+            <small>Fullstack Developer · Tech Lead · Solutions Architect</small>
           </span>
         </a>
 
@@ -120,7 +120,7 @@ export default function PortfolioExperience() {
               Desarrollo soluciones web robustas con arquitectura, liderazgo técnico y entrega end-to-end.
             </h1>
             <p className={styles.heroLead}>
-              Soy Senior Fullstack Developer, Socio Fundador y Tech Lead de WebXpert, con 18+
+              Soy Fullstack Developer, Socio Fundador y Tech Lead de WebXpert, con 18+
               años de experiencia transformando necesidades de negocio en productos digitales
               simples, mantenibles y orientados a resultados.
             </p>
@@ -172,9 +172,9 @@ export default function PortfolioExperience() {
         <section className={styles.section} id="perfil">
           <div className={styles.sectionHeader}>
             <p className={styles.kicker}>Perfil profesional</p>
-            <h2>Senior Fullstack Developer con visión empresarial.</h2>
+            <h2>Fullstack Developer con visión empresarial.</h2>
             <p>
-              Como Senior Fullstack Developer y Socio Fundador de WebXpert, combino 18+ años de
+              Como Fullstack Developer y Socio Fundador de WebXpert, combino 18+ años de
               experiencia técnica con visión empresarial. Me especializo en crear soluciones web
               robustas que aporten valor desde PyMEs hasta organizaciones más grandes.
             </p>
@@ -476,7 +476,7 @@ export default function PortfolioExperience() {
           />
           Julio A. Pintos
         </span>
-        <span>Senior Fullstack Developer | WebXpert</span>
+        <span>Fullstack Developer | WebXpert</span>
         <a href="#presentacion">Volver arriba</a>
       </footer>
 

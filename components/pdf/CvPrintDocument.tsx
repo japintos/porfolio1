@@ -368,7 +368,7 @@ export function CvPrintDocument({ baseUrl }: { baseUrl: string }) {
     <Document
       title={`CV — ${cvData.name}`}
       author={cvData.name}
-      subject="Curriculum vitae — Senior Fullstack Developer"
+      subject="Curriculum vitae — Fullstack Developer"
     >
       <Page size="A4" style={styles.page} wrap>
         <Sidebar photoSrc={photoSrc} logoSrc={logoSrc} />

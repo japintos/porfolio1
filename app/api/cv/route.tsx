@@ -16,7 +16,7 @@ export async function GET(request: Request) {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition':
-          'attachment; filename="CV-Julio-Pintos-Senior-Fullstack-Developer.pdf"',
+          'attachment; filename="CV-Julio-Pintos-Fullstack-Developer.pdf"',
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
         Pragma: 'no-cache',
         Expires: '0',

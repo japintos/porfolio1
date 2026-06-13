@@ -42,7 +42,7 @@ export const cvData = {
   name: 'Julio A. Pintos',
   photoPath: '/Img/foto_Perfil.jpg',
   logoPath: '/logo.jpg',
-  headline: 'Senior Fullstack Developer',
+  headline: 'Fullstack Developer',
   subtitle: 'Socio Fundador & Tech Lead · WebXpert',
   yearsExperience: '18+',
   totalCertifications: portfolioCertifications.length,
@@ -60,7 +60,7 @@ export const cvData = {
     { label: 'Inglés', level: 'Técnico (lectura)' },
   ],
   profileSummary:
-    'Senior Fullstack con 18+ años en desarrollo web, arquitectura y liderazgo técnico. Socio fundador de WebXpert (2025). Enfoque en productos escalables, performance, SEO técnico, datos e IA aplicada al negocio.',
+    'Fullstack Developer con 18+ años en desarrollo web, arquitectura y liderazgo técnico. Socio fundador de WebXpert (2025). Enfoque en productos escalables, performance, SEO técnico, datos e IA aplicada al negocio.',
   profileBullets: [
     'Desarrollo integral del análisis al deploy, con calidad en producción.',
     'Liderazgo técnico: arquitectura, equipos y decisiones alineadas al negocio.',

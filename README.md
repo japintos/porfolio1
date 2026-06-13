@@ -4,7 +4,7 @@
 [![WebXpert](https://img.shields.io/badge/WebXpert-Socio%20Fundador-6366f1)](https://www.webxpert.com.ar)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-julio--pintos-0077b5?logo=linkedin)](https://www.linkedin.com/in/julio-pintos-0638a8200/)
 
-¡Bienvenido a mi portafolio web! Soy **Senior Fullstack Developer**, **Socio Fundador & Tech Lead** de WebXpert, con 18+ años de experiencia transformando ideas en soluciones digitales escalables.
+¡Bienvenido a mi portafolio web! Soy **Fullstack Developer**, **Socio Fundador & Tech Lead** de WebXpert, con 18+ años de experiencia transformando ideas en soluciones digitales escalables.
 
 **Despliegue actual:** la aplicación corre en **[Vercel](https://vercel.com)** con **[Next.js](https://nextjs.org)**. La home principal está construida con componentes React/TypeScript y CSS Modules, mientras que el **CV en PDF** se genera en el servidor con **`@react-pdf/renderer`** (sin depender del canvas del navegador).
 
@@ -12,7 +12,7 @@
 
 ## Descripción
 
-Este portafolio presenta mi perfil profesional como **Senior Fullstack Developer** y emprendedor tecnológico. Incluye mi experiencia empresarial, formación continua, stack tecnológico actualizado y proyectos que demuestran mi capacidad para crear soluciones web robustas que realmente funcionen.
+Este portafolio presenta mi perfil profesional como **Fullstack Developer** y emprendedor tecnológico. Incluye mi experiencia empresarial, formación continua, stack tecnológico actualizado y proyectos que demuestran mi capacidad para crear soluciones web robustas que realmente funcionen.
 
 **Objetivo:** Mostrar de manera auténtica y profesional mi trayectoria, habilidades y enfoque colaborativo en el desarrollo de software.
 
